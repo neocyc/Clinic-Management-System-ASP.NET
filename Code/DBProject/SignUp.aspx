@@ -53,7 +53,10 @@
      function validateS() 
      {
          var Name      = document.getElementById('<%=sName.ClientID %>').value;
+
          var Bdate     = document.getElementById('<%=sBirthDate.ClientID %>').value;
+         var Bdate_st  = changeDate(Bdate); 
+
          var Email     = document.getElementById('<%=sEmail.ClientID %>').value;
          var phone     = document.getElementById('<%=Phone.ClientID %>').value;
          var pass      = document.getElementById('<%=sPassword.ClientID %>').value;
@@ -64,21 +67,35 @@
          if (Name == "")
          {
              alert("Name missing. Enter Name.");
+
+             if (Bdate == "") {
+                 var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                 Bdate_a.type = "text";
+             }
+
              return false;
          }
 
 
-         var arrDbirth = Bdate.split("-");
+         var arrDbirth = Bdate_st.split("-");
 
          if (Bdate == "")
          {
              alert("Birth Date missing. Enter Birth Date.");
+
+             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+             Bdate_a.type = "text";
+
              return false;
          }
 
-         else if ((Bdate == arrDbirth[0]) || (arrDbirth[0].length != 2) || arrDbirth[1].length != 2 || arrDbirth[2].length != 4 || !arrDbirth[0].match(/^[0-9]*$/) || !arrDbirth[1].match(/^[0-9]*$/) || !arrDbirth[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12)
+         else if ((Bdate_st == arrDbirth[0]) || (arrDbirth[0].length != 2) || arrDbirth[1].length != 2 || arrDbirth[2].length != 4 || !arrDbirth[0].match(/^[0-9]*$/) || !arrDbirth[1].match(/^[0-9]*$/) || !arrDbirth[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12)
          {
              alert("Birth Date Format Incorrect or out of Range.");
+
+             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+             Bdate_a.type = "text";
+
              return false;
          }
 
@@ -120,7 +137,23 @@
 
 
 
-     //----------------------Function2-----------------------------//
+
+     //----------------------Function4-----------------------------//
+     //input date string ,conversion the string to date format dd-mm-yyyy
+     function changeDate(date) {
+         var y = date.substr(0, 4);
+         var m = date.substr(5, 2);
+         var d = date.substr(8, 2);
+
+         return d + '-' + m + '-' + y;
+     }  
+
+
+
+
+
+
+     //----------------------Function3-----------------------------//
      function validateL() 
      {
          var Email        = document.getElementById('<%=loginEmail.ClientID %>').value;
@@ -317,7 +350,7 @@
 
                             <div class="form-group">
             
-                                    <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (11 Digits)" ></asp:TextBox>
+                                    <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (10 Digits)" ></asp:TextBox>
 
                             </div>
                                     
@@ -333,7 +366,7 @@
 
                             <div class="form-group">
                                 				                        
-                                <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="410px" />
+                                <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
         
                             </div>
 
