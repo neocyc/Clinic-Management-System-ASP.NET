@@ -331,7 +331,7 @@ begin
 		set @freeSlot = @freeSlot + 12
 
 	declare @date varchar (100)
-	select @date = CONVERT(VARCHAR(11),GETDATE(),6)
+	select @date = CONVERT(VARCHAR(11),GETDATE(),111)
 	select @date = @date + ' ' + cast (@freeSlot as varchar(30)) + ':00'
 	
 	declare @dateA datetime
