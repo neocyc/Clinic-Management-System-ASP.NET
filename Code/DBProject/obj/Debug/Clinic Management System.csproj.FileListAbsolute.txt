@@ -68,3 +68,38 @@ D:\FAST\4th Semester (Spring 2017)\Database Systems (DB)\Github Project Code\Cod
 D:\FAST\4th Semester (Spring 2017)\Database Systems (DB)\Github Project Code\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
 D:\FAST\4th Semester (Spring 2017)\Database Systems (DB)\Github Project Code\Code\DBProject\obj\Debug\DBProject.dll
 D:\FAST\4th Semester (Spring 2017)\Database Systems (DB)\Github Project Code\Code\DBProject\obj\Debug\DBProject.pdb
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\ApplicationInsights.config
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\csc.exe
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\System.Collections.Immutable.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\System.Reflection.Metadata.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\vbc.exe
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\VBCSCompiler.exe
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\roslyn\VBCSCompiler.exe.config
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\DBProject.dll.config
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\DBProject.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\DBProject.pdb
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.Agent.Intercept.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.DependencyCollector.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.Web.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.WindowsServer.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.ApplicationInsights.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.DependencyCollector.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.Web.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.WindowsServer.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.ApplicationInsights.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csprojAssemblyReference.cache
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CoreCompileInputs.cache
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\DBProject.dll
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\DBProject.pdb
