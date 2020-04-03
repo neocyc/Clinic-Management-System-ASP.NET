@@ -98,7 +98,6 @@ D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.Web.xml
 D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.AI.WindowsServer.xml
 D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.ApplicationInsights.xml
 D:\淳澐的專案資料\www\CMS\Code\DBProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csprojAssemblyReference.cache
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CoreCompileInputs.cache
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\DBProject.dll
