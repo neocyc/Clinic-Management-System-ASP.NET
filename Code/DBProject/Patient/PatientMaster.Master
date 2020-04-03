@@ -70,9 +70,11 @@
                             <li><a href="TreatmentHistory.aspx"><span class="glyphicon glyphicon-info-sign"></span> Treatment History</a></li>
                         </ul>
 
+                        <!--
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="BillsHistory.aspx"><span class="glyphicon glyphicon-usd"></span> Bills History</a></li>
                         </ul>
+                        -->
 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="TakeAppointment.aspx"><span class="glyphicon glyphicon-plus"></span> Take Appointment</a></li>

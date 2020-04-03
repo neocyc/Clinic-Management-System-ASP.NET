@@ -19,6 +19,6 @@
       <br />
 
     <asp:Button ID="submit" runat="server" Text="Accept & Save" Onclick="saveindatabase" Font-Bold="true" />  
-    <asp:Button ID="Bill" runat="server" Text="Generate Bill" OnClick="generate_bill" Font-Bold ="true" />
+    <asp:Button ID="Bill" Visible="false" runat="server" Text="Generate Bill" OnClick="generate_bill" Font-Bold ="true" />
 
 </asp:Content>

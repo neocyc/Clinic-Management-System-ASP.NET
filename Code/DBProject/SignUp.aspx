@@ -259,13 +259,13 @@
                                 <!-- login start here -->
                                             
                                 <div class="form-group">
-				                    		
+				                    <label>Account</label>
                                     <asp:TextBox ID="loginEmail" runat="server" type="text" class="form-username form-control" placeholder="Email" ></asp:TextBox>
            
                                 </div>
 
 				                <div class="form-group">
-				                        	
+				                    <label>Password</label>
                                     <asp:TextBox ID="loginPassword" runat="server" type="password" class="form-username form-control" placeholder="Password"></asp:TextBox>
            
                                 </div>
@@ -317,43 +317,44 @@
                                     
                                     
                             <div class="form-group">
-			               
+			                    <label>Name</label>
                                 <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
                                                        	                            
                             </div> 
 
 				            <div class="form-group">
-				                        	
+				                <label>Birth Date</label> 	
                                 <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="Birth Date (dd-mm-yyyy)" ></asp:TextBox>
            	                            
                             </div>
 
 				            <div class="form-group">
-				            
+				                    <label>Email</label>
                                     <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
 
                             </div>
 
                             <div class="form-group">
-				                        
+				                    <label>Password</label>
                                     <asp:TextBox ID="sPassword" runat="server" type="password" class="form-username form-control" placeholder="Enter New Password" ></asp:TextBox>
 
                             </div>
 
 
                             <div class="form-group">
-                                             				                        
+                                    <label>Confirm Password</label>		                        
                                     <asp:TextBox ID="scPassword" runat="server" type="password" class="form-username form-control" placeholder="Confirm Password" ></asp:TextBox>
 
                             </div>
 
 
                             <div class="form-group">
-            
+                                    <label>Phone Number</label>
                                     <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (10 Digits)" ></asp:TextBox>
 
                             </div>
                                     
+                            <label>Gender</label>
                             <div class="form-group">
 
                                  <input type="radio" name="Gender" value="M" id="test" checked="checked" />
@@ -365,7 +366,7 @@
 
 
                             <div class="form-group">
-                                				                        
+                                <label>Address</label>                
                                 <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
         
                             </div>

@@ -1577,10 +1577,18 @@ namespace DBProject.DAL
 
             try
             {
+                //close show bill information of Field
+                string sql_s =  " BEGIN "
+                                + " SELECT A.AppointID, P.Name as [Patient's Name], A.[Date], isnull( convert( varchar(2),Disease) ,  'NA') as [Disease], isnull( convert( varchar(2),Progress) ,  'NA') as [Progress], isnull( convert( varchar(2),Prescription) ,  'NA') as [Prescription], Appointment_Status  FROM Appointment A "
+                                + " JOIN Patient P ON A.PatientID = P.PatientID "
+                                + " WHERE A.DoctorID = @DOC_ID AND A.Appointment_Status = 1 and DATEDIFF(DAY, A.Date, GETDATE()) = 0 "
+                                + " END ";
+                cmd = new SqlCommand(sql_s, con);
 
-
+                /*
                 cmd = new SqlCommand("TODAYS_APPOINTMENTS", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                */
 
                 cmd.Parameters.Add("@DOC_ID", SqlDbType.Int).Value = did;
 
@@ -1590,8 +1598,6 @@ namespace DBProject.DAL
                 {
                     da.Fill(ds);
                 }
-
-
 
                 result = ds.Tables[0];
             }
