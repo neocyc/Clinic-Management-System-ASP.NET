@@ -32,3 +32,4 @@ D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management Syst
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\DBProject.dll
 D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\DBProject.pdb
+D:\淳澐的專案資料\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csprojAssemblyReference.cache
