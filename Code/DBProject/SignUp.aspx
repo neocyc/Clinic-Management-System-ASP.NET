@@ -53,7 +53,10 @@
      function validateS() 
      {
          var Name      = document.getElementById('<%=sName.ClientID %>').value;
+
          var Bdate     = document.getElementById('<%=sBirthDate.ClientID %>').value;
+         var Bdate_st  = changeDate(Bdate); 
+
          var Email     = document.getElementById('<%=sEmail.ClientID %>').value;
          var phone     = document.getElementById('<%=Phone.ClientID %>').value;
          var pass      = document.getElementById('<%=sPassword.ClientID %>').value;
@@ -64,21 +67,35 @@
          if (Name == "")
          {
              alert("Name missing. Enter Name.");
+
+             if (Bdate == "") {
+                 var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                 Bdate_a.type = "text";
+             }
+
              return false;
          }
 
 
-         var arrDbirth = Bdate.split("-");
+         var arrDbirth = Bdate_st.split("-");
 
          if (Bdate == "")
          {
              alert("Birth Date missing. Enter Birth Date.");
+
+             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+             Bdate_a.type = "text";
+
              return false;
          }
 
-         else if ((Bdate == arrDbirth[0]) || (arrDbirth[0].length != 2) || arrDbirth[1].length != 2 || arrDbirth[2].length != 4 || !arrDbirth[0].match(/^[0-9]*$/) || !arrDbirth[1].match(/^[0-9]*$/) || !arrDbirth[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12)
+         else if ((Bdate_st == arrDbirth[0]) || (arrDbirth[0].length != 2) || arrDbirth[1].length != 2 || arrDbirth[2].length != 4 || !arrDbirth[0].match(/^[0-9]*$/) || !arrDbirth[1].match(/^[0-9]*$/) || !arrDbirth[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12)
          {
              alert("Birth Date Format Incorrect or out of Range.");
+
+             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+             Bdate_a.type = "text";
+
              return false;
          }
 
@@ -120,7 +137,23 @@
 
 
 
-     //----------------------Function2-----------------------------//
+
+     //----------------------Function4-----------------------------//
+     //input date string ,conversion the string to date format dd-mm-yyyy
+     function changeDate(date) {
+         var y = date.substr(0, 4);
+         var m = date.substr(5, 2);
+         var d = date.substr(8, 2);
+
+         return d + '-' + m + '-' + y;
+     }  
+
+
+
+
+
+
+     //----------------------Function3-----------------------------//
      function validateL() 
      {
          var Email        = document.getElementById('<%=loginEmail.ClientID %>').value;
@@ -226,13 +259,13 @@
                                 <!-- login start here -->
                                             
                                 <div class="form-group">
-				                    		
+				                    <label>Account</label>
                                     <asp:TextBox ID="loginEmail" runat="server" type="text" class="form-username form-control" placeholder="Email" ></asp:TextBox>
            
                                 </div>
 
 				                <div class="form-group">
-				                        	
+				                    <label>Password</label>
                                     <asp:TextBox ID="loginPassword" runat="server" type="password" class="form-username form-control" placeholder="Password"></asp:TextBox>
            
                                 </div>
@@ -284,43 +317,44 @@
                                     
                                     
                             <div class="form-group">
-			               
+			                    <label>Name</label>
                                 <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
                                                        	                            
                             </div> 
 
 				            <div class="form-group">
-				                        	
+				                <label>Birth Date</label> 	
                                 <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="Birth Date (dd-mm-yyyy)" ></asp:TextBox>
            	                            
                             </div>
 
 				            <div class="form-group">
-				            
+				                    <label>Email</label>
                                     <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
 
                             </div>
 
                             <div class="form-group">
-				                        
+				                    <label>Password</label>
                                     <asp:TextBox ID="sPassword" runat="server" type="password" class="form-username form-control" placeholder="Enter New Password" ></asp:TextBox>
 
                             </div>
 
 
                             <div class="form-group">
-                                             				                        
+                                    <label>Confirm Password</label>		                        
                                     <asp:TextBox ID="scPassword" runat="server" type="password" class="form-username form-control" placeholder="Confirm Password" ></asp:TextBox>
 
                             </div>
 
 
                             <div class="form-group">
-            
-                                    <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (11 Digits)" ></asp:TextBox>
+                                    <label>Phone Number</label>
+                                    <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (10 Digits)" ></asp:TextBox>
 
                             </div>
                                     
+                            <label>Gender</label>
                             <div class="form-group">
 
                                  <input type="radio" name="Gender" value="M" id="test" checked="checked" />
@@ -332,8 +366,8 @@
 
 
                             <div class="form-group">
-                                				                        
-                                <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="410px" />
+                                <label>Address</label>                
+                                <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
         
                             </div>
 

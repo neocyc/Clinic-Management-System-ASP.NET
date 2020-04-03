@@ -501,7 +501,11 @@ begin
 	
 	begin
 			insert into Appointment values (@dId,@pId,@d,2,NULL,NULL,2,1,NULL,NULL,NULL,NULL)
-			print ('Request sent for the appointment :)')
+			
+			DECLARE @rText NVARCHAR(100)
+			SET @rText  = 'Request sent for the appointment :|Your sending appointment was success to request the Doctor.'
+			SET @rText = REPLACE(@c,'|',char(10))
+			print (@rText)			
 	end
 
 	else

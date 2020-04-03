@@ -15,6 +15,7 @@ namespace DBProject
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["idoriginal"] = "";
+            sBirthDate.Attributes.Add("onfocus", "(this.type='date')");
         }
 
         //-----------------------Function1--------------------------//
