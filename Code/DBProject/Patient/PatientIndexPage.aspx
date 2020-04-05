@@ -60,8 +60,7 @@
 
          var Email = document.getElementById('<%=sEmail.ClientID %>').value;
          var phone = document.getElementById('<%=sPhone.ClientID %>').value;
-         var pass = document.getElementById('<%=sPassword.ClientID %>').value;
-         var cpass = document.getElementById('<%=scPassword.ClientID %>').value;
+         
 
          /*now the validation code*/
 
@@ -200,11 +199,11 @@
                    <div class="row">
                          <div class="col-sm-8 col-sm-offset-2 text">
                         
-                            <h1><strong>MedicX 4 Health Care</strong> first Login &amp; Fill Patient Information Form</h1>
+                            <h1><strong>MedicX 4 Health Care</strong> 首次登入 &amp; 填寫基本病歷表單</h1>
                             
                             <div class="description">
                             	<p>
-	                            	This is a <strong>"Patient Information form"</strong> for Health Care Clinic.<br />If you are first Login,please fill this form.Thank you! 
+	                            	這是一張<strong>"基本病歷表單"</strong> for Health Care Clinic.<br />如果你是首次登入註冊系統,請詳填此表單.感謝您的配合! 
                             	</p>                            
                             </div>
                         </div>
@@ -218,8 +217,8 @@
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Patient Information form</h3>
-	                            		<p>Fill in the form below to finish Login Step:</p>
+	                        			<h3>病歷表單</h3>
+	                            		<p>完成登入步驟，請填寫此表單 : </p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
@@ -233,138 +232,124 @@
                                     
                         <!-- sign up form start honay laga hai :)-->
                                     
-                                    
-                           <div class="form-group">
-								<label>Name</label>
-                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
-                                                       	                            
-                            </div> 
-							
-							<div class="form-group">
-								<label>Identification Number</label>
-                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="Identification Number" ></asp:TextBox>
-                                                       	                            
-                            </div> 
-							
-							<div class="form-group">
-									<label>TEL</label>
-                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="Phone Number" ></asp:TextBox>
-
-                            </div>
-							
-							<div class="form-group">
-									<label>Mobile</label>
-                                    <asp:TextBox ID="sPhone" runat="server" type="text" class="form-username form-control" placeholder="Mobile Number (10 Digits)" ></asp:TextBox>
-
-                            </div>
-							
-                            <div class="form-group">
-									<label>Password</label>
-                                    <asp:TextBox ID="sPassword" runat="server" type="password" class="form-username form-control" placeholder="Enter New Password" ></asp:TextBox>
-
-                            </div>
-
-
-                            <div class="form-group">
-									<label>Confirm Password</label>
-                                    <asp:TextBox ID="scPassword" runat="server" type="password" class="form-username form-control" placeholder="Confirm Password" ></asp:TextBox>
-
-                            </div>
-                                                                
-                            <div class="form-top">
+                           <div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>General Information</h3>
-	                            		<p>Please fill in the form:</p>
+	                        			<h3>基本資料</h3>
+	                            		<p>請填寫以下表格 : </p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
 	                        		</div>
-	                        </div>
+	                       </div>
 
-                            <label>Gender</label>
+                           <div class="form-group">
+								<label>姓名</label>
+                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" ></asp:TextBox>
+                                                       	                            
+                            </div> 
+							
 							<div class="form-group">
-								
-                                 <input type="radio" name="Gender" value="M" id="GenderDefault" checked="checked" />
-                                  Male
-                                 <input type="radio" name="Gender" value="F" />
-                                  Female
-
-                            </div>
-
-							<label>Marital Status</label>
+								<label>身分證字號</label>
+                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號" ></asp:TextBox>
+                                                       	                            
+                            </div> 
+							
 							<div class="form-group">
-								
-                                 <input type="radio" name="MaritalStatus" value="Married" id="MaritalStatusDefault" checked="checked" />
-                                  Married
-                                 <input type="radio" name="MaritalStatus" value="Single" />
-                                  Single
+									<label>電話(家)</label>
+                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話" ></asp:TextBox>
 
                             </div>
 							
 							<div class="form-group">
-								<label>Height</label>
-                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="Height(cm)" ></asp:TextBox>
+									<label>電話(手機)</label>
+                                    <asp:TextBox ID="sPhone" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)" ></asp:TextBox>
+
+                            </div>                         
+
+                            <label>性別</label>
+							<div class="form-group">
+								
+                                 <input type="radio" name="Gender" value="M" id="GenderDefault" checked="checked" />
+                                  男
+                                 <input type="radio" name="Gender" value="F" />
+                                  女
+
+                            </div>
+
+							<label>婚姻狀態</label>
+							<div class="form-group">
+								
+                                 <input type="radio" name="MaritalStatus" value="Married" id="MaritalStatusDefault" checked="checked" />
+                                  已婚
+                                 <input type="radio" name="MaritalStatus" value="Single" />
+                                  單身
+
+                            </div>
+							
+							<div class="form-group">
+								<label>身高</label>
+                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)" ></asp:TextBox>
                                                        	                            
                             </div>
 							
 							<div class="form-group">
-								<label>Weight</label>
-                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="Weight(kg)" ></asp:TextBox>
+								<label>體重</label>
+                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)" ></asp:TextBox>
                                                        	                            
                             </div>
 
 				            <div class="form-group">
-								<label>BirthDate</label>
-                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="Birth Date (dd-mm-yyyy)" ></asp:TextBox>
+								<label>出生日期</label>
+                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" ></asp:TextBox>
            	                            
                             </div>
 							
                             <div class="form-group">
-								<label>Zip code</label>
-                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="Zip code" ></asp:TextBox>
+								<label>郵遞區號</label>
+                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)" ></asp:TextBox>
                                                        	                            
                             </div>
 
 							<div class="form-group">
-								<label>Address</label>
-                                <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
+								<label>地址</label>
+                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
         
                             </div>
 
 				            <div class="form-group">
-									<label>Email</label>
+									<label>電子信箱(Email)</label>
                                     <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
 
                             </div>
 
                             <div class="form-group">
-								<label>Contact in emergency of Name</label>
-                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
+								<label>緊急聯絡人姓名</label>
+                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" ></asp:TextBox>
                                                        	                            
                             </div>
 
                             <div class="form-group">
-								<label>Relationship with patient</label>
-                                <asp:TextBox ID="sRelationship" runat="server" type="text" class="form-username form-control" placeholder="Relationship" ></asp:TextBox>
+								<label>與病患關係</label>
+                                <asp:TextBox ID="sRelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" ></asp:TextBox>
                                                        	                            
                             </div>
 
                             <div class="form-group">
-									<label>Contact in emergency of TEL</label>
-                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="Phone Number" ></asp:TextBox>
+									<label>緊急聯絡人電話</label>
+                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話" ></asp:TextBox>
 
                             </div>
 							
 							<div class="form-group">
-									<label>Contact in emergency of Mobile</label>
-                                    <asp:TextBox ID="sPhoneEC" runat="server" type="text" class="form-username form-control" placeholder="Mobile Number (10 Digits)" ></asp:TextBox>
+									<label>緊急聯絡人手機</label>
+                                    <asp:TextBox ID="sPhoneEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)" ></asp:TextBox>
 
                             </div>   
                                     
                             <div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Personal Information</h3>
-	                            		<p>Please fill in the form:</p>
+	                        			<h3>初診病歷</h3>
+	                            		<p>請填寫以下表格 : </p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
@@ -372,45 +357,102 @@
 	                        </div>
 
                             <div class="form-group">
-								<label>Job and Work :</label>
-                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="Fill your job" ></asp:TextBox>
+								<label>職業與工作 :</label>
+                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" ></asp:TextBox>
                                                        	                            
                             </div>
-
-                            <label>Nationality :</label>
+                            
+                            <br />
+                            <label>國籍 :</label>
 							<div class="form-group">
 								
                                  <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
-                                  Nationality of origin<br />
+                                  本國<br />
                                  <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                  Chinese nationality
+                                  中國
                                      
-                                    <br /><label>Touring party</label>
+                                    <br /><label>旅行團</label>
                                      <div class="form-group">
                                          <input type="radio" name="ChineseNationality" value="N" id="ChineseNationalityDefault" />
                                           No
                                          <input type="radio" name="ChineseNationality" value="Y" />
                                           Yes
-                                         <br />Touring Number <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="Fill your Touring Number" ></asp:TextBox>
+                                         <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
                                      </div>
 
                                  <input type="checkbox" name="Nationality" value="Nationality of foreign" />
-                                  Nationality of foreign
-                                 <br /><label>Country</label>
-                                 <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="Fill your Country of Citizenship" ></asp:TextBox>
+                                  外國
+                                 <br /><label>國家</label>
+                                 <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
                             </div>
 
-                            <label>Family medical history :</label>
+                            <br />
+                            <label>家族病史 :</label>
                             <div class="form-group">
                                 <input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />
                                  No
                                 <input type="radio" name="FamilyMedicalHistory" value="Y" />
                                  Yes
                             </div>
-                            
+                            <table class="table table-bordered">
+                              <caption>如有相關病史，請勾選下列表格</caption>
+                              <thead>
+                                <tr>
+                                  <th>項目</th>
+                                  <th>父</th>
+                                  <th>母</th>
+                                  <th>子</th>
+                                  <th>女</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>高血壓</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                </tr>
+                                <tr>
+                                  <td>心血管</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                </tr>
+                                <tr>
+                                  <td>糖尿病</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                </tr>
+                                  <tr>
+                                  <td>痛風</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                </tr>
+                                  <tr>
+                                  <td>氣喘過敏</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
+                                </tr>
+                                  <tr>
+                                  <td>其他</td>
+                                  <td><input type="radio" name="OtherFDefault" value="N" id="OtherFDefault" />No<br /><input type="radio" name="OtherFDefault" value="Y" />Yes</td>
+                                  <td><input type="radio" name="OtherMDefault" value="N" id="OtherMDefault" />No<br /><input type="radio" name="OtherMDefault" value="Y" />Yes</td>
+                                  <td><input type="radio" name="OtherSDefault" value="N" id="OtherSDefault" />No<br /><input type="radio" name="OtherSDefault" value="Y" />Yes</td>
+                                  <td><input type="radio" name="OtherDDefault" value="N" id="OtherDDefault" />No<br /><input type="radio" name="OtherDDefault" value="Y" />Yes</td>
+                                </tr>
+                              </tbody>
+                            </table>
 
 
-                            <asp:button Text ="Finish SignUp"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
+                            <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
                     <!-- sign up ends here -->
                                             
                                </div>

@@ -25,7 +25,7 @@ namespace DBProject.Patient
             string Name = sName.Text;
             string BirthDate = sBirthDate.Text;
             string Email = sEmail.Text;
-            string Password = sPassword.Text;
+            
             string PhoneNo = sPhone.Text;
             string Addr = Address.Text;
 
@@ -37,8 +37,8 @@ namespace DBProject.Patient
 
             int id = 0;
 
-            int status = objmyDAl.validateUser(Name, BirthDate, Email, Password, PhoneNo, gender, Addr, ref id);
-
+            //int status = objmyDAl.validateUser(Name, BirthDate, Email, Password, PhoneNo, gender, Addr, ref id);
+            int status=0;
 
             //status == 0 failure
             if (status == 0)
