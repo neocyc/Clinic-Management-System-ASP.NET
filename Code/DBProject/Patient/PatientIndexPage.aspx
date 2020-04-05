@@ -384,20 +384,33 @@
                                   Nationality of origin<br />
                                  <input type="checkbox" name="Nationality" value="Chinese nationality" />
                                   Chinese nationality
-                                 <div class="form-group">
-                                     <input type="radio" name="ChineseNationality" value="N" id="ChineseNationalityDefault" />
-                                      No
-                                     <input type="radio" name="ChineseNationality" value="Y" />
-                                      Yes
-                                     <br />
-                                 </div>
+                                     
+                                    <br /><label>Touring party</label>
+                                     <div class="form-group">
+                                         <input type="radio" name="ChineseNationality" value="N" id="ChineseNationalityDefault" />
+                                          No
+                                         <input type="radio" name="ChineseNationality" value="Y" />
+                                          Yes
+                                         <br />Touring Number <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="Fill your Touring Number" ></asp:TextBox>
+                                     </div>
+
                                  <input type="checkbox" name="Nationality" value="Nationality of foreign" />
                                   Nationality of foreign
-                                 <br /><label>Country :</label>
+                                 <br /><label>Country</label>
                                  <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="Fill your Country of Citizenship" ></asp:TextBox>
                             </div>
 
-                                    <asp:button Text ="Finish SignUp"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
+                            <label>Family medical history :</label>
+                            <div class="form-group">
+                                <input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />
+                                 No
+                                <input type="radio" name="FamilyMedicalHistory" value="Y" />
+                                 Yes
+                            </div>
+                            
+
+
+                            <asp:button Text ="Finish SignUp"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
                     <!-- sign up ends here -->
                                             
                                </div>
