@@ -26,7 +26,7 @@ namespace DBProject.Patient
             string BirthDate = sBirthDate.Text;
             string Email = sEmail.Text;
             string Password = sPassword.Text;
-            string PhoneNo = Phone.Text;
+            string PhoneNo = sPhone.Text;
             string Addr = Address.Text;
 
             string gender = Request.Form["Gender"].ToString();

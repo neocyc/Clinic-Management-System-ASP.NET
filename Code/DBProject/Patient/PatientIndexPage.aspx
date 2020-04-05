@@ -59,7 +59,7 @@
          var Bdate_st = changeDate(Bdate);
 
          var Email = document.getElementById('<%=sEmail.ClientID %>').value;
-         var phone = document.getElementById('<%=Phone.ClientID %>').value;
+         var phone = document.getElementById('<%=sPhone.ClientID %>').value;
          var pass = document.getElementById('<%=sPassword.ClientID %>').value;
          var cpass = document.getElementById('<%=scPassword.ClientID %>').value;
 
@@ -218,8 +218,8 @@
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Sign up now</h3>
-	                            		<p>Fill in the form below to get instant access:</p>
+	                        			<h3>Patient Information form</h3>
+	                            		<p>Fill in the form below to finish Login Step:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
@@ -234,64 +234,170 @@
                         <!-- sign up form start honay laga hai :)-->
                                     
                                     
-                            <div class="form-group">
-			                    <label>Name</label>
+                           <div class="form-group">
+								<label>Name</label>
                                 <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
                                                        	                            
                             </div> 
+							
+							<div class="form-group">
+								<label>Identification Number</label>
+                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="Identification Number" ></asp:TextBox>
+                                                       	                            
+                            </div> 
+							
+							<div class="form-group">
+									<label>TEL</label>
+                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="Phone Number" ></asp:TextBox>
 
-				            <div class="form-group">
-				                <label>Birth Date</label> 	
-                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="Birth Date (dd-mm-yyyy)" ></asp:TextBox>
-           	                            
                             </div>
-
-				            <div class="form-group">
-				                    <label>Email</label>
-                                    <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
+							
+							<div class="form-group">
+									<label>Mobile</label>
+                                    <asp:TextBox ID="sPhone" runat="server" type="text" class="form-username form-control" placeholder="Mobile Number (10 Digits)" ></asp:TextBox>
 
                             </div>
-
+							
                             <div class="form-group">
-				                    <label>Password</label>
+									<label>Password</label>
                                     <asp:TextBox ID="sPassword" runat="server" type="password" class="form-username form-control" placeholder="Enter New Password" ></asp:TextBox>
 
                             </div>
 
 
                             <div class="form-group">
-                                    <label>Confirm Password</label>		                        
+									<label>Confirm Password</label>
                                     <asp:TextBox ID="scPassword" runat="server" type="password" class="form-username form-control" placeholder="Confirm Password" ></asp:TextBox>
 
                             </div>
+                                                                
+                            <div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>General Information</h3>
+	                            		<p>Please fill in the form:</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-pencil"></i>
+	                        		</div>
+	                        </div>
 
-
-                            <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <asp:TextBox ID="Phone" runat="server" type="text" class="form-username form-control" placeholder="Phone Number (10 Digits)" ></asp:TextBox>
-
-                            </div>
-                                    
                             <label>Gender</label>
-                            <div class="form-group">
-
-                                 <input type="radio" name="Gender" value="M" id="test" checked="checked" />
+							<div class="form-group">
+								
+                                 <input type="radio" name="Gender" value="M" id="GenderDefault" checked="checked" />
                                   Male
                                  <input type="radio" name="Gender" value="F" />
                                   Female
 
                             </div>
 
+							<label>Marital Status</label>
+							<div class="form-group">
+								
+                                 <input type="radio" name="MaritalStatus" value="Married" id="MaritalStatusDefault" checked="checked" />
+                                  Married
+                                 <input type="radio" name="MaritalStatus" value="Single" />
+                                  Single
 
+                            </div>
+							
+							<div class="form-group">
+								<label>Height</label>
+                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="Height(cm)" ></asp:TextBox>
+                                                       	                            
+                            </div>
+							
+							<div class="form-group">
+								<label>Weight</label>
+                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="Weight(kg)" ></asp:TextBox>
+                                                       	                            
+                            </div>
+
+				            <div class="form-group">
+								<label>BirthDate</label>
+                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="Birth Date (dd-mm-yyyy)" ></asp:TextBox>
+           	                            
+                            </div>
+							
                             <div class="form-group">
-                                <label>Address</label>                
+								<label>Zip code</label>
+                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="Zip code" ></asp:TextBox>
+                                                       	                            
+                            </div>
+
+							<div class="form-group">
+								<label>Address</label>
                                 <asp:TextBox id="Address" placeholder ="Address" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
         
                             </div>
 
-				            <asp:button Text ="SignUp"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-				                    
+				            <div class="form-group">
+									<label>Email</label>
+                                    <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
+
+                            </div>
+
+                            <div class="form-group">
+								<label>Contact in emergency of Name</label>
+                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="Name" ></asp:TextBox>
+                                                       	                            
+                            </div>
+
+                            <div class="form-group">
+								<label>Relationship with patient</label>
+                                <asp:TextBox ID="sRelationship" runat="server" type="text" class="form-username form-control" placeholder="Relationship" ></asp:TextBox>
+                                                       	                            
+                            </div>
+
+                            <div class="form-group">
+									<label>Contact in emergency of TEL</label>
+                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="Phone Number" ></asp:TextBox>
+
+                            </div>
+							
+							<div class="form-group">
+									<label>Contact in emergency of Mobile</label>
+                                    <asp:TextBox ID="sPhoneEC" runat="server" type="text" class="form-username form-control" placeholder="Mobile Number (10 Digits)" ></asp:TextBox>
+
+                            </div>   
                                     
+                            <div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>Personal Information</h3>
+	                            		<p>Please fill in the form:</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-pencil"></i>
+	                        		</div>
+	                        </div>
+
+                            <div class="form-group">
+								<label>Job and Work :</label>
+                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="Fill your job" ></asp:TextBox>
+                                                       	                            
+                            </div>
+
+                            <label>Nationality :</label>
+							<div class="form-group">
+								
+                                 <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
+                                  Nationality of origin<br />
+                                 <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                  Chinese nationality
+                                 <div class="form-group">
+                                     <input type="radio" name="ChineseNationality" value="N" id="ChineseNationalityDefault" />
+                                      No
+                                     <input type="radio" name="ChineseNationality" value="Y" />
+                                      Yes
+                                     <br />
+                                 </div>
+                                 <input type="checkbox" name="Nationality" value="Nationality of foreign" />
+                                  Nationality of foreign
+                                 <br /><label>Country :</label>
+                                 <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="Fill your Country of Citizenship" ></asp:TextBox>
+                            </div>
+
+                                    <asp:button Text ="Finish SignUp"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
                     <!-- sign up ends here -->
                                             
                                </div>
