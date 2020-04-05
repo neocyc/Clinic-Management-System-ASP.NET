@@ -451,6 +451,42 @@
                               </tbody>
                             </table>
 
+                             <div class="form-group">
+								<label>病史 :</label>
+                                <br /><label>個人內科病史</label>
+                                <div class="form-group">
+                                         <input type="radio" name="Medical" value="N" id="MedicalDefault" />
+                                          No
+                                         <input type="radio" name="Medical" value="Y" />
+                                          Yes
+                                         <br />
+                                         <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
+                                          菸
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          酒
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          嚼檳榔
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          高血壓
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          糖尿病
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          B肝
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          C肝
+                                         <br /><input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          心血管疾病
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          氣喘
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          過敏
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          痛風
+                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                          其他
+                                </div>
+                                                       	                            
+                            </div>
 
                             <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
                     <!-- sign up ends here -->
