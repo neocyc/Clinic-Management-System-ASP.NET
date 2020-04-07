@@ -58,6 +58,9 @@
          var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
          var Bdate_st = changeDate(Bdate);
 
+         var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
+         var Sdate_st = changeDate(Sdate);
+
          var Email = document.getElementById('<%=sEmail.ClientID %>').value;
          var phone = document.getElementById('<%=sPhone.ClientID %>').value;
          
@@ -72,11 +75,17 @@
                  Bdate_a.type = "text";
              }
 
+             if (Sdate == "") {
+                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                 Sdate_a.type = "text";
+             }
+
              return false;
          }
 
 
-         var arrDbirth = Bdate_st.split("-");
+         var arrDbirth1 = Bdate_st.split("-");
+         var arrDbirth2 = Sdate_st.split("-");
 
          if (Bdate == "") {
              alert("Birth Date missing. Enter Birth Date.");
@@ -86,12 +95,28 @@
 
              return false;
          }
-
-         else if ((Bdate_st == arrDbirth[0]) || (arrDbirth[0].length != 2) || arrDbirth[1].length != 2 || arrDbirth[2].length != 4 || !arrDbirth[0].match(/^[0-9]*$/) || !arrDbirth[1].match(/^[0-9]*$/) || !arrDbirth[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
+         else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
              alert("Birth Date Format Incorrect or out of Range.");
 
              var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
              Bdate_a.type = "text";
+
+             return false;
+         }
+
+         if (Sdate == "") {
+             alert("Surgery Date missing. Enter Surgery Date.");
+
+             var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+             Sdate_a.type = "text";
+
+             return false;
+         }
+         else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
+             alert("Surgery Date Format Incorrect or out of Range.");
+
+             var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+             Sdate_a.type = "text";
 
              return false;
          }
@@ -345,7 +370,8 @@
                                     <asp:TextBox ID="sPhoneEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)" ></asp:TextBox>
 
                             </div>   
-                                    
+                               
+                            <br />
                             <div class="form-top">
 	                        		<div class="form-top-left">
 	                        			<h3>初診病歷</h3>
@@ -357,13 +383,13 @@
 	                        </div>
 
                             <div class="form-group">
-								<label>職業與工作 :</label>
+								<label>一、職業與工作 :</label>
                                 <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" ></asp:TextBox>
                                                        	                            
                             </div>
                             
                             <br />
-                            <label>國籍 :</label>
+                            <label>二、國籍 :</label>
 							<div class="form-group">
 								
                                  <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
@@ -387,109 +413,179 @@
                             </div>
 
                             <br />
-                            <label>家族病史 :</label>
+                            <label>三、家族病史 :</label>
                             <div class="form-group">
                                 <input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />
                                  No
                                 <input type="radio" name="FamilyMedicalHistory" value="Y" />
                                  Yes
                             </div>
-                            <table class="table table-bordered">
-                              <caption>如有相關病史，請勾選下列表格</caption>
-                              <thead>
-                                <tr>
-                                  <th>項目</th>
-                                  <th>父</th>
-                                  <th>母</th>
-                                  <th>子</th>
-                                  <th>女</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>高血壓</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                </tr>
-                                <tr>
-                                  <td>心血管</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                </tr>
-                                <tr>
-                                  <td>糖尿病</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                </tr>
-                                  <tr>
-                                  <td>痛風</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                </tr>
-                                  <tr>
-                                  <td>氣喘過敏</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                  <td><input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" />No<br /><input type="radio" name="FamilyMedicalHistory" value="Y" />Yes</td>
-                                </tr>
-                                  <tr>
-                                  <td>其他</td>
-                                  <td><input type="radio" name="OtherFDefault" value="N" id="OtherFDefault" />No<br /><input type="radio" name="OtherFDefault" value="Y" />Yes</td>
-                                  <td><input type="radio" name="OtherMDefault" value="N" id="OtherMDefault" />No<br /><input type="radio" name="OtherMDefault" value="Y" />Yes</td>
-                                  <td><input type="radio" name="OtherSDefault" value="N" id="OtherSDefault" />No<br /><input type="radio" name="OtherSDefault" value="Y" />Yes</td>
-                                  <td><input type="radio" name="OtherDDefault" value="N" id="OtherDDefault" />No<br /><input type="radio" name="OtherDDefault" value="Y" />Yes</td>
-                                </tr>
-                              </tbody>
-                            </table>
+
+                            <div class="form-group">
+                                <table class="table table-bordered">
+                                  <caption>如有相關病史，請勾選下列表格</caption>
+                                  <thead>
+                                    <tr>
+                                      <th>項目</th>
+                                      <th>父</th>
+                                      <th>母</th>
+                                      <th>子</th>
+                                      <th>女</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>高血壓</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                    <tr>
+                                      <td>心血管</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                    <tr>
+                                      <td>糖尿病</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                      <tr>
+                                      <td>痛風</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                      <tr>
+                                      <td>氣喘過敏</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                      <tr>
+                                      <td>其他</td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="Y" /></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                             </div>
 
                              <div class="form-group">
-								<label>病史 :</label>
-                                <br /><label>個人內科病史</label>
+								<label>四、病史 :</label>
+                                <br /><label>1.個人內科病史</label>
                                 <div class="form-group">
                                          <input type="radio" name="Medical" value="N" id="MedicalDefault" />
                                           No
                                          <input type="radio" name="Medical" value="Y" />
                                           Yes
                                          <br />
-                                         <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
-                                          菸
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          酒
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          嚼檳榔
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          高血壓
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          糖尿病
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          B肝
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          C肝
-                                         <br /><input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          心血管疾病
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          氣喘
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          過敏
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          痛風
-                                         <input type="checkbox" name="Nationality" value="Chinese nationality" />
-                                          其他
+                                         <div class="form-group">
+                                             <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
+                                              菸
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              酒
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              嚼檳榔
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              高血壓
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              糖尿病
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              B肝
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              C肝
+                                             <br /><input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              心血管疾病
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              氣喘
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              過敏
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              痛風
+                                             <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                              其他
+                                         </div>
                                 </div>
-                                                       	                            
-                            </div>
+                                <label>2.個人手術史</label>
+                                <div class="form-group">
+                                         <input type="radio" name="Medical" value="N" id="MedicalDefault" />
+                                          No
+                                         <input type="radio" name="Medical" value="Y" />
+                                          Yes
+                                         <div class="form-group">
+								            <label>日期</label>
+                                            <asp:TextBox ID="sSurgeryDate" runat="server" type="text" class="form-username form-control" placeholder="請點選日期(dd-mm-yyyy)" ></asp:TextBox>
+           	                            
+                                         </div>
+                                    
+                                         <div class="form-group">
+								            <label>病名</label>
+                                            <asp:TextBox ID="TextBox2" runat="server" type="text" class="form-username form-control" placeholder="請填寫病名" ></asp:TextBox>
+                                         </div>
+                                </div>             
+                                <div class="form-group">
+								    <label>五、個人藥物過敏史 :</label>
+                                    <div class="form-group">
+                                         <input type="radio" name="Medical" value="N" id="MedicalDefault" />
+                                          No
+                                         <input type="radio" name="Medical" value="Y" />
+                                          Yes
+                                         <div class="form-group">
+                                            <asp:TextBox ID="TextBox1" runat="server" type="text" class="form-username form-control" placeholder="請描述症狀" ></asp:TextBox>
+           	                            
+                                         </div>
 
-                            <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-                    <!-- sign up ends here -->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+								    <label>六、最近三個月旅遊史 :</label>
+                                    <div class="form-group">
+                                         <input type="radio" name="Medical" value="N" id="MedicalDefault" />
+                                          No
+                                         <input type="radio" name="Medical" value="Y" />
+                                          Yes
+                                         <div class="form-group">
+                                            <asp:TextBox ID="TextBox3" runat="server" type="text" class="form-username form-control" placeholder="請描述旅遊歷程" ></asp:TextBox>
+           	                            
+                                         </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">                                    
+								    <label>七、目前之長期服用藥物 :</label>                                   
+                                        <div class="form-group ">                                            
+                                            <asp:TextBox ID="TextBox4" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" ></asp:TextBox>
+           	                                
+                                        </div>                                 
+                                </div>
+
+                                <div class="form-group">                                    
+								    <label>八、血壓記錄 :</label>                                   
+                                        <div class="form-group ">                                            
+                                             <asp:TextBox ID="TextBox5" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓數值(單位 mmHg)" ></asp:TextBox>
+                                        </div>   
+                                        <div class="form-group ">  
+                                             <label>脈搏</label>
+                                             <asp:TextBox ID="TextBox6" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏數值(單位 次/分)" ></asp:TextBox>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
+                            </div>
+                                <!-- sign up ends here -->
                                             
                                </div>
                            </div>

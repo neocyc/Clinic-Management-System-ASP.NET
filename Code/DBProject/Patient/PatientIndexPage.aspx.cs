@@ -14,6 +14,7 @@ namespace DBProject.Patient
         {
             Session["idoriginal"] = "";
             sBirthDate.Attributes.Add("onfocus", "(this.type='date')");
+            sSurgeryDate.Attributes.Add("onfocus", "(this.type='date')");
         }
 
 
