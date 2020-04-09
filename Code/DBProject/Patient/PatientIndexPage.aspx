@@ -17,12 +17,12 @@
      //----------------------Function1-----------------------------//
      function validateEmail(Email) {
          if (Email == "") {
-             alert("Email missing. Enter Email.");
+             alert("Email 尚未輸入. 請填寫 Email.");
              return false;
          }
 
          else if (Email.indexOf("@") == -1 || Email.indexOf(".com") == -1) {
-             alert("Your email address seems incorrect. Please enter a new one.");
+             alert("你的 email 格式似乎不正確. 請重新輸入 email.");
              return false;
          }
 
@@ -30,7 +30,7 @@
              var location = Email.indexOf("@");
 
              if (Email[0] == '@' || Email[location + 1] == '.') {
-                 alert("Your email address seems incorrect. Please enter a new one.");
+                 alert("你的 email 格式似乎不正確. 請重新輸入 email.");
                  return false;
              }
 
@@ -38,7 +38,7 @@
              var EmailmatchArray = Email.match(emailPat);
 
              if (EmailmatchArray == null) {
-                 alert("Your email address seems incorrect. Please enter a new one.");
+                 alert("你的 email 格式似乎不正確. 請重新輸入 email.");
                  return false;
              }
          }
@@ -68,7 +68,7 @@
          /*now the validation code*/
 
          if (Name == "") {
-             alert("Name missing. Enter Name.");
+             alert("姓名尚未填寫. 請填寫姓名.");
 
              if (Bdate == "") {
                  var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
@@ -81,14 +81,13 @@
              }
 
              return false;
-         }
-
+         }        
 
          var arrDbirth1 = Bdate_st.split("-");
          var arrDbirth2 = Sdate_st.split("-");
 
          if (Bdate == "") {
-             alert("Birth Date missing. Enter Birth Date.");
+             alert("尚未輸入生日. 請選擇生日日期.");
 
              var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
              Bdate_a.type = "text";
@@ -96,7 +95,7 @@
              return false;
          }
          else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-             alert("Birth Date Format Incorrect or out of Range.");
+             alert("生日日期格式錯誤. 請重新輸入生日.");
 
              var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
              Bdate_a.type = "text";
@@ -105,7 +104,7 @@
          }
 
          if (Sdate == "") {
-             alert("Surgery Date missing. Enter Surgery Date.");
+             alert("尚未輸入日期. 請選擇手術日期.");
 
              var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
              Sdate_a.type = "text";
@@ -113,7 +112,7 @@
              return false;
          }
          else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-             alert("Surgery Date Format Incorrect or out of Range.");
+             alert("手術日期格式錯誤. 請重新輸入日期.");
 
              var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
              Sdate_a.type = "text";
@@ -125,26 +124,14 @@
          if (!validateEmail(Email))
              return false;
 
-
-         if (pass == "" || cpass == "") {
-             alert("Password field is empty.");
-             return false;
-         }
-
-         else if (pass != cpass) {
-             alert("Passwords do not match.");
-             return false;
-         }
-
-
-         if (phone.length != 11) {
-             alert("Phone number should be of 11 digits.");
+         if (phone.length != 10) {
+             alert("收機號碼格式錯誤. 請重新輸入號碼.");
              return false;
          }
 
 
          if (Request.Form["Gender"] == null) {
-             alert("Gender not selected.");
+             alert("尚未勾選性別. 請選擇性別");
              return false;
          }
 
@@ -275,7 +262,7 @@
 							
 							<div class="form-group">
 								<label>身分證字號</label>
-                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號" ></asp:TextBox>
+                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)" ></asp:TextBox>
                                                        	                            
                             </div> 
 							
@@ -566,7 +553,7 @@
                                 <div class="form-group">                                    
 								    <label>七、目前之長期服用藥物 :</label>                                   
                                         <div class="form-group ">                                            
-                                            <asp:TextBox ID="sMedicinalName " runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" ></asp:TextBox>
+                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" ></asp:TextBox>
            	                                
                                         </div>                                 
                                 </div>
