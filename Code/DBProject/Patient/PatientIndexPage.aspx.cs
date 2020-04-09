@@ -14,11 +14,8 @@ namespace DBProject.Patient
         {
             Session["idoriginal"] = "";
             sBirthDate.Attributes.Add("onfocus", "(this.type='date')");
-            sSurgeryDate.Attributes.Add("onfocus", "(this.type='date')");
+            sSurgeryDate.Attributes.Add("onfocus", "(this.type='date')");            
         }
-
-
-
 
         //-----------------------Function2--------------------------//
         protected void signupV(object sender, EventArgs e)
@@ -27,11 +24,12 @@ namespace DBProject.Patient
             string BirthDate = sBirthDate.Text;
             string Email = sEmail.Text;
             
-            string PhoneNo = sPhone.Text;
+            string PhoneNo = sPhoneM.Text;
             string Addr = Address.Text;
 
             string gender = Request.Form["Gender"].ToString();
 
+            
 
 
             myDAL objmyDAl = new myDAL();

@@ -42,13 +42,13 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox sPhoneH;
 
         /// <summary>
-        /// sPhone 控制項。
+        /// sPhoneM 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sPhone;
+        protected global::System.Web.UI.WebControls.TextBox sPhoneM;
 
         /// <summary>
         /// sHeight 控制項。
@@ -114,13 +114,13 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox sNameCE;
 
         /// <summary>
-        /// sRelationship 控制項。
+        /// sCERelationship 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sRelationship;
+        protected global::System.Web.UI.WebControls.TextBox sCERelationship;
 
         /// <summary>
         /// sPhoneHEC 控制項。
@@ -132,13 +132,13 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox sPhoneHEC;
 
         /// <summary>
-        /// sPhoneEC 控制項。
+        /// sPhoneMEC 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sPhoneEC;
+        protected global::System.Web.UI.WebControls.TextBox sPhoneMEC;
 
         /// <summary>
         /// sJob 控制項。
@@ -177,57 +177,39 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox sSurgeryDate;
 
         /// <summary>
-        /// TextBox2 控制項。
+        /// sDiseaseName 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox sDiseaseName;
 
         /// <summary>
-        /// TextBox1 控制項。
+        /// sAllergyMedicalSymptom 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox sAllergyMedicalSymptom;
 
         /// <summary>
-        /// TextBox3 控制項。
+        /// sTourResume 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox sTourResume;
 
         /// <summary>
-        /// TextBox4 控制項。
+        /// sMedicinalName  控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
-
-        /// <summary>
-        /// TextBox5 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
-
-        /// <summary>
-        /// TextBox6 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox sMedicinalName;
     }
 }
