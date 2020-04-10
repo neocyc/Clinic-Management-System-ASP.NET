@@ -7,6 +7,7 @@
     <!-- Head Content Place Holder -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <a href="IndexPageLogin.Master">IndexPageLogin.Master</a>
 
 </head>
 
@@ -15,7 +16,7 @@
 
 
 <body>
-    <form id="form1" runat="server">
+    
     
         <div>
 
@@ -50,6 +51,6 @@
 
 
 
-    </form>
+    
 </body>
 </html>

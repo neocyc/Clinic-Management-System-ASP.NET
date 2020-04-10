@@ -8,7 +8,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 
-   
+<!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"/>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../assets/css/form-elements.css"/>
+    <link rel="stylesheet" href="../assets/css/style.css"/>
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>
+
+    
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    <!-- Javascript -->
+    <script src="../assets/js/jquery-1.11.1.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.backstretch.min.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+
+    <!--引用 Validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
 
  <script type="text/javascript">
@@ -153,52 +180,144 @@
          return d + '-' + m + '-' + y;
      }
 
+     //check Form input formate by JQuery
+     $(function ()
+     {
+         $("#SignUpPage").validator(
+             {
+                 custom: {
+                     checkIDcardnumber: function (item)
+                     {
+                         var idNumber = item.val();                         
+                         var result;
+
+                         if (idNumber != "")
+                         {
+                             if (idNumber.length == 10) {
+                                 //check IdentityCard formate feature
+                                 result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}[0-9]{8}$/);
+
+                                 if (!result) {
+                                     return "身份證字號不符合格式. 請重新輸入."
+                                 }
+                             } else
+                             {
+
+                                 if (idNumber.length == 2) {
+                                     result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}$/);
+                                     if (result) {
+                                         return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
+                                     }
+                                     else
+                                     {
+                                         return "資料填寫不正確. 請確認您填寫的資料內容."
+                                     }
+                                 }
+
+                                 if (idNumber.length > 2) {
+                                     var idNumberL = idNumber.length;
+                                     
+                                         var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
+                                         var item = (idNumberL-2);
+                                         var endre = '}$';
+                                         var pattern = ''.concat(startre, item, endre);
+                                         var re = new RegExp(pattern);
+                                         result = idNumber.match(re);
+                                         if (!result) {
+                                             return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
+                                         }
+                                         else
+                                         {
+                                             return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
+                                         }
+                                                                          
+                                 }
+                                 
+                                 return "資料填寫不正確. 請確認您填寫的資料內容."
+                             }
+                             
+                         }                         
+                     },
+
+                     checkPhonenumber: function (item) {
+                         var Phonenumber = item.val();
+
+                         if (Phonenumber != "") {
+                             var result;
+                             var errMSG = "電話號碼不符合格式. 請重新輸入.";
+                             var Phonelength = Phonenumber.length;
+
+                             //check PhoneNumber formate feature
+                             if (Phonelength > 7 && Phonelength < 12)
+                             {
+                                 //check PhoneNumber data set
+                                 switch (Phonelength) {
+                                     case 8:
+                                         result = Phonenumber.match(/^\d{2}[-]\d{5}$/);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 9:
+                                         result = Phonenumber.match(/^\d{2}[-]\d{6}$/);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 10:
+                                         result = Phonenumber.match(/^\d{2}[-]\d{7}$/);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 11:
+                                         result = Phonenumber.match(/^\d{2}[-]\d{8}$/);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     default:
+                                         return "程式有問題. 請工程人員確認原因(沒抓到資料)."
+                                 }          
+                             }
+                             else
+                             {
+                                 result = Phonenumber.match(/\d{2}[-]/);
+                                 if (!result) {
+                                     return errMSG
+                                 }
+                                 else
+                                 {
+                                     return "電話尚未輸入完畢. 請確認您輸入的資料."
+                                 }                                 
+                             }                                                
+                         }    
+                     },
+                 }
+             });
+     });
 
 
 
 
 
-    
-
+     
      //------------------------------------------------------------------//
      //------------------------------------------------------------------//
      //------------------------------------------------------------------//
 
 </script>
-
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"/>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../assets/css/form-elements.css"/>
-    <link rel="stylesheet" href="../assets/css/style.css"/>
-
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"/>
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>
-
     
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-
-    <!-- Javascript -->
-    <script src="../assets/js/jquery-1.11.1.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery.backstretch.min.js"></script>
-    <script src="../assets/js/scripts.js"></script>
-
 </head>
 
 
 
 <body>
-
+    <form id="SignUpPage" data-toggle="validator" runat="server">
     
 				       
         <div>    
@@ -256,20 +375,20 @@
 
                            <div class="form-group">
 								<label>姓名</label>
-                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" required></asp:TextBox>
+                                <div class="help-block with-errors"></div>                     	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>身分證字號</label>
-                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)" required maxlength="10" data-checkIDcardnumber=" "></asp:TextBox>
+                                <div class="help-block with-errors"></div>                       	                            
                             </div> 
 							
 							<div class="form-group">
 									<label>電話(家)</label>
-                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話" ></asp:TextBox>
-
+                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
+                                    <div class="help-block with-errors"></div> 
                             </div>
 							
 							<div class="form-group">
@@ -591,7 +710,7 @@
         </div>
   
 
-
+        </form>
 </body>
 </html>
 
