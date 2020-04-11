@@ -33,7 +33,7 @@
 <body>
    
     
-        <div style="background-image:url(/assets/img/backgrounds/PatientIndexPage.jpg); background-position:center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+        <div >
 
             <!-- Navigation Bar starts from here -->
              <nav class="navbar navbar-inverse">

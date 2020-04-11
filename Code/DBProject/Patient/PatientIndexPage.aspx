@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IndexPageLogin.Master" AutoEventWireup="true" CodeBehind="PatientIndexPage.aspx.cs" Inherits="DBProject.Patient.PatientIndexPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IndexPageLogin.Master" AutoEventWireup="true" CodeBehind="PatientIndexPage.aspx.cs" Inherits="DBProject.PatientIndexPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MedicX 4 Health Care 首次登入 &amp; 填寫基本病歷表單</title>
 
@@ -23,8 +23,24 @@
     <!-- Javascript -->
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    
+    
     <script src="../assets/js/jquery.backstretch.min.js"></script>
+    
+    <!--
     <script src="../assets/js/scripts.js"></script>
+    -->
+
+    <script type="text/javascript">
+        //repaire bug of "scripts.js" use to "jquery.backstretch.min.js"
+        jQuery(document).ready(function () {
+            /*
+            Fullscreen background
+            */
+            $.backstretch("../assets/img/backgrounds/PatientIndexPage.jpg");
+        });
+    </script>
+    
 
     <!--引用 Validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
