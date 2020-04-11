@@ -160,7 +160,7 @@
                  return false;
 
              if (phone.length != 10) {
-                 alert("收機號碼格式錯誤. 請重新輸入號碼.");
+                 alert("手機號碼格式錯誤. 請重新輸入號碼.");
                  return false;
              }
 
@@ -201,8 +201,10 @@
                              var pattern;
                              
                              //check IdentityCard formate feature
-                             if (idNumber != "") {
-                                 if (idNumberL >= 2) {
+                             if (idNumber != "")
+                             {
+                                 if (idNumberL >= 2)
+                                 {
                                      var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
                                      var item = (idNumberL - 2);
                                      var endre = '}$';
@@ -217,7 +219,8 @@
                                  var re = new RegExp(pattern);
                              
 
-                                 switch (idNumberL) {
+                                 switch (idNumberL)
+                                 {
                                      case 10:
                                          result = idNumber.match(re);
                                          if (!result)
@@ -227,19 +230,23 @@
                                          break;
                                      case 2:
                                          result = idNumber.match(re);
-                                         if (result) {
+                                         if (result)
+                                         {
                                              return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
                                          }
-                                         else {
-                                             return "資料填寫不正確. 請確認您填寫的資料內容."
+                                         else
+                                         {
+                                             return "資料填寫不正確. 請確認您填寫的資料內容(英文字母+數字9碼)."
                                          }
                                          break;
+
                                      default:
-                                         //1,3~9
                                          result = idNumber.match(re);
 
-                                         if (idNumberL > 2 && idNumberL < 10) {
-                                             if (!result) {
+                                         if (idNumberL > 2 && idNumberL < 10)
+                                         {
+                                             if (!result)
+                                             {
                                                  return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
                                              }
                                              else
@@ -250,7 +257,7 @@
 
                                          if (!result)
                                          {
-                                             return "資料填寫不正確. 請確認您填寫的資料內容."                                             
+                                             return "資料填寫不正確. 請確認您填寫的資料內容(開頭是英文字母)."                                             
                                          }
                                          else
                                          {
@@ -262,55 +269,179 @@
 
                          checkPhonenumber: function (item) {
                              var Phonenumber = item.val();
+                             var result;
+                             var PhonenumberL = Phonenumber.length;
+                             var pattern;
+                             var errMSG = "電話號碼不符合格式. 請重新輸入.";
 
-                             if (Phonenumber != "") {
-                                 var result;
-                                 var errMSG = "電話號碼不符合格式. 請重新輸入.";
-                                 var Phonelength = Phonenumber.length;
+                             //check PhoneNumber formate feature
+                             if (Phonenumber != "")
+                             {
+                                 if (PhonenumberL >= 3)
+                                 {
+                                     var startre = '^[0-9]{2}[-][0-9]{';
+                                     var item = (PhonenumberL - 3);
+                                     var endre = '}$';
+                                     pattern = ''.concat(startre, item, endre);
+                                 }
+                                 else
+                                 {
+                                     var startre = '^[0-9]{';
+                                     var item = PhonenumberL;
+                                     var endre = '}$';
+                                     pattern = ''.concat(startre, item, endre);
+                                 }                                 
 
-                                 //check PhoneNumber formate feature
-                                 if (Phonelength > 7 && Phonelength < 12) {
-                                     //check PhoneNumber data set
-                                     switch (Phonelength) {
-                                         case 8:
-                                             result = Phonenumber.match(/^\d{2}[-]\d{5}$/);
-                                             if (!result) {
-                                                 return errMSG
+                                 var re = new RegExp(pattern);
+
+
+                                 switch (PhonenumberL)
+                                 {                                     
+                                     case 8:
+                                         result = Phonenumber.match(re);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 9:
+                                         result = Phonenumber.match(re);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 10:
+                                         result = Phonenumber.match(re);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 11:
+                                         result = Phonenumber.match(re);
+                                         if (!result)
+                                         {
+                                             return errMSG
+                                         }
+                                         break;
+                                     case 3:
+                                         result = Phonenumber.match(re);
+                                         if (result)
+                                         {
+                                             return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
+                                         }
+                                         else
+                                         {
+                                             return "電話號碼(區碼)不正確. 請確認您填寫的資料內容."
+                                         }
+                                         break;
+                                     default:
+                                         result = Phonenumber.match(re);
+
+                                         if (PhonenumberL > 3 && PhonenumberL < 8)
+                                         {
+                                             if (!result)
+                                             {
+                                                 return "電話號碼輸入錯誤. 請確認您輸入的資料內容."
                                              }
-                                             break;
-                                         case 9:
-                                             result = Phonenumber.match(/^\d{2}[-]\d{6}$/);
-                                             if (!result) {
-                                                 return errMSG
+                                             else
+                                             {
+                                                 return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
                                              }
-                                             break;
-                                         case 10:
-                                             result = Phonenumber.match(/^\d{2}[-]\d{7}$/);
-                                             if (!result) {
-                                                 return errMSG
-                                             }
-                                             break;
-                                         case 11:
-                                             result = Phonenumber.match(/^\d{2}[-]\d{8}$/);
-                                             if (!result) {
-                                                 return errMSG
-                                             }
-                                             break;
-                                         default:
-                                             return "程式有問題. 請工程人員確認原因(沒抓到資料)."
+                                         }
+
+                                         if (!result)
+                                         {
+                                             return "資料填寫不正確. 請確認您填寫的資料內容(電話號碼只能是數字)."
+                                         }
+                                         else
+                                         {
+                                             return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
+                                         }
+                                 }                                 
+                             }
+                         },
+
+                         checkMobilenumber: function (item){
+                             var Mobilenumber = item.val();
+                             var result;
+                             var MobilenumberL = Mobilenumber.length;
+                             var pattern;
+                             var errMSG = "手機號碼不符合格式. 請重新輸入.";
+
+                             //check MobileNumber formate feature
+                             if (Mobilenumber != "")
+                             {
+                                 var startre = '^[0-9]{';
+                                 var item = MobilenumberL;
+                                 var endre = '}$';
+                                 pattern = ''.concat(startre, item, endre);
+
+                                 var re = new RegExp(pattern);
+
+                                 if (MobilenumberL == 10)
+                                 {
+                                     result = Mobilenumber.match(re);
+                                     if (!result)
+                                     {
+                                         return errMSG
                                      }
                                  }
-                                 else {
-                                     result = Phonenumber.match(/\d{2}[-]/);
+                                 else
+                                 {
+                                     result = Mobilenumber.match(re);
+                                     if (!result)
+                                     {
+                                         return "資料填寫不正確. 請確認您填寫的資料內容(手機號碼只能是數字)."
+                                     }
+                                     else
+                                     {
+                                         return "手機號碼尚未輸入完畢. 請確認您輸入的資料內容."
+                                     }
+                                 }                       
+                             }
+                         },
+
+                         checkDatanumber: function (item) {
+                             var Datanumber = item.val();
+                             var result;
+                             var DatanumberL = Datanumber.length;
+                             var pattern;
+                             var errMSG = "資料填寫不正確. 請確認您填寫的資料內容(只能是數字).";
+
+                             if (Datanumber != "") {
+                                 var startre = '^[0-9]{';
+                                 var item = DatanumberL;
+                                 var endre = '}$';
+                                 pattern = ''.concat(startre, item, endre);
+
+                                 var re = new RegExp(pattern);
+
+                                 if (DatanumberL <= 2) {
+                                     result = Datanumber.match(re);
                                      if (!result) {
                                          return errMSG
                                      }
-                                     else {
-                                         return "電話尚未輸入完畢. 請確認您輸入的資料."
-                                     }
                                  }
+                                 else
+                                 {
+                                     var Zipcoderesult = document.getElementById('<%=sZipcode.ClientID %>').value;
+                                     if (Zipcoderesult != "" && Zipcoderesult.length == 3)
+                                     {
+                                         result = Zipcoderesult.match(re);
+                                         if (!result) {
+                                             return "郵遞區號不正確. 請確認您填寫的資料內容."
+                                         }
+                                     }
+
+                                     result = Datanumber.match(re);
+                                     if (!result) {
+                                         return errMSG
+                                     }
+                                 }                                 
                              }
-                         },
+                         }
                      }
                  });
          });
@@ -399,14 +530,14 @@
 							
 							<div class="form-group">
 									<label>電話(家)</label>
-                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話(XX-XXXXXXXX)" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
                             </div>
 							
 							<div class="form-group">
 									<label>電話(手機)</label>
-                                    <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)" ></asp:TextBox>
-
+                                    <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)" required maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
+                                    <div class="help-block with-errors"></div> 
                             </div>                         
 
                             <label>性別</label>
@@ -431,38 +562,38 @@
 							
 							<div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <div class="help-block with-errors"></div>                        	                            
                             </div>
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 				            <div class="form-group">
 								<label>出生日期</label>
-                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" ></asp:TextBox>
-           	                            
+                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" required></asp:TextBox>
+           	                    <div class="help-block with-errors"></div>         
                             </div>
 							
                             <div class="form-group">
 								<label>郵遞區號</label>
-                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 							<div class="form-group">
 								<label>地址</label>
-                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" />
-        
+                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" required />
+                                <div class="help-block with-errors"></div>
                             </div>
 
 				            <div class="form-group">
 									<label>電子信箱(Email)</label>
-                                    <asp:TextBox ID="sEmail" runat="server" type="text" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
-
+                                    <asp:TextBox ID="sEmail" runat="server" type="email" class="form-username form-control" placeholder="Email : person@example.com" required></asp:TextBox>
+                                    <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
