@@ -197,49 +197,67 @@
                          checkIDcardnumber: function (item) {
                              var idNumber = item.val();
                              var result;
-
+                             var idNumberL = idNumber.length;
+                             var pattern;
+                             
+                             //check IdentityCard formate feature
                              if (idNumber != "") {
-                                 if (idNumber.length == 10) {
-                                     //check IdentityCard formate feature
-                                     result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}[0-9]{8}$/);
+                                 if (idNumberL >= 2) {
+                                     var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
+                                     var item = (idNumberL - 2);
+                                     var endre = '}$';
+                                     pattern = ''.concat(startre, item, endre);
+                                 }
+                                 else
+                                 {
+                                     var checkre = '^[a-zA-Z]{1}$';
+                                     pattern = ''.concat(checkre);
+                                 }
+                                 
+                                 var re = new RegExp(pattern);
+                             
 
-                                     if (!result) {
-                                         return "身份證字號不符合格式. 請重新輸入."
-                                     }
-                                 } else {
-
-                                     if (idNumber.length == 2) {
-                                         result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}$/);
+                                 switch (idNumberL) {
+                                     case 10:
+                                         result = idNumber.match(re);
+                                         if (!result)
+                                         {
+                                             return "身份證字號不符合格式. 請重新輸入."
+                                         }
+                                         break;
+                                     case 2:
+                                         result = idNumber.match(re);
                                          if (result) {
                                              return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
                                          }
                                          else {
                                              return "資料填寫不正確. 請確認您填寫的資料內容."
                                          }
-                                     }
-
-                                     if (idNumber.length > 2) {
-                                         var idNumberL = idNumber.length;
-
-                                         var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
-                                         var item = (idNumberL - 2);
-                                         var endre = '}$';
-                                         var pattern = ''.concat(startre, item, endre);
-                                         var re = new RegExp(pattern);
+                                         break;
+                                     default:
+                                         //1,3~9
                                          result = idNumber.match(re);
-                                         if (!result) {
-                                             return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
+
+                                         if (idNumberL > 2 && idNumberL < 10) {
+                                             if (!result) {
+                                                 return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
+                                             }
+                                             else
+                                             {
+                                                 return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
+                                             }
                                          }
-                                         else {
+
+                                         if (!result)
+                                         {
+                                             return "資料填寫不正確. 請確認您填寫的資料內容."                                             
+                                         }
+                                         else
+                                         {
                                              return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
                                          }
-
-                                     }
-
-                                     return "資料填寫不正確. 請確認您填寫的資料內容."
-                                 }
-
-                             }
+                                 } 
+                             }                            
                          },
 
                          checkPhonenumber: function (item) {
