@@ -4,10 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
+
+    <!--------------------------------- Styling -------------------------------->
+
+    <!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'/>
+	
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+
+    <!-- Patient Style -->
+    <link rel="stylesheet" href="/assets/css/patient-style.css"/>
+   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
+
     <!-- Head Content Place Holder -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <a href="IndexPageLogin.Master">IndexPageLogin.Master</a>
 
 </head>
 
@@ -16,17 +31,18 @@
 
 
 <body>
+   
     
-    
-        <div>
+        <div style="background-image:url(/assets/img/backgrounds/PatientIndexPage.jpg); background-position:center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
 
             <!-- Navigation Bar starts from here -->
              <nav class="navbar navbar-inverse">
                     <div class="container-fluid" style="background-color:#4c4f51">
            
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/SignUp.aspx"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
-                        </ul>                        
+                            <li><a href="/SignUp.aspx"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+                        </ul>
+
                    </div>
             </nav>
             <!--Navigation Bar ends here -->
@@ -37,20 +53,11 @@
 
            
          <!-- Body Content Place Holder -->
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="body" runat="server">
         
         </asp:ContentPlaceHolder>
 
         </div>
-
-
-
-
-
-
-
-
-
     
 </body>
 </html>

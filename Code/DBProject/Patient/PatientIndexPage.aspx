@@ -1,14 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IndexPageLogin.Master" AutoEventWireup="true" CodeBehind="PatientIndexPage.aspx.cs" Inherits="DBProject.Patient.PatientIndexPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <title>MedicX 4 Health Care Login &amp; Register</title>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!DOCTYPE html>
+    <title>MedicX 4 Health Care 首次登入 &amp; 填寫基本病歷表單</title>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head >
-
-<!-- CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"/>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css"/>
@@ -21,12 +15,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"/>
-
-    
+        
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
 
     <!-- Javascript -->
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
@@ -37,188 +29,184 @@
     <!--引用 Validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
+    <!--Script function-->
+    <script type="text/javascript">
 
- <script type="text/javascript">
 
+         //----------------------Function1-----------------------------//
+         function validateEmail(Email) {
+             if (Email == "") {
+                 alert("Email 尚未輸入. 請填寫 Email.");
+                 return false;
+             }
 
-     //----------------------Function1-----------------------------//
-     function validateEmail(Email) {
-         if (Email == "") {
-             alert("Email 尚未輸入. 請填寫 Email.");
-             return false;
-         }
-
-         else if (Email.indexOf("@") == -1 || Email.indexOf(".com") == -1) {
-             alert("你的 email 格式似乎不正確. 請重新輸入 email.");
-             return false;
-         }
-
-         else {
-             var location = Email.indexOf("@");
-
-             if (Email[0] == '@' || Email[location + 1] == '.') {
+             else if (Email.indexOf("@") == -1 || Email.indexOf(".com") == -1) {
                  alert("你的 email 格式似乎不正確. 請重新輸入 email.");
                  return false;
              }
 
-             var emailPat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-             var EmailmatchArray = Email.match(emailPat);
+             else {
+                 var location = Email.indexOf("@");
 
-             if (EmailmatchArray == null) {
-                 alert("你的 email 格式似乎不正確. 請重新輸入 email.");
-                 return false;
+                 if (Email[0] == '@' || Email[location + 1] == '.') {
+                     alert("你的 email 格式似乎不正確. 請重新輸入 email.");
+                     return false;
+                 }
+
+                 var emailPat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                 var EmailmatchArray = Email.match(emailPat);
+
+                 if (EmailmatchArray == null) {
+                     alert("你的 email 格式似乎不正確. 請重新輸入 email.");
+                     return false;
+                 }
              }
+
+             return true;
          }
 
-         return true;
-     }
 
 
 
 
 
+         //----------------------Function2-----------------------------//
+         function validateS() {
+             var Name = document.getElementById('<%=sName.ClientID %>').value;
 
-     //----------------------Function2-----------------------------//
-     function validateS() {
-         var Name = document.getElementById('<%=sName.ClientID %>').value;
+             var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
+             var Bdate_st = changeDate(Bdate);
 
-         var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
-         var Bdate_st = changeDate(Bdate);
+             var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
+             var Sdate_st = changeDate(Sdate);
 
-         var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
-         var Sdate_st = changeDate(Sdate);
+             var Email = document.getElementById('<%=sEmail.ClientID %>').value;
+             var phone = document.getElementById('<%=sPhoneM.ClientID %>').value;
 
-         var Email = document.getElementById('<%=sEmail.ClientID %>').value;
-         var phone = document.getElementById('<%=sPhoneM.ClientID %>').value;
-         
 
-         /*now the validation code*/
+             /*now the validation code*/
 
-         if (Name == "") {
-             alert("姓名尚未填寫. 請填寫姓名.");
+             if (Name == "") {
+                 alert("姓名尚未填寫. 請填寫姓名.");
+
+                 if (Bdate == "") {
+                     var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                     Bdate_a.type = "text";
+                 }
+
+                 if (Sdate == "") {
+                     var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                     Sdate_a.type = "text";
+                 }
+
+                 return false;
+             }
+
+             var arrDbirth1 = Bdate_st.split("-");
+             var arrDbirth2 = Sdate_st.split("-");
 
              if (Bdate == "") {
+                 alert("尚未輸入生日. 請選擇生日日期.");
+
                  var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
                  Bdate_a.type = "text";
+
+                 return false;
+             }
+             else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
+                 alert("生日日期格式錯誤. 請重新輸入生日.");
+
+                 var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                 Bdate_a.type = "text";
+
+                 return false;
              }
 
              if (Sdate == "") {
+                 alert("尚未輸入日期. 請選擇手術日期.");
+
                  var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
                  Sdate_a.type = "text";
+
+                 return false;
+             }
+             else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
+                 alert("手術日期格式錯誤. 請重新輸入日期.");
+
+                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                 Sdate_a.type = "text";
+
+                 return false;
              }
 
-             return false;
-         }        
 
-         var arrDbirth1 = Bdate_st.split("-");
-         var arrDbirth2 = Sdate_st.split("-");
+             if (!validateEmail(Email))
+                 return false;
 
-         if (Bdate == "") {
-             alert("尚未輸入生日. 請選擇生日日期.");
+             if (phone.length != 10) {
+                 alert("收機號碼格式錯誤. 請重新輸入號碼.");
+                 return false;
+             }
 
-             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
-             Bdate_a.type = "text";
 
-             return false;
-         }
-         else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-             alert("生日日期格式錯誤. 請重新輸入生日.");
+             if (Request.Form["Gender"] == null) {
+                 alert("尚未勾選性別. 請選擇性別");
+                 return false;
+             }
 
-             var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
-             Bdate_a.type = "text";
-
-             return false;
-         }
-
-         if (Sdate == "") {
-             alert("尚未輸入日期. 請選擇手術日期.");
-
-             var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
-             Sdate_a.type = "text";
-
-             return false;
-         }
-         else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-             alert("手術日期格式錯誤. 請重新輸入日期.");
-
-             var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
-             Sdate_a.type = "text";
-
-             return false;
+             return true;
          }
 
 
-         if (!validateEmail(Email))
-             return false;
 
-         if (phone.length != 10) {
-             alert("收機號碼格式錯誤. 請重新輸入號碼.");
-             return false;
+
+
+
+         //----------------------Function4-----------------------------//
+         //input date string ,conversion the string to date format dd-mm-yyyy
+         function changeDate(date) {
+             var y = date.substr(0, 4);
+             var m = date.substr(5, 2);
+             var d = date.substr(8, 2);
+
+             return d + '-' + m + '-' + y;
          }
 
+         //----------------------Function5-----------------------------//
+         //check Form input formate by JQuery
+         $(function () {
+             $("#SignUpPage").validator(
+                 {
+                     custom: {
+                         checkIDcardnumber: function (item) {
+                             var idNumber = item.val();
+                             var result;
 
-         if (Request.Form["Gender"] == null) {
-             alert("尚未勾選性別. 請選擇性別");
-             return false;
-         }
+                             if (idNumber != "") {
+                                 if (idNumber.length == 10) {
+                                     //check IdentityCard formate feature
+                                     result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}[0-9]{8}$/);
 
-         return true;
-     }
-
-
-
-
-
-
-     //----------------------Function4-----------------------------//
-     //input date string ,conversion the string to date format dd-mm-yyyy
-     function changeDate(date) {
-         var y = date.substr(0, 4);
-         var m = date.substr(5, 2);
-         var d = date.substr(8, 2);
-
-         return d + '-' + m + '-' + y;
-     }
-
-     //check Form input formate by JQuery
-     $(function ()
-     {
-         $("#SignUpPage").validator(
-             {
-                 custom: {
-                     checkIDcardnumber: function (item)
-                     {
-                         var idNumber = item.val();                         
-                         var result;
-
-                         if (idNumber != "")
-                         {
-                             if (idNumber.length == 10) {
-                                 //check IdentityCard formate feature
-                                 result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}[0-9]{8}$/);
-
-                                 if (!result) {
-                                     return "身份證字號不符合格式. 請重新輸入."
-                                 }
-                             } else
-                             {
-
-                                 if (idNumber.length == 2) {
-                                     result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}$/);
-                                     if (result) {
-                                         return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
+                                     if (!result) {
+                                         return "身份證字號不符合格式. 請重新輸入."
                                      }
-                                     else
-                                     {
-                                         return "資料填寫不正確. 請確認您填寫的資料內容."
-                                     }
-                                 }
+                                 } else {
 
-                                 if (idNumber.length > 2) {
-                                     var idNumberL = idNumber.length;
-                                     
+                                     if (idNumber.length == 2) {
+                                         result = idNumber.match(/^[a-zA-Z]{1}[1-2]{1}$/);
+                                         if (result) {
+                                             return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
+                                         }
+                                         else {
+                                             return "資料填寫不正確. 請確認您填寫的資料內容."
+                                         }
+                                     }
+
+                                     if (idNumber.length > 2) {
+                                         var idNumberL = idNumber.length;
+
                                          var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
-                                         var item = (idNumberL-2);
+                                         var item = (idNumberL - 2);
                                          var endre = '}$';
                                          var pattern = ''.concat(startre, item, endre);
                                          var re = new RegExp(pattern);
@@ -226,97 +214,87 @@
                                          if (!result) {
                                              return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
                                          }
-                                         else
-                                         {
+                                         else {
                                              return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
                                          }
-                                                                          
+
+                                     }
+
+                                     return "資料填寫不正確. 請確認您填寫的資料內容."
                                  }
-                                 
-                                 return "資料填寫不正確. 請確認您填寫的資料內容."
+
                              }
-                             
-                         }                         
-                     },
+                         },
 
-                     checkPhonenumber: function (item) {
-                         var Phonenumber = item.val();
+                         checkPhonenumber: function (item) {
+                             var Phonenumber = item.val();
 
-                         if (Phonenumber != "") {
-                             var result;
-                             var errMSG = "電話號碼不符合格式. 請重新輸入.";
-                             var Phonelength = Phonenumber.length;
+                             if (Phonenumber != "") {
+                                 var result;
+                                 var errMSG = "電話號碼不符合格式. 請重新輸入.";
+                                 var Phonelength = Phonenumber.length;
 
-                             //check PhoneNumber formate feature
-                             if (Phonelength > 7 && Phonelength < 12)
-                             {
-                                 //check PhoneNumber data set
-                                 switch (Phonelength) {
-                                     case 8:
-                                         result = Phonenumber.match(/^\d{2}[-]\d{5}$/);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 9:
-                                         result = Phonenumber.match(/^\d{2}[-]\d{6}$/);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 10:
-                                         result = Phonenumber.match(/^\d{2}[-]\d{7}$/);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 11:
-                                         result = Phonenumber.match(/^\d{2}[-]\d{8}$/);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     default:
-                                         return "程式有問題. 請工程人員確認原因(沒抓到資料)."
-                                 }          
-                             }
-                             else
-                             {
-                                 result = Phonenumber.match(/\d{2}[-]/);
-                                 if (!result) {
-                                     return errMSG
+                                 //check PhoneNumber formate feature
+                                 if (Phonelength > 7 && Phonelength < 12) {
+                                     //check PhoneNumber data set
+                                     switch (Phonelength) {
+                                         case 8:
+                                             result = Phonenumber.match(/^\d{2}[-]\d{5}$/);
+                                             if (!result) {
+                                                 return errMSG
+                                             }
+                                             break;
+                                         case 9:
+                                             result = Phonenumber.match(/^\d{2}[-]\d{6}$/);
+                                             if (!result) {
+                                                 return errMSG
+                                             }
+                                             break;
+                                         case 10:
+                                             result = Phonenumber.match(/^\d{2}[-]\d{7}$/);
+                                             if (!result) {
+                                                 return errMSG
+                                             }
+                                             break;
+                                         case 11:
+                                             result = Phonenumber.match(/^\d{2}[-]\d{8}$/);
+                                             if (!result) {
+                                                 return errMSG
+                                             }
+                                             break;
+                                         default:
+                                             return "程式有問題. 請工程人員確認原因(沒抓到資料)."
+                                     }
                                  }
-                                 else
-                                 {
-                                     return "電話尚未輸入完畢. 請確認您輸入的資料."
-                                 }                                 
-                             }                                                
-                         }    
-                     },
-                 }
-             });
-     });
+                                 else {
+                                     result = Phonenumber.match(/\d{2}[-]/);
+                                     if (!result) {
+                                         return errMSG
+                                     }
+                                     else {
+                                         return "電話尚未輸入完畢. 請確認您輸入的資料."
+                                     }
+                                 }
+                             }
+                         },
+                     }
+                 });
+         });
 
 
 
 
 
-     
-     //------------------------------------------------------------------//
-     //------------------------------------------------------------------//
-     //------------------------------------------------------------------//
 
-</script>
-    
-</head>
+         //------------------------------------------------------------------//
+         //------------------------------------------------------------------//
+         //------------------------------------------------------------------//
 
+    </script>
 
+</asp:Content>
 
-<body>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <form id="SignUpPage" data-toggle="validator" runat="server">
     
 				       
@@ -711,7 +689,4 @@
   
 
         </form>
-</body>
-</html>
-
 </asp:Content>

@@ -335,7 +335,6 @@
     <Folder Include="assets\ico\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
-    <Folder Include="Patient\assets\img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
