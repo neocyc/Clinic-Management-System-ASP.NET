@@ -44,134 +44,174 @@
 
     <!--引用 Validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-
-    <!--Script function-->
+        <!--Script function-->
     <script type="text/javascript">
 
+        function validatetest()
+        {
+            var form = document.getElementById("SignUpPage");
 
-         //----------------------Function1-----------------------------//
-         function validateEmail(Email) {
-             if (Email == "") {
-                 alert("Email 尚未輸入. 請填寫 Email.");
-                 return false;
-             }
+            var checkStateCN = form.ChineseNationality.value;
+            if (checkStateCN == "") {
+                alert("尚未勾選旅行團. 請選擇旅行團");
+                return false;
+            } 
 
-             else if (Email.indexOf("@") == -1 || Email.indexOf(".com") == -1) {
-                 alert("你的 email 格式似乎不正確. 請重新輸入 email.");
-                 return false;
-             }
+            var checkboxtotal = form.Nationality.length;
 
-             else {
-                 var location = Email.indexOf("@");
+            for (i = 0; i < checkboxtotal; i++)
+            {
+                var test = form.Nationality[i].checked;
+                if (test == true)
+                {
+                    break;
+                }
 
-                 if (Email[0] == '@' || Email[location + 1] == '.') {
-                     alert("你的 email 格式似乎不正確. 請重新輸入 email.");
-                     return false;
-                 }
+                if (i == (checkboxtotal-1))
+                {
+                    alert("尚未勾選");
+                    return false;
+                }
+            }
+            
+            return true;
+        }
 
-                 var emailPat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                 var EmailmatchArray = Email.match(emailPat);
+        //----------------------Function1-----------------------------//
+        ////check Form feature: "checkbox","radiobox" and "input type=date"
+        function validateS() {
+            var form = document.getElementById("SignUpPage");
 
-                 if (EmailmatchArray == null) {
-                     alert("你的 email 格式似乎不正確. 請重新輸入 email.");
-                     return false;
-                 }
-             }
+            var checkStateG = form.Gender.value;
+            if (checkStateG == "") {
+                alert("尚未勾選性別. 請選擇性別");
+                return false;
+            }
 
-             return true;
-         }
+            var checkStateM = form.MaritalStatus.value;
+            if (checkStateM == "") {
+                alert("尚未勾選婚姻狀態. 請選擇婚姻狀態");
+                return false;
+            }            
 
+            var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
+            var Bdate_st = changeDate(Bdate);
 
+            var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
+            var Sdate_st = changeDate(Sdate);
+            
+            var arrDbirth1 = Bdate_st.split("-");
+            var arrDbirth2 = Sdate_st.split("-");
 
+            if (Bdate == "") {
+                alert("尚未輸入生日. 請選擇生日日期.");
 
+                var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                Bdate_a.type = "text";
 
+                return false;
+            }
+            else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth1[0]) > 31 || Number(arrDbirth1[1]) > 12) {
+                alert("生日日期格式錯誤. 請重新輸入生日.");
 
-         //----------------------Function2-----------------------------//
-         function validateS() {
-             var Name = document.getElementById('<%=sName.ClientID %>').value;
+                var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
+                Bdate_a.type = "text";
 
-             var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
-             var Bdate_st = changeDate(Bdate);
+                return false;
+            }
 
-             var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
-             var Sdate_st = changeDate(Sdate);
+            var checkboxTotal = form.Nationality.length;
 
-             var Email = document.getElementById('<%=sEmail.ClientID %>').value;
-             var phone = document.getElementById('<%=sPhoneM.ClientID %>').value;
+            for (i = 0; i < checkboxTotal;i++)
+            {
+                var checkboxState = form.Nationality[i].checked;
 
+                if (checkboxState == true)
+                {
+                    break;
+                }
 
-             /*now the validation code*/
+                if (i == (checkboxTotal - 1)) {
+                    alert("尚未勾選國籍. 請勾選國籍(複選).");
+                    return false;
+                }
+            }
 
-             if (Name == "") {
-                 alert("姓名尚未填寫. 請填寫姓名.");
+            for (i = 0; i < checkboxTotal; i++) {
+                var checkboxState = form.Nationality[i].checked;
+                if (checkboxState == true) {
+                    if (i == 1)
+                    {
+                        var checkStateCN = form.ChineseNationality.value;
+                        if (checkStateCN == "") {
+                            alert("尚未勾選旅行團. 請選擇旅行團");
+                            return false;
+                        }                    
 
-                 if (Bdate == "") {
-                     var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
-                     Bdate_a.type = "text";
-                 }
+                        if (checkStateCN == "Y")
+                        {
+                            var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
+                            TouringNo.setAttribute("required");
+                        }
+                    }
 
-                 if (Sdate == "") {
-                     var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
-                     Sdate_a.type = "text";
-                 }
+                    if (i == 2)
+                    {
+                        var Nationality = document.getElementById('<%=sNationality.ClientID %>');
+                        Nationality.setAttribute("required");
+                    }
+                }              
+            }
 
-                 return false;
-             }
+            var checkStateFMH = form.FamilyMedicalHistory.value;
+            if (checkStateFMH == "") {
+                alert("尚未勾選家族病史. 請選擇家族病史");
+                return false;
+            }
 
-             var arrDbirth1 = Bdate_st.split("-");
-             var arrDbirth2 = Sdate_st.split("-");
+            var checkStateI = form.InternalMedical.value;
+            if (checkStateI == "") {
+                alert("尚未勾選個人內科病史. 請選擇個人內科病史");
+                return false;
+            }
 
-             if (Bdate == "") {
-                 alert("尚未輸入生日. 請選擇生日日期.");
+            var checkStateS = form.SurgeryMedical.value;
+            if (checkStateS == "") {
+                alert("尚未勾選個人手術史. 請選擇個人手術史");
+                return false;
+            }
 
-                 var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
-                 Bdate_a.type = "text";
+            if (Sdate == "") {
+                alert("尚未輸入日期. 請選擇手術日期.");
 
-                 return false;
-             }
-             else if ((Bdate_st == arrDbirth1[0]) || (arrDbirth1[0].length != 2) || arrDbirth1[1].length != 2 || arrDbirth1[2].length != 4 || !arrDbirth1[0].match(/^[0-9]*$/) || !arrDbirth1[1].match(/^[0-9]*$/) || !arrDbirth1[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-                 alert("生日日期格式錯誤. 請重新輸入生日.");
+                var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                Sdate_a.type = "text";
 
-                 var Bdate_a = document.getElementById('<%=sBirthDate.ClientID %>');
-                 Bdate_a.type = "text";
+                return false;
+            }
+            else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth2[0]) > 31 || Number(arrDbirth2[1]) > 12) {
+                alert("手術日期格式錯誤. 請重新輸入日期.");
 
-                 return false;
-             }
+                var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                Sdate_a.type = "text";
 
-             if (Sdate == "") {
-                 alert("尚未輸入日期. 請選擇手術日期.");
+                return false;
+            }
 
-                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
-                 Sdate_a.type = "text";
+            var checkStateA = form.AllergyMedical.value;
+            if (checkStateA == "") {
+                alert("尚未勾選個人藥物過敏史. 請選擇個人藥物過敏史");
+                return false;
+            }
 
-                 return false;
-             }
-             else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth[0]) > 31 || Number(arrDbirth[1]) > 12) {
-                 alert("手術日期格式錯誤. 請重新輸入日期.");
+            var checkStateT = form.Touring.value;
+            if (checkStateT == "") {
+                alert("尚未勾選旅遊史. 請選擇旅遊史");
+                return false;
+            }
 
-                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
-                 Sdate_a.type = "text";
-
-                 return false;
-             }
-
-
-             if (!validateEmail(Email))
-                 return false;
-
-             if (phone.length != 10) {
-                 alert("手機號碼格式錯誤. 請重新輸入號碼.");
-                 return false;
-             }
-
-
-             if (Request.Form["Gender"] == null) {
-                 alert("尚未勾選性別. 請選擇性別");
-                 return false;
-             }
-
-             return true;
-         }
+            return true;
+        }
 
 
 
@@ -586,7 +626,7 @@
 
 							<div class="form-group">
 								<label>地址</label>
-                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" runat="server" Height="75px" Width="100%" required />
+                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
                                 <div class="help-block with-errors"></div>
                             </div>
 
@@ -598,26 +638,26 @@
 
                             <div class="form-group">
 								<label>緊急聯絡人姓名</label>
-                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" required></asp:TextBox>
+                                <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 								<label>與病患關係</label>
-                                <asp:TextBox ID="sCERelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sCERelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" required></asp:TextBox>
+                                <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 									<label>緊急聯絡人電話</label>
-                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話" ></asp:TextBox>
-
+                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話(XX-XXXXXXXX)" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
+                                    <div class="help-block with-errors"></div>   
                             </div>
 							
 							<div class="form-group">
 									<label>緊急聯絡人手機</label>
-                                    <asp:TextBox ID="sPhoneMEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)" ></asp:TextBox>
-
+                                    <asp:TextBox ID="sPhoneMEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)" required maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
+                                    <div class="help-block with-errors"></div>   
                             </div>   
                                
                             <br />
@@ -633,8 +673,8 @@
 
                             <div class="form-group">
 								<label>一、職業與工作 :</label>
-                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" ></asp:TextBox>
-                                                       	                            
+                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" required></asp:TextBox>
+                                <div class="help-block with-errors"></div>                       	                            
                             </div>
                             
                             <br />
@@ -653,12 +693,14 @@
                                          <input type="radio" name="ChineseNationality" value="N" id="ChineseTouringDefault" />
                                           No
                                          <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
+                                         <div class="help-block with-errors"></div>
                                      </div>
 
                                  <input type="checkbox" name="Nationality" value="Nationality of foreign" />
                                   外國
                                  <br /><label>國家</label>
                                  <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
+                                 <div class="help-block with-errors"></div>
                             </div>
 
                             <br />
@@ -815,13 +857,14 @@
                                 <div class="form-group">                                    
 								    <label>七、目前之長期服用藥物 :</label>                                   
                                         <div class="form-group ">                                            
-                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" ></asp:TextBox>
-           	                                
+                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" required></asp:TextBox>
+           	                                <div class="help-block with-errors"></div>
                                         </div>                                 
                                 </div>
                             </div>
                             <div class="text-center">
                                 <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
+                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();"></asp:button>
                             </div>
 
                              <!-- sign up ends here -->
