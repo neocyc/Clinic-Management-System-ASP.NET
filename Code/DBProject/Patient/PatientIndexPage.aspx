@@ -49,8 +49,7 @@
     <!--Script function-->
     <script type="text/javascript">
 
-        function validatetest()
-        {
+        function validatetest() {
             var form = document.getElementById("SignUpPage");
 
             var checkboxTotal = form.Nationality.length;
@@ -68,28 +67,30 @@
                 }
             }
 
-            for (i = 0; i < checkboxTotal; i++) {
-                var checkboxState = form.Nationality[i].checked;
-                if (checkboxState == true) {
-                    if (i == 1) {
-                        var checkStateCN = form.ChineseNationality.value;
-                        if (checkStateCN == "") {
-                            alert("尚未勾選旅行團. 請選擇旅行團");
-                            return false;
-                        }
+            if (form.Nationality[1].checked == true) {
+                alert("Y1");
+                var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
+                TouringNo.setAttribute("required", "");
+            }
+            else
+            {
+                var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
+                TouringNo.removeAttribute("required");
+            }
 
-                        if (checkStateCN == "Y") {
-                            var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
-                            //TouringNo.setAttribute("required");
-                        }
-                    }
 
-                    if (i == 2) {
-                        var Nationality = document.getElementById('<%=sNationality.ClientID %>');
-                        Nationality.setAttribute("required","");
-                    }
-                }
-            }            
+            if (form.Nationality[2].checked == true) {
+                alert("Y2");
+                var Nationality = document.getElementById('<%=sNationality.ClientID %>');
+                Nationality.setAttribute("required", "");
+            }
+            else
+            {
+                var Nationality = document.getElementById('<%=sNationality.ClientID %>');
+                Nationality.removeAttribute("required");
+            }
+
+            return true;
         }
 
         //----------------------Function1-----------------------------//
@@ -449,15 +450,20 @@
                                           Yes
                                          <input type="radio" name="ChineseNationality" value="N" id="ChineseTouringDefault" />
                                           No
-                                         <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
-                                         <div class="help-block with-errors"></div>
+                                         <div class="form-group">
+                                              <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
+                                            <div class="help-block with-errors"></div> 
+                                         </div>                                        
                                      </div>
 
                                  <input type="checkbox" name="Nationality" value="Nationality of foreign" />
                                   外國
-                                 <br /><label>國家</label>
-                                 <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
-                                 <div class="help-block with-errors"></div>
+                                    
+                                    <br /><label>國家</label>
+                                     <div class="form-group">
+                                         <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
+                                         <div class="help-block with-errors"></div> 
+                                    </div>                                 
                             </div>
 
                             <br />
