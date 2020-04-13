@@ -43,38 +43,53 @@
     
 
     <!--引用 Validator-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-        <!--Script function-->
+    <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
+    <script src="../assets/bootstrap/js/plugin/bootstrap-validator.js"></script>
+    
+    <!--Script function-->
     <script type="text/javascript">
 
         function validatetest()
         {
             var form = document.getElementById("SignUpPage");
 
-            var checkStateCN = form.ChineseNationality.value;
-            if (checkStateCN == "") {
-                alert("尚未勾選旅行團. 請選擇旅行團");
-                return false;
-            } 
+            var checkboxTotal = form.Nationality.length;
 
-            var checkboxtotal = form.Nationality.length;
+            for (i = 0; i < checkboxTotal; i++) {
+                var checkboxState = form.Nationality[i].checked;
 
-            for (i = 0; i < checkboxtotal; i++)
-            {
-                var test = form.Nationality[i].checked;
-                if (test == true)
-                {
+                if (checkboxState == true) {
                     break;
                 }
 
-                if (i == (checkboxtotal-1))
-                {
-                    alert("尚未勾選");
+                if (i == (checkboxTotal - 1)) {
+                    alert("尚未勾選國籍. 請勾選國籍(複選).");
                     return false;
                 }
             }
-            
-            return true;
+
+            for (i = 0; i < checkboxTotal; i++) {
+                var checkboxState = form.Nationality[i].checked;
+                if (checkboxState == true) {
+                    if (i == 1) {
+                        var checkStateCN = form.ChineseNationality.value;
+                        if (checkStateCN == "") {
+                            alert("尚未勾選旅行團. 請選擇旅行團");
+                            return false;
+                        }
+
+                        if (checkStateCN == "Y") {
+                            var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
+                            //TouringNo.setAttribute("required");
+                        }
+                    }
+
+                    if (i == 2) {
+                        var Nationality = document.getElementById('<%=sNationality.ClientID %>');
+                        Nationality.setAttribute("required","");
+                    }
+                }
+            }            
         }
 
         //----------------------Function1-----------------------------//
@@ -151,14 +166,14 @@
                         if (checkStateCN == "Y")
                         {
                             var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
-                            TouringNo.setAttribute("required");
+                            TouringNo.setAttribute("required","");
                         }
                     }
 
                     if (i == 2)
                     {
                         var Nationality = document.getElementById('<%=sNationality.ClientID %>');
-                        Nationality.setAttribute("required");
+                        Nationality.setAttribute("required","");
                     }
                 }              
             }
@@ -228,265 +243,7 @@
              return d + '-' + m + '-' + y;
          }
 
-         //----------------------Function5-----------------------------//
-         //check Form input formate by JQuery
-         $(function () {
-             $("#SignUpPage").validator(
-                 {
-                     custom: {
-                         checkIDcardnumber: function (item) {
-                             var idNumber = item.val();
-                             var result;
-                             var idNumberL = idNumber.length;
-                             var pattern;
-                             
-                             //check IdentityCard formate feature
-                             if (idNumber != "")
-                             {
-                                 if (idNumberL >= 2)
-                                 {
-                                     var startre = '^[a-zA-Z]{1}[1-2]{1}[1-9]{';
-                                     var item = (idNumberL - 2);
-                                     var endre = '}$';
-                                     pattern = ''.concat(startre, item, endre);
-                                 }
-                                 else
-                                 {
-                                     var checkre = '^[a-zA-Z]{1}$';
-                                     pattern = ''.concat(checkre);
-                                 }
-                                 
-                                 var re = new RegExp(pattern);
-                             
-
-                                 switch (idNumberL)
-                                 {
-                                     case 10:
-                                         result = idNumber.match(re);
-                                         if (!result)
-                                         {
-                                             return "身份證字號不符合格式. 請重新輸入."
-                                         }
-                                         break;
-                                     case 2:
-                                         result = idNumber.match(re);
-                                         if (result)
-                                         {
-                                             return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
-                                         }
-                                         else
-                                         {
-                                             return "資料填寫不正確. 請確認您填寫的資料內容(英文字母+數字9碼)."
-                                         }
-                                         break;
-
-                                     default:
-                                         result = idNumber.match(re);
-
-                                         if (idNumberL > 2 && idNumberL < 10)
-                                         {
-                                             if (!result)
-                                             {
-                                                 return "身分證字號輸入錯誤. 請確認您輸入的資料內容."
-                                             }
-                                             else
-                                             {
-                                                 return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
-                                             }
-                                         }
-
-                                         if (!result)
-                                         {
-                                             return "資料填寫不正確. 請確認您填寫的資料內容(開頭是英文字母)."                                             
-                                         }
-                                         else
-                                         {
-                                             return "身份證字號尚未輸入完畢. 請確認您輸入的資料內容."
-                                         }
-                                 } 
-                             }                            
-                         },
-
-                         checkPhonenumber: function (item) {
-                             var Phonenumber = item.val();
-                             var result;
-                             var PhonenumberL = Phonenumber.length;
-                             var pattern;
-                             var errMSG = "電話號碼不符合格式. 請重新輸入.";
-
-                             //check PhoneNumber formate feature
-                             if (Phonenumber != "")
-                             {
-                                 if (PhonenumberL >= 3)
-                                 {
-                                     var startre = '^[0-9]{2}[-][0-9]{';
-                                     var item = (PhonenumberL - 3);
-                                     var endre = '}$';
-                                     pattern = ''.concat(startre, item, endre);
-                                 }
-                                 else
-                                 {
-                                     var startre = '^[0-9]{';
-                                     var item = PhonenumberL;
-                                     var endre = '}$';
-                                     pattern = ''.concat(startre, item, endre);
-                                 }                                 
-
-                                 var re = new RegExp(pattern);
-
-
-                                 switch (PhonenumberL)
-                                 {                                     
-                                     case 8:
-                                         result = Phonenumber.match(re);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 9:
-                                         result = Phonenumber.match(re);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 10:
-                                         result = Phonenumber.match(re);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 11:
-                                         result = Phonenumber.match(re);
-                                         if (!result)
-                                         {
-                                             return errMSG
-                                         }
-                                         break;
-                                     case 3:
-                                         result = Phonenumber.match(re);
-                                         if (result)
-                                         {
-                                             return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
-                                         }
-                                         else
-                                         {
-                                             return "電話號碼(區碼)不正確. 請確認您填寫的資料內容."
-                                         }
-                                         break;
-                                     default:
-                                         result = Phonenumber.match(re);
-
-                                         if (PhonenumberL > 3 && PhonenumberL < 8)
-                                         {
-                                             if (!result)
-                                             {
-                                                 return "電話號碼輸入錯誤. 請確認您輸入的資料內容."
-                                             }
-                                             else
-                                             {
-                                                 return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
-                                             }
-                                         }
-
-                                         if (!result)
-                                         {
-                                             return "資料填寫不正確. 請確認您填寫的資料內容(電話號碼只能是數字)."
-                                         }
-                                         else
-                                         {
-                                             return "電話號碼尚未輸入完畢. 請確認您輸入的資料內容."
-                                         }
-                                 }                                 
-                             }
-                         },
-
-                         checkMobilenumber: function (item){
-                             var Mobilenumber = item.val();
-                             var result;
-                             var MobilenumberL = Mobilenumber.length;
-                             var pattern;
-                             var errMSG = "手機號碼不符合格式. 請重新輸入.";
-
-                             //check MobileNumber formate feature
-                             if (Mobilenumber != "")
-                             {
-                                 var startre = '^[0-9]{';
-                                 var item = MobilenumberL;
-                                 var endre = '}$';
-                                 pattern = ''.concat(startre, item, endre);
-
-                                 var re = new RegExp(pattern);
-
-                                 if (MobilenumberL == 10)
-                                 {
-                                     result = Mobilenumber.match(re);
-                                     if (!result)
-                                     {
-                                         return errMSG
-                                     }
-                                 }
-                                 else
-                                 {
-                                     result = Mobilenumber.match(re);
-                                     if (!result)
-                                     {
-                                         return "資料填寫不正確. 請確認您填寫的資料內容(手機號碼只能是數字)."
-                                     }
-                                     else
-                                     {
-                                         return "手機號碼尚未輸入完畢. 請確認您輸入的資料內容."
-                                     }
-                                 }                       
-                             }
-                         },
-
-                         checkDatanumber: function (item) {
-                             var Datanumber = item.val();
-                             var result;
-                             var DatanumberL = Datanumber.length;
-                             var pattern;
-                             var errMSG = "資料填寫不正確. 請確認您填寫的資料內容(只能是數字).";
-
-                             if (Datanumber != "") {
-                                 var startre = '^[0-9]{';
-                                 var item = DatanumberL;
-                                 var endre = '}$';
-                                 pattern = ''.concat(startre, item, endre);
-
-                                 var re = new RegExp(pattern);
-
-                                 if (DatanumberL <= 2) {
-                                     result = Datanumber.match(re);
-                                     if (!result) {
-                                         return errMSG
-                                     }
-                                 }
-                                 else
-                                 {
-                                     var Zipcoderesult = document.getElementById('<%=sZipcode.ClientID %>').value;
-                                     if (Zipcoderesult != "" && Zipcoderesult.length == 3)
-                                     {
-                                         result = Zipcoderesult.match(re);
-                                         if (!result) {
-                                             return "郵遞區號不正確. 請確認您填寫的資料內容."
-                                         }
-                                     }
-
-                                     result = Datanumber.match(re);
-                                     if (!result) {
-                                         return errMSG
-                                     }
-                                 }                                 
-                             }
-                         }
-                     }
-                 });
-         });
-
-
+         
 
 
 
