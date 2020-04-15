@@ -47,6 +47,11 @@
     <!--Script function-->
     <script type="text/javascript">
 
+        function validatetest2()
+        {
+            return true;
+        }
+
         function validatetest() {
 
 
@@ -231,15 +236,6 @@
              return d + '-' + m + '-' + y;
          }
 
-         
-
-
-
-
-         //----------------------Function3-----------------------------//
-         //
-
-
          //------------------------------------------------------------------//
          //------------------------------------------------------------------//
          //------------------------------------------------------------------//
@@ -327,11 +323,11 @@
 									<label>電話(手機)</label>
                                     <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)" required maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
-                            </div>                         
-
+                            </div>                
+                                    
                             <label>性別</label>
 							<div class="form-group">
-								
+							     
                                  <input type="radio" name="Gender" value="M" id="GenderDefault" />
                                   男
                                  <input type="radio" name="Gender" value="F" />
@@ -618,7 +614,7 @@
                             </div>
                             <div class="text-center">
                                 <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();" onclick="signupV"></asp:button>
+                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest2();" onclick="signupV"></asp:button>
                             </div>
 
                              <!-- sign up ends here -->
