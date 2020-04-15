@@ -22,10 +22,13 @@
 
     <!-- Javascript -->
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    
-    
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>    
     <script src="../assets/js/jquery.backstretch.min.js"></script>
+
+    <!--引用 plugin -->
+    <!-- bootstrap Validator -->
+    <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
+    <script src="../assets/js/bootstrap-validator.js"></script>
     
     <!--
     <script src="../assets/js/scripts.js"></script>
@@ -41,15 +44,12 @@
         });
     </script>
     
-
-    <!--引用 Validator-->
-    <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
-    <script src="../assets/bootstrap/js/plugin/bootstrap-validator.js"></script>
-    
     <!--Script function-->
     <script type="text/javascript">
 
         function validatetest() {
+
+
             var form = document.getElementById("SignUpPage");
 
             var checkboxTotal = form.Nationality.length;
@@ -67,34 +67,46 @@
                 }
             }
 
+
+            //<div class="help-block with-errors"></div> 
+            //check when sumbit
             if (form.Nationality[1].checked == true) {
                 alert("Y1");
                 var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
                 TouringNo.setAttribute("required", "");
+                var errTN = document.getElementById('errTN');
+                errTN.setAttribute("class","help-block with-errors");
             }
             else
             {
                 var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
                 TouringNo.removeAttribute("required");
-            }
-
+                var errTN = document.getElementById('errTN');
+                errTN.removeAttribute("class");
+            }            
 
             if (form.Nationality[2].checked == true) {
                 alert("Y2");
                 var Nationality = document.getElementById('<%=sNationality.ClientID %>');
                 Nationality.setAttribute("required", "");
+                var errN = document.getElementById('errN');
+                errN.setAttribute("class", "help-block with-errors");
             }
             else
             {
                 var Nationality = document.getElementById('<%=sNationality.ClientID %>');
                 Nationality.removeAttribute("required");
+                var errN = document.getElementById('errN');
+                errN.removeAttribute("class");
             }
 
             return true;
         }
 
         //----------------------Function1-----------------------------//
-        ////check Form feature: "checkbox","radiobox" and "input type=date"
+        //check Form feature: "checkbox","radiobox" and "input type=date"
+        //when Form sumbit:
+        //"checkbox","radiobox" has finished or not. -> required Field
         function validateS() {
             var form = document.getElementById("SignUpPage");
 
@@ -111,13 +123,8 @@
             }            
 
             var Bdate = document.getElementById('<%=sBirthDate.ClientID %>').value;
-            var Bdate_st = changeDate(Bdate);
-
-            var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
-            var Sdate_st = changeDate(Sdate);
-            
-            var arrDbirth1 = Bdate_st.split("-");
-            var arrDbirth2 = Sdate_st.split("-");
+            var Bdate_st = changeDate(Bdate);            
+            var arrDbirth1 = Bdate_st.split("-");            
 
             if (Bdate == "") {
                 alert("尚未輸入生日. 請選擇生日日期.");
@@ -151,33 +158,7 @@
                     alert("尚未勾選國籍. 請勾選國籍(複選).");
                     return false;
                 }
-            }
-
-            for (i = 0; i < checkboxTotal; i++) {
-                var checkboxState = form.Nationality[i].checked;
-                if (checkboxState == true) {
-                    if (i == 1)
-                    {
-                        var checkStateCN = form.ChineseNationality.value;
-                        if (checkStateCN == "") {
-                            alert("尚未勾選旅行團. 請選擇旅行團");
-                            return false;
-                        }                    
-
-                        if (checkStateCN == "Y")
-                        {
-                            var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
-                            TouringNo.setAttribute("required","");
-                        }
-                    }
-
-                    if (i == 2)
-                    {
-                        var Nationality = document.getElementById('<%=sNationality.ClientID %>');
-                        Nationality.setAttribute("required","");
-                    }
-                }              
-            }
+            }           
 
             var checkStateFMH = form.FamilyMedicalHistory.value;
             if (checkStateFMH == "") {
@@ -197,21 +178,27 @@
                 return false;
             }
 
+
+            var Sdate = document.getElementById('<%=sSurgeryDate.ClientID %>').value;
+            var Sdate_st = changeDate(Sdate);
+            var arrDbirth2 = Sdate_st.split("-");     
+
             if (Sdate == "") {
-                alert("尚未輸入日期. 請選擇手術日期.");
+                var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
+                Sdate_a.type = "text";
+            }
+            else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth2[0]) > 31 || Number(arrDbirth2[1]) > 12) {
+                alert("手術日期欄位填寫發生異常狀況. 請重新輸入.");
 
                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
                 Sdate_a.type = "text";
 
                 return false;
             }
-            else if ((Sdate_st == arrDbirth2[0]) || (arrDbirth2[0].length != 2) || arrDbirth2[1].length != 2 || arrDbirth2[2].length != 4 || !arrDbirth2[0].match(/^[0-9]*$/) || !arrDbirth2[1].match(/^[0-9]*$/) || !arrDbirth2[2].match(/^[0-9]*$/) || Number(arrDbirth2[0]) > 31 || Number(arrDbirth2[1]) > 12) {
-                alert("手術日期格式錯誤. 請重新輸入日期.");
-
+            else
+            {
                 var Sdate_a = document.getElementById('<%=sSurgeryDate.ClientID %>');
                 Sdate_a.type = "text";
-
-                return false;
             }
 
             var checkStateA = form.AllergyMedical.value;
@@ -234,7 +221,7 @@
 
 
 
-         //----------------------Function4-----------------------------//
+         //----------------------Function2-----------------------------//
          //input date string ,conversion the string to date format dd-mm-yyyy
          function changeDate(date) {
              var y = date.substr(0, 4);
@@ -247,6 +234,10 @@
          
 
 
+
+
+         //----------------------Function3-----------------------------//
+         //
 
 
          //------------------------------------------------------------------//
@@ -451,8 +442,8 @@
                                          <input type="radio" name="ChineseNationality" value="N" id="ChineseTouringDefault" />
                                           No
                                          <div class="form-group">
-                                              <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
-                                            <div class="help-block with-errors"></div> 
+                                            團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
+                                            <div id="errTN"></div> 
                                          </div>                                        
                                      </div>
 
@@ -462,7 +453,7 @@
                                     <br /><label>國家</label>
                                      <div class="form-group">
                                          <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
-                                         <div class="help-block with-errors"></div> 
+                                         <div id="errN"></div> 
                                     </div>                                 
                             </div>
 
@@ -627,7 +618,7 @@
                             </div>
                             <div class="text-center">
                                 <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();"></asp:button>
+                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();" onclick="signupV"></asp:button>
                             </div>
 
                              <!-- sign up ends here -->
