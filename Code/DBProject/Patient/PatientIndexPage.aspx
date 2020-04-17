@@ -49,66 +49,12 @@
     <!--Script function-->
     <script type="text/javascript">
 
-        function validatetest2()
+        function validatetest()
         {
             return true;
         }
 
-        function validatetest() {
-
-
-            var form = document.getElementById("SignUpPage");
-
-            var checkboxTotal = form.Nationality.length;
-
-            for (i = 0; i < checkboxTotal; i++) {
-                var checkboxState = form.Nationality[i].checked;
-
-                if (checkboxState == true) {
-                    break;
-                }
-
-                if (i == (checkboxTotal - 1)) {
-                    alert("尚未勾選國籍. 請勾選國籍(複選).");
-                    return false;
-                }
-            }
-
-
-            //<div class="help-block with-errors"></div> 
-            //check when sumbit
-            if (form.Nationality[1].checked == true) {
-                alert("Y1");
-                var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
-                TouringNo.setAttribute("required", "");
-                var errTN = document.getElementById('errTN');
-                errTN.setAttribute("class","help-block with-errors");
-            }
-            else
-            {
-                var TouringNo = document.getElementById('<%=TouringNo.ClientID %>');
-                TouringNo.removeAttribute("required");
-                var errTN = document.getElementById('errTN');
-                errTN.removeAttribute("class");
-            }            
-
-            if (form.Nationality[2].checked == true) {
-                alert("Y2");
-                var Nationality = document.getElementById('<%=sNationality.ClientID %>');
-                Nationality.setAttribute("required", "");
-                var errN = document.getElementById('errN');
-                errN.setAttribute("class", "help-block with-errors");
-            }
-            else
-            {
-                var Nationality = document.getElementById('<%=sNationality.ClientID %>');
-                Nationality.removeAttribute("required");
-                var errN = document.getElementById('errN');
-                errN.removeAttribute("class");
-            }
-
-            return true;
-        }
+        
 
         //----------------------Function1-----------------------------//
         //check Form feature: "checkbox","radiobox" and "input type=date"
@@ -624,7 +570,7 @@
                             </div>
                             <div class="text-center">
                                 <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest2();" onclick="signupV"></asp:button>
+                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();" onclick="signupV"></asp:button>
                             </div>
 
                              <!-- sign up ends here -->
