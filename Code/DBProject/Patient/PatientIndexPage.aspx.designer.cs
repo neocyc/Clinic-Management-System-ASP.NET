@@ -60,6 +60,24 @@ namespace DBProject
         protected global::System.Web.UI.WebControls.TextBox sPhoneM;
 
         /// <summary>
+        /// M 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton M;
+
+        /// <summary>
+        /// F 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton F;
+
+        /// <summary>
         /// sHeight 控制項。
         /// </summary>
         /// <remarks>
@@ -159,6 +177,33 @@ namespace DBProject
         protected global::System.Web.UI.WebControls.TextBox sJob;
 
         /// <summary>
+        /// NationalityDefault 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox NationalityDefault;
+
+        /// <summary>
+        /// NationalityChineseDefault 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox NationalityChineseDefault;
+
+        /// <summary>
+        /// CNTy 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton CNTy;
+
+        /// <summary>
         /// TouringNo 控制項。
         /// </summary>
         /// <remarks>
@@ -168,13 +213,49 @@ namespace DBProject
         protected global::System.Web.UI.WebControls.TextBox TouringNo;
 
         /// <summary>
-        /// sNationality 控制項。
+        /// NationalityForeignDefault 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sNationality;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox NationalityForeignDefault;
+
+        /// <summary>
+        /// sForeignNationality 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sForeignNationality;
+
+        /// <summary>
+        /// FMHy 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton FMHy;
+
+        /// <summary>
+        /// IMy 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton IMy;
+
+        /// <summary>
+        /// SMy 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton SMy;
 
         /// <summary>
         /// sSurgeryDate 控制項。
@@ -195,6 +276,15 @@ namespace DBProject
         protected global::System.Web.UI.WebControls.TextBox sDiseaseName;
 
         /// <summary>
+        /// AMy 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton AMy;
+
+        /// <summary>
         /// sAllergyMedicalSymptom 控制項。
         /// </summary>
         /// <remarks>
@@ -202,6 +292,15 @@ namespace DBProject
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox sAllergyMedicalSymptom;
+
+        /// <summary>
+        /// Ty 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Ty;
 
         /// <summary>
         /// sTourResume 控制項。

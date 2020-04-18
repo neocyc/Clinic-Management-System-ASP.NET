@@ -25,7 +25,7 @@ create table PatientMedicalRecords
 	JobName nvarchar(30) not null,
 	
 	Nationality nvarchar not null,
-	ChineseNationality bit,
+	ChineseNationalityTouring bit,
 	TouringNumber varchar,
 	ForeignNationalityName nvarchar,
 	

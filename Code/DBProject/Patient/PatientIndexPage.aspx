@@ -26,12 +26,18 @@
     <script src="../assets/js/jquery.backstretch.min.js"></script>
 
     <!--引用 plugin -->
-    <!-- bootstrap Validator -->
+    <!-- bootstrap Validator -->    
+    <!--
     <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
     <script src="../assets/js/bootstrap-validator.js"></script>
-    <!--jquery Validate-->
+        -->
+
+    <!--jquery Validate-->    
+    <!--
     <script src="../assets/js/plugin/jquery.validate.js"></script>
+        -->
     
+
     <!--
     <script src="../assets/js/scripts.js"></script>
     -->
@@ -48,14 +54,6 @@
     
     <!--Script function-->
     <script type="text/javascript">
-
-        function validatetest()
-        {
-            return true;
-        }
-
-        
-
         //----------------------Function1-----------------------------//
         //check Form feature: "checkbox","radiobox" and "input type=date"
         //when Form sumbit:
@@ -184,15 +182,6 @@
              return d + '-' + m + '-' + y;
          }
 
-
-
-
-
-
-         //----------------------Function2-----------------------------//
-         //check form by JQ
-         
-
          //------------------------------------------------------------------//
          //------------------------------------------------------------------//
          //------------------------------------------------------------------//
@@ -202,7 +191,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <form id="SignUpPage" data-toggle="validator" runat="server">
+    <form id="SignUpPage" runat="server">
     
 				       
         <div>    
@@ -260,103 +249,103 @@
 
                            <div class="form-group">
 								<label>姓名</label>
-                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" required></asp:TextBox>
+                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" ></asp:TextBox>
                                 <div class="help-block with-errors"></div>                     	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>身分證字號</label>
-                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)" required maxlength="10" data-checkIDcardnumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)"  maxlength="10" data-checkIDcardnumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div> 
 							
 							<div class="form-group">
 									<label>電話(家)</label>
-                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話(XX-XXXXXXXX)" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話(XX-XXXXXXXX)"  maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
                             </div>
 							
 							<div class="form-group">
 									<label>電話(手機)</label>
-                                    <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)" required maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)"  maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
                             </div>                                           
                             
 							<div class="form-group">
 							     <label>性別</label><div class="help-block with-errors"></div>
-                                 <input type="radio" name="Gender" value="M" id="GenderDefault" required/>
+                                 <input type="radio" runat="server" name="Gender" value="男" id="M" />
                                   男
-                                 <input type="radio" name="Gender" value="F" required/>
+                                 <input type="radio" runat="server" name="Gender" value="女" id="F" />
                                   女
 
                             </div>
 							
 							<div class="form-group">
 								 <label>婚姻狀態</label><div class="help-block with-errors"></div>
-                                 <input type="radio" name="MaritalStatus" value="Married" id="MaritalStatusDefault" required/>
+                                 <input type="radio" runat="server" name="MaritalStatus" value="已婚" />
                                   已婚
-                                 <input type="radio" name="MaritalStatus" value="Single" required/>
+                                 <input type="radio" runat="server" name="MaritalStatus" value="單身" />
                                   單身
 
                             </div>
 							
 							<div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)"  maxlength="3" data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)"  maxlength="3" data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 				            <div class="form-group">
 								<label>出生日期</label>
-                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" required></asp:TextBox>
+                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" ></asp:TextBox>
            	                    <div class="help-block with-errors"></div>         
                             </div>
 							
                             <div class="form-group">
 								<label>郵遞區號</label>
-                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)" required maxlength="3" data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 							<div class="form-group">
 								<label>地址</label>
-                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
+                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%"  />
                                 <div class="help-block with-errors"></div>
                             </div>
 
 				            <div class="form-group">
 									<label>電子信箱(Email)</label>
-                                    <asp:TextBox ID="sEmail" runat="server" type="email" class="form-username form-control" placeholder="Email : person@example.com" required></asp:TextBox>
+                                    <asp:TextBox ID="sEmail" runat="server" type="email" class="form-username form-control" placeholder="Email : person@example.com" ></asp:TextBox>
                                     <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
 								<label>緊急聯絡人姓名</label>
-                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" required></asp:TextBox>
+                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" ></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 								<label>與病患關係</label>
-                                <asp:TextBox ID="sCERelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" required></asp:TextBox>
+                                <asp:TextBox ID="sCERelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" ></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 									<label>緊急聯絡人電話</label>
-                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話(XX-XXXXXXXX)" required maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話(XX-XXXXXXXX)"  maxlength="11" data-checkPhonenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div>   
                             </div>
 							
 							<div class="form-group">
 									<label>緊急聯絡人手機</label>
-                                    <asp:TextBox ID="sPhoneMEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)" required maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneMEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)"  maxlength="10" data-checkMobilenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div>   
                             </div>   
                                
@@ -373,38 +362,38 @@
 
                             <div class="form-group">
 								<label>一、職業與工作 :</label>
-                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" required></asp:TextBox>
+                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" ></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
                             
                             <br />
 
 							<div class="form-group">
-								 <label>二、國籍 :</label>
-                                 <input type="checkbox" name="Nationality" value="Nationality of origin" id="NationalityDefault" />
+								 <label>二、國籍 :</label><br />
+                                 <input type="checkbox" name="Nationality" runat="server" value="本國" id="NationalityDefault" />
                                   本國<br />
-                                 <input type="checkbox" name="Nationality" value="Chinese nationality" />
+                                 <input type="checkbox" name="Nationality" runat="server" value="中國" id="NationalityChineseDefault" />
                                   中國
                                      
                                     <div class="form-group">
                                     <label>旅行團</label><br />
                                      
-                                         <input type="radio" name="ChineseNationality" value="Y" />
+                                         <input type="radio" name="ChineseNationalityTouring" runat="server" value="true" id="CNTy"/>
                                           Yes
-                                         <input type="radio" name="ChineseNationality" value="N" id="ChineseTouringDefault" />
+                                         <input type="radio" name="ChineseNationalityTouring" runat="server" value="false" />
                                           No
                                          
                                             <br />團號 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫旅行團團號" ></asp:TextBox>
                                     </div>                      
                                      
 
-                                 <input type="checkbox" name="Nationality" value="Nationality of foreign" />
+                                 <input type="checkbox" name="Nationality" runat="server" value="外國" id="NationalityForeignDefault" />
                                   外國
                                     
                                     <div class="form-group">
                                     <label>國家</label>
                                     
-                                         <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
+                                         <asp:TextBox ID="sForeignNationality" runat="server" type="text" class="form-username form-control" placeholder="請填你的國籍/國家" ></asp:TextBox>
                                     </div>
                                                                     
                             </div>
@@ -413,9 +402,9 @@
                             
                             <div class="form-group">
                                 <label>三、家族病史 :</label><div class="help-block with-errors"></div>
-                                <input type="radio" name="FamilyMedicalHistory" value="Y" required/>
+                                <input type="radio" name="FamilyMedicalHistoryR" value="true" runat="server" id="FMHy"/>
                                  Yes
-                                <input type="radio" name="FamilyMedicalHistory" value="N" id="FamilyMedicalHistoryDefault" required/>
+                                <input type="radio" name="FamilyMedicalHistoryR" value="false" runat="server" />
                                  No
                             </div>
 
@@ -434,45 +423,45 @@
                                   <tbody>
                                     <tr>
                                       <td>高血壓</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH11,父親有高血壓" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH12,母親有高血壓" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH13,兒子有高血壓" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH14,女兒有高血壓" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH11,父親有高血壓" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH12,母親有高血壓" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH13,兒子有高血壓" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH14,女兒有高血壓" /></td>
                                     </tr>
                                     <tr>
                                       <td>心血管</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH21,父親有心血管疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH22,母親有心血管疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH23,兒子有心血管疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH24,女兒有心血管疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH21,父親有心血管疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH22,母親有心血管疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH23,兒子有心血管疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH24,女兒有心血管疾病" /></td>
                                     </tr>
                                     <tr>
                                       <td>糖尿病</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH31,父親有糖尿病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH32,母親有糖尿病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH33,兒子有糖尿病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH34,女兒有糖尿病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH31,父親有糖尿病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH32,母親有糖尿病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH33,兒子有糖尿病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH34,女兒有糖尿病" /></td>
                                     </tr>
                                       <tr>
                                       <td>痛風</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH41,父親有痛風" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH42,母親有痛風" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH43,兒子有痛風" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH44,女兒有痛風" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH41,父親有痛風" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH42,母親有痛風" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH43,兒子有痛風" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH44,女兒有痛風" /></td>
                                     </tr>
                                       <tr>
                                       <td>氣喘過敏</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH51,父親有氣喘過敏" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH52,母親有氣喘過敏" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH53,兒子有氣喘過敏" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH54,女兒有氣喘過敏" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH51,父親有氣喘過敏" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH52,母親有氣喘過敏" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH53,兒子有氣喘過敏" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH54,女兒有氣喘過敏" /></td>
                                     </tr>
                                       <tr>
                                       <td>其他</td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH61,父親有其他疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH62,母親有其他疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH63,兒子有其他疾病" /></td>
-                                      <td><input type="checkbox" name="FamilyMedicalHistory" value="FMH64,女兒有其他疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH61,父親有其他疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH62,母親有其他疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH63,兒子有其他疾病" /></td>
+                                      <td><input type="checkbox" name="FamilyMedicalHistoryChk" value="FMH64,女兒有其他疾病" /></td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -483,35 +472,35 @@
                                
                                 <div class="form-group">
                                          <label>1.個人內科病史</label><div class="help-block with-errors"></div>
-                                         <input type="radio" name="InternalMedical" value="Y" required/>
+                                         <input type="radio" name="InternalMedicalR" value="true" runat="server" id="IMy" />
                                           Yes
-                                         <input type="radio" name="InternalMedical" value="N" id="InternalMedicalDefault" required/>
+                                         <input type="radio" name="InternalMedicalR" value="false" runat="server" />
                                           No
                                          <br /><br />
                                          <div class="form-group">
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH01,抽菸" id="PersonalMedicalHistoryDefault" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH01,抽菸" id="PersonalMedicalHistoryDefault" />
                                               抽菸
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH02,喝酒" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH02,喝酒" />
                                               喝酒
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH03,嚼檳榔" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH03,嚼檳榔" />
                                               嚼檳榔
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH04,高血壓" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH04,高血壓" />
                                               高血壓
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH05,糖尿病" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH05,糖尿病" />
                                               糖尿病
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH06,B肝" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH06,B肝" />
                                               B肝
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH07,C肝" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH07,C肝" />
                                               C肝
-                                             <br /><input type="checkbox" name="PersonalMedicalHistory" value="PMH08,心血管疾病" />
+                                             <br /><input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH08,心血管疾病" />
                                               心血管疾病
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH09,氣喘" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH09,氣喘" />
                                               氣喘
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH10,過敏" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH10,過敏" />
                                               過敏
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH11,痛風" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH11,痛風" />
                                               痛風
-                                             <input type="checkbox" name="PersonalMedicalHistory" value="PMH12,其他疾病" />
+                                             <input type="checkbox" name="PersonalMedicalHistoryChk" value="PMH12,其他疾病" />
                                               其他
                                          </div>
                                          <br />
@@ -519,9 +508,9 @@
                                 
                                 <div class="form-group">
                                          <label>2.個人手術史</label><div class="help-block with-errors"></div>
-                                         <input type="radio" name="SurgeryMedical" value="Y" required/>
+                                         <input type="radio" name="SurgeryMedical" value="true" runat="server" id="SMy" />
                                           Yes
-                                         <input type="radio" name="SurgeryMedical" value="N" id="SurgeryMedicalDefault" required/>
+                                         <input type="radio" name="SurgeryMedical" value="false" runat="server" />
                                           No
                                 </div>
                                          
@@ -535,9 +524,9 @@
                                 <div class="form-group">
 								    <label>五、個人藥物過敏史 :</label><div class="help-block with-errors"></div>
                                     <div class="form-group">
-                                         <input type="radio" name="AllergyMedical" value="Y" required/>
+                                         <input type="radio" name="AllergyMedical" value="true" runat="server" id="AMy" />
                                           Yes
-                                         <input type="radio" name="AllergyMedical" value="N" id="AllergyMedicalDefault" required/>
+                                         <input type="radio" name="AllergyMedical" value="false"  runat="server"/>
                                           No
                                     </div>
                                          
@@ -550,9 +539,9 @@
                                 <div class="form-group">
 								    <label>六、最近三個月旅遊史 :</label><div class="help-block with-errors"></div>
                                     <div class="form-group">
-                                         <input type="radio" name="Touring" value="Y" required/>
+                                         <input type="radio" name="Touring" value="true" runat="server" id="Ty"/>
                                           Yes
-                                         <input type="radio" name="Touring" value="N" id="TouringDefault" required/>
+                                         <input type="radio" name="Touring" value="false" runat="server"/>
                                           No
                                     </div>
                                          
@@ -563,14 +552,13 @@
                                 <div class="form-group">                                    
 								    <label>七、目前之長期服用藥物 :</label>                                   
                                         <div class="form-group ">                                            
-                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" required></asp:TextBox>
+                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" ></asp:TextBox>
            	                                <div class="help-block with-errors"></div>
                                         </div>                                 
                                 </div>
                             </div>
                             <div class="text-center">
                                 <asp:button Text ="完成註冊"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validateS();" onclick="signupV"></asp:button>
-                                <asp:button Text ="測試"  runat="server" type="submit" class="btn btn-primary" OnClientClick="return validatetest();" onclick="signupV"></asp:button>
                             </div>
 
                              <!-- sign up ends here -->
