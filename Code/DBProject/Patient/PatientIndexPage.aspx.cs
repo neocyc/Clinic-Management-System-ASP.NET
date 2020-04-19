@@ -76,27 +76,27 @@ namespace DBProject
             string CERelationship = sCERelationship.Text.ToString();
             string PhoneHEC = sPhoneHEC.Text.ToString();
             string MobileMEC = sPhoneMEC.Text.ToString();
-            string Job = sJob.Text.ToString();
+            string JobName = sJob.Text.ToString();
             string nationality = "";
-            Boolean chinesenationalitytouring;
+            Boolean chinesenationalitytouring = false;
             string TouringNumber = "";
             string ForeignNationalityName = "";
-            Boolean familymedicalhistory;
+            Boolean familymedicalhistory = false;
             string familymedicalhistorydescription = "";
             string FamilyMedicalHistoryItemcode = "";
             string FamilyMedicalHistoryItemname = "";
-            Boolean internalmedicalhistory;
+            Boolean internalmedicalhistory = false;
             string internalmedicalhistorydescription = "";
             string InternalMedicalHistoryItemcode = "";
             string InternalMedicalHistoryItemname = "";
-            Boolean surgerymedicalhistory;
+            Boolean surgerymedicalhistory =false;
             string SurgeryDate = "";
             string DiseaseName = "";
-            Boolean allergymedicalhistory;
+            Boolean allergymedicalhistory = false;
             string AllergyMedicalSymptomDescription = "";
-            Boolean touringhistory;
+            Boolean touringhistory = false;
             string TouringHistoryDescription = "";
-            string MedicinalNam = sMedicinalName.Text.ToString();
+            string MedicinalName = sMedicinalName.Text.ToString();
 
             string HtmltagName = "", AspMasterHtmltagName = "", AspHtmltagName = "";
             
@@ -281,6 +281,24 @@ namespace DBProject
                     TouringHistoryDescription = sTourResume.Text.ToString();
                 }
             }
+
+            string mes = "";
+            myDAL objmyDAL = new myDAL();
+            objmyDAL.insertPatientMedicalRecords(
+                pid,Name,IDcard,Phone,Mobile,gender,maritalstatus,Height,Weight,BirthDate,ZipCode,Addr,Email,NameCE,CERelationship,PhoneHEC,MobileMEC,
+                JobName,
+                nationality, chinesenationalitytouring, TouringNumber,ForeignNationalityName,
+                familymedicalhistory,familymedicalhistorydescription,FamilyMedicalHistoryItemcode,FamilyMedicalHistoryItemname,
+                internalmedicalhistory,internalmedicalhistorydescription,InternalMedicalHistoryItemcode,InternalMedicalHistoryItemname,
+                surgerymedicalhistory,SurgeryDate,DiseaseName,
+                allergymedicalhistory,AllergyMedicalSymptomDescription,
+                touringhistory,TouringHistoryDescription,
+                MedicinalName,
+                ref mes
+            );
+
+            Response.BufferOutput = true;
+            Response.Redirect("~/Patient/PatientHome.aspx");
         }
     }
 }

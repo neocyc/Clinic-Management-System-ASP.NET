@@ -8,7 +8,7 @@ create table PatientMedicalRecords
 	PatientMRID int primary key,
 	Name nvarchar(30) not null,
 	IDCard char(10) not null,
-	Phone nchar(11) not null,
+	Phone varchar(11) not null,
 	Mobile char(10) not null,
 	Gender nchar(1) not null,
 	MaritalStatus nchar(2) not null,
@@ -16,40 +16,40 @@ create table PatientMedicalRecords
 	Weight int not null,
 	BirthDate Date not null,
 	Zipcode char(3) not null,
-	Address nvarchar,
+	Address nvarchar(500),
 	Email varchar(30) not null unique,
 	ContactEmergencyName nvarchar(30) not null,
-	PatientRelationship nchar not null,
-	ContactEmergencyPhone nchar(11) not null,
+	PatientRelationship nchar(10) not null,
+	ContactEmergencyPhone varchar(11) not null,
 	ContactEmergencyMobile char(10) not null,
 	JobName nvarchar(30) not null,
 	
-	Nationality nvarchar not null,
+	Nationality nvarchar(30) not null,
 	ChineseNationalityTouring bit,
-	TouringNumber varchar,
-	ForeignNationalityName nvarchar,
+	TouringNumber varchar(50),
+	ForeignNationalityName nvarchar(100),
 	
 	FamilyMedicalHistory bit,
-	FamilyMedicalHistoryDescription nvarchar,
+	FamilyMedicalHistoryDescription nvarchar(500),
 	FamilyMedicalHistoryItemcode char(5),
-	FamilyMedicalHistoryItemname nvarchar,
+	FamilyMedicalHistoryItemname nvarchar(300),
 	
 	InternalMedicalHistory bit,
-	InternalMedicalHistoryDescription nvarchar,
+	InternalMedicalHistoryDescription nvarchar(500),
 	InternalMedicalHistoryItemcode char(5),
-	InternalMedicalHistoryItemname nvarchar,
+	InternalMedicalHistoryItemname nvarchar(300),
 
 	SurgeryMedicalHistory bit,
 	SurgeryDate Date,
-	DiseaseName nvarchar,
+	DiseaseName nvarchar(500),
 
 	AllergyMedicalHistory bit,
-	AllergyMedicalSymptomDescription nvarchar,
+	AllergyMedicalSymptomDescription nvarchar(500),
 
 	TouringHistory bit,
-	TouringHistoryDescription nvarchar,
+	TouringHistoryDescription nvarchar(500),
 
-	MedicinalName nvarchar not null
+	MedicinalName nvarchar(500) not null
 
 	foreign key(PatientMRID) references Patient(PatientID)
 )
