@@ -31,12 +31,12 @@ create table PatientMedicalRecords
 	
 	FamilyMedicalHistory bit,
 	FamilyMedicalHistoryDescription nvarchar(500),
-	FamilyMedicalHistoryItemcode char(5),
+	FamilyMedicalHistoryItemcode char(300),
 	FamilyMedicalHistoryItemname nvarchar(300),
 	
 	InternalMedicalHistory bit,
 	InternalMedicalHistoryDescription nvarchar(500),
-	InternalMedicalHistoryItemcode char(5),
+	InternalMedicalHistoryItemcode char(300),
 	InternalMedicalHistoryItemname nvarchar(300),
 
 	SurgeryMedicalHistory bit,

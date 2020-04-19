@@ -1249,11 +1249,11 @@ namespace DBProject.DAL
                  @foreignNationalityName nvarchar(100),
                  @familyMedicalHistory bit,
                  @familyMedicalHistoryDescription nvarchar(500),
-                 @familyMedicalHistoryItemcode char(5),
+                 @familyMedicalHistoryItemcode char(300),
                  @familyMedicalHistoryItemname nvarchar(300),
                  @internalMedicalHistory bit,
                  @internalMedicalHistoryDescription nvarchar(500),
-                 @internalMedicalHistoryItemcode char(5),
+                 @internalMedicalHistoryItemcode char(300),
                  @internalMedicalHistoryItemname nvarchar(300),
                  @surgeryMedicalHistory bit,
                  @surgeryDate date,
@@ -1299,11 +1299,11 @@ namespace DBProject.DAL
                 cmd1.Parameters.Add("@foreignNationalityName", SqlDbType.NVarChar,100).Value = ForeignNationalityName;
                 cmd1.Parameters.Add("@familyMedicalHistory", SqlDbType.Bit).Value = familymedicalhistory;
                 cmd1.Parameters.Add("@familyMedicalHistoryDescription", SqlDbType.NVarChar,500).Value = familymedicalhistorydescription;
-                cmd1.Parameters.Add("@familyMedicalHistoryItemcode", SqlDbType.Char,5).Value = FamilyMedicalHistoryItemcode;
+                cmd1.Parameters.Add("@familyMedicalHistoryItemcode", SqlDbType.Char,300).Value = FamilyMedicalHistoryItemcode;
                 cmd1.Parameters.Add("@familyMedicalHistoryItemname", SqlDbType.NVarChar,300).Value = FamilyMedicalHistoryItemname;
                 cmd1.Parameters.Add("@internalMedicalHistory", SqlDbType.Bit).Value = internalmedicalhistory;
                 cmd1.Parameters.Add("@internalMedicalHistoryDescription", SqlDbType.NVarChar,500).Value = internalmedicalhistorydescription;
-                cmd1.Parameters.Add("@internalMedicalHistoryItemcode", SqlDbType.Char,5).Value = InternalMedicalHistoryItemcode;
+                cmd1.Parameters.Add("@internalMedicalHistoryItemcode", SqlDbType.Char,300).Value = InternalMedicalHistoryItemcode;
                 cmd1.Parameters.Add("@internalMedicalHistoryItemname", SqlDbType.NVarChar,300).Value = InternalMedicalHistoryItemname;
                 cmd1.Parameters.Add("@surgeryMedicalHistory", SqlDbType.Bit).Value = surgerymedicalhistory;
                 cmd1.Parameters.Add("@surgeryDate", SqlDbType.Date).Value = SurgeryDate;

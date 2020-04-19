@@ -16,9 +16,7 @@ namespace DBProject
             sBirthDate.Attributes.Add("onfocus", "(this.type='date')");
             sSurgeryDate.Attributes.Add("onfocus", "(this.type='date')");
 
-            //int pid = (int)Session["idoriginal"];
-            //test data
-            int pid = 12;
+            int pid = (int)Session["idoriginal"];            
             string name = "";
             string phone = "";
             string address = "";
@@ -55,9 +53,7 @@ namespace DBProject
         //-----------------------Function2--------------------------//
         protected void signupV(object sender, EventArgs e)
         {
-            //test data
-            int pid = 12;
-
+            int pid = (int)Session["idoriginal"];
             string Name = sName.Text.ToString();
             string IDcard = sIDNo.Text.ToString();
             string Phone = sPhoneH.Text.ToString();
