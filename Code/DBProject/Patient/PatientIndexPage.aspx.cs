@@ -16,7 +16,8 @@ namespace DBProject
             sBirthDate.Attributes.Add("onfocus", "(this.type='date')");
             sSurgeryDate.Attributes.Add("onfocus", "(this.type='date')");
 
-            int pid = (int)Session["idoriginal"];            
+            int pid = (int)Session["idoriginal"];
+            
             string name = "";
             string phone = "";
             string address = "";
