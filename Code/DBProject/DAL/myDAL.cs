@@ -1213,10 +1213,128 @@ namespace DBProject.DAL
 
 
 
+        //-------------------------------------Patient IndexPage------------------------------------------//
+        public void insertPatientMedicalRecords(int pid,string Name,string IDcard,string Phone,string Mobile,string gender,string maritalstatus,int Height,int Weight,string BirthDate,string ZipCode,string Addr,string Email,string NameCE,string CERelationship,string PhoneHEC,string MobileMEC,string JobName,string nationality,Boolean chinesenationalitytouring,string TouringNumber,string ForeignNationalityName,Boolean familymedicalhistory,string familymedicalhistorydescription,string FamilyMedicalHistoryItemcode,string FamilyMedicalHistoryItemname,Boolean internalmedicalhistory,string internalmedicalhistorydescription,string InternalMedicalHistoryItemcode,string InternalMedicalHistoryItemname,Boolean surgerymedicalhistory,string SurgeryDate,string DiseaseName,Boolean allergymedicalhistory,string AllergyMedicalSymptomDescription,Boolean touringhistory,string TouringHistoryDescription,string MedicinalName,ref string mes)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
 
-		//-------------------------------------PATIENT NOTIFICATIONS------------------------------------------//
+            try
+            {
+                /*
+                 insertInPatientMedicalRecordsTable
+                 
+                 @pmrID int,
+                 @name nvarchar(30),
+                 @cardID char(10),
+                 @phone varchar(11),
+                 @mobile char(10),
+                 @gender nchar(1),
+                 @maritalStatus nchar(2),
+                 @height int,
+                 @weight int,
+                 @birthDate date,
+                 @zipcode char(3),
+                 @address nvarchar(500),
+                 @email varchar(30),
+                 @contactEmergencyName nvarchar(30),
+                 @patientRelationship nchar(10),
+                 @contactEmergencyPhone varchar(11),
+                 @contactEmergencyMobile char(10),
+                 @jobName nvarchar(30),
+                 @nationality nvarchar(30),
+                 @chineseNationalityTouring bit,
+                 @touringNumber varchar(50),
+                 @foreignNationalityName nvarchar(100),
+                 @familyMedicalHistory bit,
+                 @familyMedicalHistoryDescription nvarchar(500),
+                 @familyMedicalHistoryItemcode char(300),
+                 @familyMedicalHistoryItemname nvarchar(300),
+                 @internalMedicalHistory bit,
+                 @internalMedicalHistoryDescription nvarchar(500),
+                 @internalMedicalHistoryItemcode char(300),
+                 @internalMedicalHistoryItemname nvarchar(300),
+                 @surgeryMedicalHistory bit,
+                 @surgeryDate date,
+                 @diseaseName nvarchar(500),
+                 @allergyMedicalHistory bit,
+                 @allergyMedicalSymptomDescription nvarchar(500),
+                 @touringHistory bit,
+                 @touringHistoryDescription nvarchar(500),
+                 @medicinalName nvarchar(500)                             
+                */
 
-		public int getNotifications(int pid, ref string dName, ref string timings)
+                string sql_s = " BEGIN "
+                             + " if not exists(select * from PatientMedicalRecords where PatientMRID=@pmrID) "
+                             + " BEGIN "
+                             + " insert into PatientMedicalRecords values(@pmrID,@name,@cardID,@phone,@mobile,@gender,@maritalStatus,@height,@weight,@birthDate,@zipcode,@address,@email,@contactEmergencyName,@patientRelationship,@contactEmergencyPhone,@contactEmergencyMobile,@jobName,@nationality,@chineseNationalityTouring,@touringNumber,@foreignNationalityName,@familyMedicalHistory,@familyMedicalHistoryDescription,@familyMedicalHistoryItemcode,@familyMedicalHistoryItemname,@internalMedicalHistory,@internalMedicalHistoryDescription,@internalMedicalHistoryItemcode,@internalMedicalHistoryItemname,@surgeryMedicalHistory,@surgeryDate,@diseaseName,@allergyMedicalHistory,@allergyMedicalSymptomDescription,@touringHistory,@touringHistoryDescription,@medicinalName)"
+                             + " END "
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);
+
+                //Input
+                cmd1.Parameters.Add("@pmrID", SqlDbType.Int).Value = pid;
+                cmd1.Parameters.Add("@name", SqlDbType.NVarChar,30).Value = Name;
+                cmd1.Parameters.Add("@cardID", SqlDbType.Char,10).Value = IDcard;
+                cmd1.Parameters.Add("@phone", SqlDbType.VarChar,11).Value = Phone;
+                cmd1.Parameters.Add("@mobile", SqlDbType.Char,10).Value = Mobile;
+                cmd1.Parameters.Add("@gender", SqlDbType.NChar,1).Value = gender;
+                cmd1.Parameters.Add("@maritalStatus", SqlDbType.NChar,2).Value = maritalstatus;
+                cmd1.Parameters.Add("@height", SqlDbType.Int).Value = Height;
+                cmd1.Parameters.Add("@weight", SqlDbType.Int).Value = Weight;
+                cmd1.Parameters.Add("@birthDate", SqlDbType.Date).Value = BirthDate;
+                cmd1.Parameters.Add("@zipcode", SqlDbType.Char,3).Value = ZipCode;
+                cmd1.Parameters.Add("@address", SqlDbType.NVarChar,500).Value = Addr;
+                cmd1.Parameters.Add("@email", SqlDbType.VarChar,30).Value = Email;
+                cmd1.Parameters.Add("@contactEmergencyName", SqlDbType.NVarChar,30).Value = NameCE;
+                cmd1.Parameters.Add("@patientRelationship", SqlDbType.NChar,10).Value = CERelationship;
+                cmd1.Parameters.Add("@contactEmergencyPhone", SqlDbType.VarChar,11).Value = PhoneHEC;
+                cmd1.Parameters.Add("@contactEmergencyMobile", SqlDbType.Char,10).Value = MobileMEC;
+                cmd1.Parameters.Add("@jobName", SqlDbType.NVarChar,30).Value = JobName;
+                cmd1.Parameters.Add("@nationality", SqlDbType.NVarChar,30).Value = nationality;
+                cmd1.Parameters.Add("@chineseNationalityTouring", SqlDbType.Bit).Value = chinesenationalitytouring;
+                cmd1.Parameters.Add("@touringNumber", SqlDbType.VarChar,50).Value = TouringNumber;
+                cmd1.Parameters.Add("@foreignNationalityName", SqlDbType.NVarChar,100).Value = ForeignNationalityName;
+                cmd1.Parameters.Add("@familyMedicalHistory", SqlDbType.Bit).Value = familymedicalhistory;
+                cmd1.Parameters.Add("@familyMedicalHistoryDescription", SqlDbType.NVarChar,500).Value = familymedicalhistorydescription;
+                cmd1.Parameters.Add("@familyMedicalHistoryItemcode", SqlDbType.Char,300).Value = FamilyMedicalHistoryItemcode;
+                cmd1.Parameters.Add("@familyMedicalHistoryItemname", SqlDbType.NVarChar,300).Value = FamilyMedicalHistoryItemname;
+                cmd1.Parameters.Add("@internalMedicalHistory", SqlDbType.Bit).Value = internalmedicalhistory;
+                cmd1.Parameters.Add("@internalMedicalHistoryDescription", SqlDbType.NVarChar,500).Value = internalmedicalhistorydescription;
+                cmd1.Parameters.Add("@internalMedicalHistoryItemcode", SqlDbType.Char,300).Value = InternalMedicalHistoryItemcode;
+                cmd1.Parameters.Add("@internalMedicalHistoryItemname", SqlDbType.NVarChar,300).Value = InternalMedicalHistoryItemname;
+                cmd1.Parameters.Add("@surgeryMedicalHistory", SqlDbType.Bit).Value = surgerymedicalhistory;
+                cmd1.Parameters.Add("@surgeryDate", SqlDbType.Date).Value = SurgeryDate;
+                cmd1.Parameters.Add("@diseaseName", SqlDbType.NVarChar,500).Value = DiseaseName;
+                cmd1.Parameters.Add("@allergyMedicalHistory", SqlDbType.Bit).Value = allergymedicalhistory;
+                cmd1.Parameters.Add("@allergyMedicalSymptomDescription", SqlDbType.NVarChar,500).Value = AllergyMedicalSymptomDescription;
+                cmd1.Parameters.Add("@touringHistory", SqlDbType.Bit).Value = touringhistory;
+                cmd1.Parameters.Add("@touringHistoryDescription", SqlDbType.NVarChar,500).Value = TouringHistoryDescription;
+                cmd1.Parameters.Add("@medicinalName", SqlDbType.NVarChar,500).Value = MedicinalName;
+
+                cmd1.ExecuteNonQuery();                
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+
+        //-------------------------------------PATIENT NOTIFICATIONS------------------------------------------//
+
+        public int getNotifications(int pid, ref string dName, ref string timings)
 		{
 			SqlConnection con = new SqlConnection(connString);
 			con.Open();

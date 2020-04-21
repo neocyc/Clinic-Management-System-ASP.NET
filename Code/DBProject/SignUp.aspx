@@ -117,9 +117,9 @@
          }
             
 
-         if (phone.length != 11)
+         if (phone.length != 10)
          {
-             alert("Phone number should be of 11 digits.");
+             alert("Phone number should be of 10 digits.");
              return false;
          }
 
