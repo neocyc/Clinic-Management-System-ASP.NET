@@ -129,6 +129,7 @@
   <ItemGroup>
     <Content Include="Patient\PatientFeedback.aspx" />
     <Content Include="Patient\PatientHome.aspx" />
+    <Content Include="Patient\PatientMedicalRecordsView.aspx" />
     <Content Include="Patient\PatientNotifications.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Patient\TakeAppointment.aspx" />
@@ -181,6 +182,7 @@
     </Compile>
     <Compile Include="IndexPageLogin.Master.cs">
       <DependentUpon>IndexPageLogin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="IndexPageLogin.Master.designer.cs">
       <DependentUpon>IndexPageLogin.Master</DependentUpon>
@@ -290,6 +292,13 @@
     </Compile>
     <Compile Include="Patient\PatientMaster.Master.designer.cs">
       <DependentUpon>PatientMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientMedicalRecordsView.aspx.cs">
+      <DependentUpon>PatientMedicalRecordsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMedicalRecordsView.aspx.designer.cs">
+      <DependentUpon>PatientMedicalRecordsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient\PatientNotifications.aspx.cs">
       <DependentUpon>PatientNotifications.aspx</DependentUpon>

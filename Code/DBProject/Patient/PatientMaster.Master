@@ -63,6 +63,10 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="PatientMedicalRecordsView.aspx"> 我的病歷資料 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientFeedback.aspx"><span class="glyphicon glyphicon-thumbs-up	Try it"></span> Feedback</a></li>
                         </ul>
 

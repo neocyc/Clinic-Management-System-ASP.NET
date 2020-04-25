@@ -754,12 +754,181 @@ namespace DBProject.DAL
 		}
 
 
-		
+        /*-------------------DISPLAYS PATIENT Medical Record INFORMATION AT PATIENT HOME--------------------------------------- */
+
+        public int patientMedicalRecordsInfoDisplayer(int pid, ref string Name, ref string IDcard, ref string Phone, ref string Mobile, ref string gender, ref string maritalstatus, ref int Height, ref int Weight, ref string BirthDate, ref string ZipCode, ref string Addr, ref string Email, ref string NameCE, ref string CERelationship, ref string PhoneHEC, ref string MobileMEC, ref string JobName, ref string nationality, ref Boolean chinesenationalitytouring, ref string TouringNumber, ref string ForeignNationalityName, ref Boolean familymedicalhistory, ref string familymedicalhistorydescription, ref string FamilyMedicalHistoryItemcode, ref string FamilyMedicalHistoryItemname, ref Boolean internalmedicalhistory, ref string internalmedicalhistorydescription, ref string InternalMedicalHistoryItemcode, ref string InternalMedicalHistoryItemname, ref Boolean surgerymedicalhistory, ref string SurgeryDate, ref string DiseaseName, ref Boolean allergymedicalhistory, ref string AllergyMedicalSymptomDescription, ref Boolean touringhistory, ref string TouringHistoryDescription, ref string MedicinalName)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
 
 
-		/*---------------------------GENERATE BILL HISTORY--------------------------------------*/
+            try
+            {
 
-		public int getBillHistory(int id, ref DataTable result)
+                /*
+                 * RetrievePatientMedicalRecordsTable
+                 *
+                 * 
+
+                 @pmrID int,
+                 @name nvarchar(30),
+                 @cardID char(10),
+                 @phone varchar(11),
+                 @mobile char(10),
+                 @gender nchar(1),
+                 @maritalStatus nchar(2),
+                 @height int,
+                 @weight int,
+                 @birthDate date,
+                 @zipcode char(3),
+                 @address nvarchar(500),
+                 @email varchar(30),
+                 @contactEmergencyName nvarchar(30),
+                 @patientRelationship nchar(10),
+                 @contactEmergencyPhone varchar(11),
+                 @contactEmergencyMobile char(10),
+                 @jobName nvarchar(30),
+                 @nationality nvarchar(30),
+                 @chineseNationalityTouring bit,
+                 @touringNumber varchar(50),
+                 @foreignNationalityName nvarchar(100),
+                 @familyMedicalHistory bit,
+                 @familyMedicalHistoryDescription nvarchar(500),
+                 @familyMedicalHistoryItemcode char(300),
+                 @familyMedicalHistoryItemname nvarchar(300),
+                 @internalMedicalHistory bit,
+                 @internalMedicalHistoryDescription nvarchar(500),
+                 @internalMedicalHistoryItemcode char(300),
+                 @internalMedicalHistoryItemname nvarchar(300),
+                 @surgeryMedicalHistory bit,
+                 @surgeryDate date,
+                 @diseaseName nvarchar(500),
+                 @allergyMedicalHistory bit,
+                 @allergyMedicalSymptomDescription nvarchar(500),
+                 @touringHistory bit,
+                 @touringHistoryDescription nvarchar(500),
+                 @medicinalName nvarchar(500)                             
+                */
+
+                //select @name=Name, @phone=Phone, @address=Address, @gender=Gender, @age=DATEDIFF(YEAR, BirthDate, GETDATE()), @birthDate = BirthDate from Patient where PatientID = @ID
+
+
+                string sql_s = " BEGIN "                             
+                             + " select @pmrID=PatientMRID, @name=Name, @cardID=IDCard, @phone=Phone, @mobile=Mobile, @gender=Gender, @maritalStatus=MaritalStatus, @height=Height, @weight=Weight, @birthDate=BirthDate, @zipcode=Zipcode, @address=Address, @email=Email, @contactEmergencyName=ContactEmergencyName, @patientRelationship=PatientRelationship, @contactEmergencyPhone=ContactEmergencyPhone, @contactEmergencyMobile=ContactEmergencyMobile, @jobName=JobName, @nationality=Nationality, @chineseNationalityTouring=ChineseNationalityTouring, @touringNumber=TouringNumber, @foreignNationalityName=ForeignNationalityName, @familyMedicalHistory=FamilyMedicalHistory, @familyMedicalHistoryDescription=FamilyMedicalHistoryDescription, @familyMedicalHistoryItemcode=FamilyMedicalHistoryItemcode, @familyMedicalHistoryItemname=FamilyMedicalHistoryItemname, @internalMedicalHistory=InternalMedicalHistory, @internalMedicalHistoryDescription=InternalMedicalHistoryDescription, @internalMedicalHistoryItemcode=InternalMedicalHistoryItemcode, @internalMedicalHistoryItemname=InternalMedicalHistoryItemname, @surgeryMedicalHistory=SurgeryMedicalHistory, @surgeryDate=SurgeryDate, @diseaseName=DiseaseName, @allergyMedicalHistory=AllergyMedicalHistory, @allergyMedicalSymptomDescription=AllergyMedicalSymptomDescription, @touringHistory=TouringHistory, @touringHistoryDescription=TouringHistoryDescription, @medicinalName=MedicinalName from PatientMedicalRecords where PatientMRID = @pmrID"
+                             + " END ";
+
+                SqlCommand cmd1 = new SqlCommand(sql_s, con);
+
+                cmd1.Parameters.Add("@pmrID", SqlDbType.Int).Value = pid;
+
+                /*PUTTING OUTPUTS*/
+                cmd1.Parameters.Add("@name", SqlDbType.NVarChar, 30).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@cardID", SqlDbType.Char, 10).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@phone", SqlDbType.VarChar, 11).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@mobile", SqlDbType.Char, 10).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@gender", SqlDbType.NChar, 1).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@maritalStatus", SqlDbType.NChar, 2).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@height", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@weight", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@birthDate", SqlDbType.Date).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@zipcode", SqlDbType.Char, 3).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@address", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@email", SqlDbType.VarChar, 30).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@contactEmergencyName", SqlDbType.NVarChar, 30).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@patientRelationship", SqlDbType.NChar, 10).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@contactEmergencyPhone", SqlDbType.VarChar, 11).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@contactEmergencyMobile", SqlDbType.Char, 10).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@jobName", SqlDbType.NVarChar, 30).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@nationality", SqlDbType.NVarChar, 30).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@chineseNationalityTouring", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@touringNumber", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@foreignNationalityName", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@familyMedicalHistory", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@familyMedicalHistoryDescription", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@familyMedicalHistoryItemcode", SqlDbType.Char, 300).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@familyMedicalHistoryItemname", SqlDbType.NVarChar, 300).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@internalMedicalHistory", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@internalMedicalHistoryDescription", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@internalMedicalHistoryItemcode", SqlDbType.Char, 300).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@internalMedicalHistoryItemname", SqlDbType.NVarChar, 300).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@surgeryMedicalHistory", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@surgeryDate", SqlDbType.Date).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@diseaseName", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@allergyMedicalHistory", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@allergyMedicalSymptomDescription", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@touringHistory", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@touringHistoryDescription", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@medicinalName", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;               
+
+                cmd1.ExecuteNonQuery();
+
+                /* GETTING OUTPUTS*/
+                Name = cmd1.Parameters[1].Value.ToString();
+                IDcard = cmd1.Parameters[2].Value.ToString();
+                Phone = cmd1.Parameters[3].Value.ToString();
+                Mobile = cmd1.Parameters[4].Value.ToString();
+                gender = cmd1.Parameters[5].Value.ToString();
+                maritalstatus = cmd1.Parameters[6].Value.ToString();                
+                Int32.TryParse(cmd1.Parameters[7].Value.ToString(), out Height);
+                Int32.TryParse(cmd1.Parameters[8].Value.ToString(), out Weight);
+                BirthDate = cmd1.Parameters[9].Value.ToString();
+                ZipCode = cmd1.Parameters[10].Value.ToString();
+                Addr = cmd1.Parameters[11].Value.ToString();
+                Email = cmd1.Parameters[12].Value.ToString();
+                NameCE = cmd1.Parameters[13].Value.ToString();
+                CERelationship = cmd1.Parameters[14].Value.ToString();
+                PhoneHEC = cmd1.Parameters[15].Value.ToString();
+                MobileMEC = cmd1.Parameters[16].Value.ToString();
+                JobName = cmd1.Parameters[17].Value.ToString();
+                nationality = cmd1.Parameters[18].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[19].Value.ToString(), out chinesenationalitytouring);
+                TouringNumber = cmd1.Parameters[20].Value.ToString();
+                ForeignNationalityName = cmd1.Parameters[21].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[22].Value.ToString(), out familymedicalhistory);
+                familymedicalhistorydescription = cmd1.Parameters[23].Value.ToString();
+                FamilyMedicalHistoryItemcode = cmd1.Parameters[24].Value.ToString();
+                FamilyMedicalHistoryItemname = cmd1.Parameters[25].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[26].Value.ToString(), out internalmedicalhistory);
+                internalmedicalhistorydescription = cmd1.Parameters[27].Value.ToString();
+                InternalMedicalHistoryItemcode = cmd1.Parameters[28].Value.ToString();
+                InternalMedicalHistoryItemname = cmd1.Parameters[29].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[30].Value.ToString(), out surgerymedicalhistory);
+                SurgeryDate = cmd1.Parameters[31].Value.ToString();
+                DiseaseName = cmd1.Parameters[32].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[33].Value.ToString(), out allergymedicalhistory);
+                AllergyMedicalSymptomDescription = cmd1.Parameters[34].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[35].Value.ToString(), out touringhistory);
+                TouringHistoryDescription = cmd1.Parameters[36].Value.ToString();
+                MedicinalName = cmd1.Parameters[37].Value.ToString();
+
+                /*
+                name = (string)cmd1.Parameters["@name"].Value;
+                phone = (string)cmd1.Parameters["@phone"].Value;
+                address = (string)cmd1.Parameters["@address"].Value;
+                birthDate = (string)cmd1.Parameters["@birthDate"].Value;
+                age = (int)cmd1.Parameters["@age"].Value;
+                gender = (string)cmd1.Parameters["@gender"].Value;
+                */
+
+                return 0;
+            }
+
+            catch (SqlException ex)
+            {
+                return -1;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+        /*---------------------------GENERATE BILL HISTORY--------------------------------------*/
+
+        public int getBillHistory(int id, ref DataTable result)
 		{
 			DataSet ds = new DataSet();
 			SqlConnection con = new SqlConnection(connString);
