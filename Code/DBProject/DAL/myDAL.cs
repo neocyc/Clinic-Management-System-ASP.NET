@@ -1439,9 +1439,22 @@ namespace DBProject.DAL
                              + " BEGIN "
                              + " insert into PatientMedicalRecords values(@pmrID,@name,@cardID,@phone,@mobile,@gender,@maritalStatus,@height,@weight,@birthDate,@zipcode,@address,@email,@contactEmergencyName,@patientRelationship,@contactEmergencyPhone,@contactEmergencyMobile,@jobName,@nationality,@chineseNationalityTouring,@touringNumber,@foreignNationalityName,@familyMedicalHistory,@familyMedicalHistoryDescription,@familyMedicalHistoryItemcode,@familyMedicalHistoryItemname,@internalMedicalHistory,@internalMedicalHistoryDescription,@internalMedicalHistoryItemcode,@internalMedicalHistoryItemname,@surgeryMedicalHistory,@surgeryDate,@diseaseName,@allergyMedicalHistory,@allergyMedicalSymptomDescription,@touringHistory,@touringHistoryDescription,@medicinalName)"
                              + " END "
+                             + " update PatientMedicalRecords set PatientMRID = @pmrID, Name = @name, IDCard = @cardID, Phone = @phone, Mobile = @mobile, Gender = @gender, MaritalStatus = @maritalStatus, Height = @height, Weight = @weight, BirthDate = birthDate, Zipcode = @zipcode, Address = @address, Email = @email, ContactEmergencyName = @contactEmergencyName, PatientRelationship = @patientRelationship, ContactEmergencyPhone = @contactEmergencyPhone, ContactEmergencyMobile = @contactEmergencyMobile, JobName = @jobName, Nationality = @nationality, ChineseNationalityTouring = @chineseNationalityTouring, TouringNumber = @touringNumber, ForeignNationalityName = @foreignNationalityName, FamilyMedicalHistory = @familyMedicalHistory, FamilyMedicalHistoryDescription = @familyMedicalHistoryDescription, FamilyMedicalHistoryItemcode = @familyMedicalHistoryItemcode, FamilyMedicalHistoryItemname = @familyMedicalHistoryItemname, InternalMedicalHistory = @internalMedicalHistory, InternalMedicalHistoryDescription = @internalMedicalHistoryDescription, InternalMedicalHistoryItemcode = @internalMedicalHistoryItemcode, InternalMedicalHistoryItemname = @internalMedicalHistoryItemname, SurgeryMedicalHistory = @surgeryMedicalHistory, SurgeryDate = @surgeryDate, DiseaseName = @diseaseName, AllergyMedicalHistory =@allergyMedicalHistory, AllergyMedicalSymptomDescription = @allergyMedicalSymptomDescription, TouringHistory = @touringHistory, TouringHistoryDescription = @touringHistoryDescription, MedicinalName = @medicinalName where PatientMRID = @pmrID"
                              + " END ";
 
                 cmd1 = new SqlCommand(sql_s, con);
+
+                //datetime string is "" or null
+                object datenull = null;
+                if (BirthDate.ToString() == "") 
+                {
+                    BirthDate = Convert.ToDateTime(datenull).ToString();
+                }
+
+                if (SurgeryDate.ToString() == "") 
+                {
+                    SurgeryDate = Convert.ToDateTime(datenull).ToString();
+                }
 
                 //Input
                 cmd1.Parameters.Add("@pmrID", SqlDbType.Int).Value = pid;

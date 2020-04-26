@@ -66,7 +66,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sMaritalStatus;
+        protected global::System.Web.UI.WebControls.Label sMaritalStatus;
 
         /// <summary>
         /// sHeight 控制項。
@@ -174,7 +174,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sNationality;
+        protected global::System.Web.UI.WebControls.Label sNationality;
 
         /// <summary>
         /// sChineseNationalityTouring 控制項。
@@ -183,7 +183,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sChineseNationalityTouring;
+        protected global::System.Web.UI.WebControls.Label sChineseNationalityTouring;
 
         /// <summary>
         /// TouringNo 控制項。
@@ -210,7 +210,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sFamilyMedicalHistory;
+        protected global::System.Web.UI.WebControls.Label sFamilyMedicalHistory;
 
         /// <summary>
         /// sFamilyMedicalHistoryDescription 控制項。
@@ -237,7 +237,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sSurgeryMedical;
+        protected global::System.Web.UI.WebControls.Label sSurgeryMedical;
 
         /// <summary>
         /// sSurgeryDate 控制項。
@@ -264,7 +264,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sAllergyMedical;
+        protected global::System.Web.UI.WebControls.Label sAllergyMedical;
 
         /// <summary>
         /// sAllergyMedicalSymptom 控制項。

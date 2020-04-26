@@ -15,7 +15,6 @@ namespace DBProject.Patient
             myDAL objmyDAL = new myDAL();
 
             int pid = (int)Session["idoriginal"];
-            
             string Name = sName.Text.ToString();
             string IDcard = sIDNo.Text.ToString();
             string Phone = sPhoneH.Text.ToString();
@@ -75,17 +74,17 @@ namespace DBProject.Patient
             {
                 sName.Text = Name.ToString();
                 sIDNo.Text = IDcard.ToString();
-                sPhoneH.Text =Phone.ToString();
+                sPhoneH.Text = Phone.ToString();
                 sPhoneM.Text = Mobile.ToString();
                 sGender.Text = gender.ToString();
                 sMaritalStatus.Text = maritalstatus.ToString();
                 sHeight.Text = Height.ToString();
                 sWeight.Text = Weight.ToString();
-                
+
                 DateTime stBirthDate;
                 DateTime.TryParse(BirthDate.ToString(), out stBirthDate);
                 sBirthDate.Text = stBirthDate.ToString("yyyy-mm-dd");
-                
+
                 sZipcode.Text = ZipCode.ToString();
                 Address.Text = Addr.ToString();
                 sEmail.Text = Email.ToString();
@@ -95,24 +94,38 @@ namespace DBProject.Patient
                 sPhoneMEC.Text = MobileMEC.ToString();
                 sJob.Text = JobName.ToString();
                 sNationality.Text = nationality.ToString();
-                sChineseNationalityTouring.Text = chinesenationalitytouring.ToString();
+                sChineseNationalityTouring.Text = BooltoChinese(chinesenationalitytouring.ToString());
                 TouringNo.Text = TouringNumber.ToString();
                 sForeignNationality.Text = ForeignNationalityName.ToString();
-                sFamilyMedicalHistory.Text = familymedicalhistory.ToString();
+                sFamilyMedicalHistory.Text = BooltoChinese(familymedicalhistory.ToString());
                 sFamilyMedicalHistoryDescription.Text = familymedicalhistorydescription.ToString();
-                sPersonalMedicalHistory.Text = internalmedicalhistorydescription.ToString();
-                sSurgeryMedical.Text = surgerymedicalhistory.ToString();
-                                
+                sPersonalMedicalHistory.Text = BooltoChinese(internalmedicalhistorydescription.ToString());
+                sSurgeryMedical.Text = BooltoChinese(surgerymedicalhistory.ToString());
+
                 DateTime stSurgeryDate;
                 DateTime.TryParse(SurgeryDate.ToString(), out stSurgeryDate);
                 sSurgeryDate.Text = stSurgeryDate.ToString("yyyy-mm-dd");
 
                 sDiseaseName.Text = DiseaseName.ToString();
-                sAllergyMedical.Text =allergymedicalhistory.ToString();
+                sAllergyMedical.Text = BooltoChinese(allergymedicalhistory.ToString());
                 sAllergyMedicalSymptom.Text = AllergyMedicalSymptomDescription.ToString();
                 sTourResume.Text = TouringHistoryDescription.ToString();
                 sMedicinalName.Text = MedicinalName.ToString();
             }
+        }
+
+        protected string BooltoChinese(string controlertext)
+        {
+            if (controlertext == "True")
+            {
+                controlertext = "是";
+            }
+
+            if (controlertext == "False") 
+            {
+                controlertext = "否";
+            }
+            return controlertext;
         }
     }
 }

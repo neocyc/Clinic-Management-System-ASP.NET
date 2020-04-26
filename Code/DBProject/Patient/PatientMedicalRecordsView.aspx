@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Patient/PatientMaster.Master" AutoEventWireup="true" CodeBehind="PatientMedicalRecordsView.aspx.cs" Inherits="DBProject.Patient.PatientMedicalRecordsView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>MedicX 4 Health Care 首次登入 &amp; 填寫基本病歷表單</title>
+    <title>MedicX 4 Health Care &amp; 我的病歷資料</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"/>
@@ -92,97 +92,95 @@
 
                            <div class="form-group">
 								<label>姓名</label>
-                                <asp:TextBox ID="sName" runat="server" type="text" class="form-username form-control" placeholder="請填寫姓名" required></asp:TextBox>
+                                <br /><asp:TextBox ID="sName" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填寫姓名" required></asp:TextBox>
                                 <div class="help-block with-errors"></div>                     	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>身分證字號</label>
-                                <asp:TextBox ID="sIDNo" runat="server" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)"  maxlength="10" required data-checkIDcardnumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sIDNo" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填寫身分證字號(第一個英文字母需大寫)"  maxlength="10" required data-checkIDcardnumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div> 
 							
 							<div class="form-group">
 									<label>電話(家)</label>
-                                    <asp:TextBox ID="sPhoneH" runat="server" type="text" class="form-username form-control" placeholder="請填寫市話(XX-XXXXXXXX)"  maxlength="11" required data-checkPhonenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneH" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填寫市話(XX-XXXXXXXX)"  maxlength="11" required data-checkPhonenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
                             </div>
 							
 							<div class="form-group">
 									<label>電話(手機)</label>
-                                    <asp:TextBox ID="sPhoneM" runat="server" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)"  maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneM" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填寫手機號碼 (10 碼)"  maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div> 
                             </div>                                           
                             
 							<div class="form-group">
-							     <label>性別 : </label><div class="help-block with-errors"></div>
-                                 <asp:Label ID="sGender" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:Label>
-                   
+							     <label>性別 : <asp:Label ID="sGender" runat="server" Text="Label"></asp:Label></label><div class="help-block with-errors"></div>
+                                              
                             </div>
 							
 							<div class="form-group">
-								 <label>婚姻狀態 : </label><div class="help-block with-errors"></div>
-                                 <asp:TextBox ID="sMaritalStatus" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                    
+								 <label>婚姻狀態 : <asp:Label ID="sMaritalStatus" runat="server" Text="Label"></asp:Label></label><div class="help-block with-errors"></div>
+                                 
                             </div>
 							
 							<div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="sHeight" runat="server" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sHeight" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請寫身高(單位 cm)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="sWeight" runat="server" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sWeight" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請寫體重(單位 kg)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 				            <div class="form-group">
 								<label>出生日期</label>
-                                <asp:TextBox ID="sBirthDate" runat="server" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" required></asp:TextBox>
+                                <asp:TextBox ID="sBirthDate" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" required></asp:TextBox>
            	                    <div class="help-block with-errors"></div>         
                             </div>
 							
                             <div class="form-group">
 								<label>郵遞區號</label>
-                                <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
+                                <asp:TextBox ID="sZipcode" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            
                             </div>
 
 							<div class="form-group">
 								<label>地址</label>
-                                <asp:TextBox id="Address" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
+                                <asp:TextBox id="Address" disabled="disabled" placeholder ="請寫地址" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
                                 <div class="help-block with-errors"></div>
                             </div>
 
 				            <div class="form-group">
 									<label>電子信箱(Email)</label>
-                                    <asp:TextBox ID="sEmail" runat="server" type="email" class="form-username form-control" placeholder="Email : person@example.com" required></asp:TextBox>
+                                    <asp:TextBox ID="sEmail" runat="server" disabled="disabled" type="email" class="form-username form-control" placeholder="Email : person@example.com" required></asp:TextBox>
                                     <div class="help-block with-errors"></div>
                             </div>
 
                             <div class="form-group">
 								<label>緊急聯絡人姓名</label>
-                                <asp:TextBox ID="sNameCE" runat="server" type="text" class="form-username form-control" placeholder="請填姓名" required></asp:TextBox>
+                                <asp:TextBox ID="sNameCE" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填姓名" required></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 								<label>與病患關係</label>
-                                <asp:TextBox ID="sCERelationship" runat="server" type="text" class="form-username form-control" placeholder="請填關係" required></asp:TextBox>
+                                <asp:TextBox ID="sCERelationship" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填關係" required></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
 
                             <div class="form-group">
 									<label>緊急聯絡人電話</label>
-                                    <asp:TextBox ID="sPhoneHEC" runat="server" type="text" class="form-username form-control" placeholder="請填市話(XX-XXXXXXXX)"  maxlength="11" required data-checkPhonenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneHEC" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填市話(XX-XXXXXXXX)"  maxlength="11" required data-checkPhonenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div>   
                             </div>
 							
 							<div class="form-group">
 									<label>緊急聯絡人手機</label>
-                                    <asp:TextBox ID="sPhoneMEC" runat="server" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)"  maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
+                                    <asp:TextBox ID="sPhoneMEC" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填行動電話 (10 碼)"  maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
                                     <div class="help-block with-errors"></div>   
                             </div>   
                                
@@ -199,82 +197,77 @@
 
                             <div class="form-group">
 								<label>一、職業與工作</label>
-                                <asp:TextBox ID="sJob" runat="server" type="text" class="form-username form-control" placeholder="請填您的職業與工作" required></asp:TextBox>
+                                <asp:TextBox ID="sJob" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填您的職業與工作" required></asp:TextBox>
                                 <div class="help-block with-errors"></div>                       	                            
                             </div>
                             
                             <br />
 
 							<div class="form-group">
-								 <label>二、國籍 : </label>
-                                 <asp:TextBox ID="sNationality" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                                 <br /><label>是否為中國旅行團 : </label>
-                                 <asp:TextBox ID="sChineseNationalityTouring" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                                 <br /><label>中國旅行團編號 : </label>
-                                 <asp:TextBox ID="TouringNo" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                                 <br /><label>外國國籍 : </label>
-                                 <asp:TextBox ID="sForeignNationality" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
+								 <label>二、國籍  </label>
+                                 <br /><label>所屬國籍 : <asp:Label ID="sNationality" runat="server" Text="Label"></asp:Label></label>
+                                 <br /><label>是否為中國旅行團 : <asp:Label ID="sChineseNationalityTouring" runat="server" Text="Label"></asp:Label></label>
+                                 <br /><label>中國旅行團編號  </label>
+                                 <asp:TextBox ID="TouringNo" runat="server" disabled="disabled" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
+                                 <label>外國國籍  </label>
+                                 <asp:TextBox ID="sForeignNationality" runat="server" disabled="disabled" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
                                                                                              
                             </div>
 
                             <br />
                             
                             <div class="form-group">
-                                <label>三、家族病史 :</label><div class="help-block with-errors"></div>
-                                <br /><label>有無家族病史 : </label>
-                                <asp:TextBox ID="sFamilyMedicalHistory" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
+                                <label>三、家族病史 </label><br />
+                                <label>有無家族病史 : <asp:Label ID="sFamilyMedicalHistory" runat="server" Text="Label"></asp:Label></label>
                                                          
                             </div>
 
-                            <br /><label>家族病史描述 : </label>
-                            <br /><asp:TextBox id="sFamilyMedicalHistoryDescription" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
+                            <label>家族病史描述  </label>
+                            <asp:TextBox id="sFamilyMedicalHistoryDescription" disabled="disabled" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
                                                   
                              <div class="form-group">
-								<label>四、病史 :</label>
+								<br /><label>四、病史 </label>
                                
                                     <div class="form-group">
                                          <label>1.個人內科病史</label><div class="help-block with-errors"></div>
-                                         <br /><asp:TextBox ID="sPersonalMedicalHistory" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                                                                    
-                                    </div><br />                                    
+                                         <asp:TextBox id="sPersonalMedicalHistory" disabled="disabled" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" required />
+                                                                                                     
+                                    </div>                                    
                                 
                                     <div class="form-group">
                                          <label>2.個人手術史</label> <div class="help-block with-errors"></div>
-                                         <br /><label>是否曾經動過手術 : </label> 
-                                         <asp:TextBox ID="sSurgeryMedical" runat="server" type="text" class="form-username form-control" maxlength="10" required data-checkMobilenumber=" "></asp:TextBox>
-                                      
+                                         <label>是否曾經動過手術 : <asp:Label ID="sSurgeryMedical" runat="server" Text="Label"></asp:Label></label> 
+                                         
                                     </div>     
-								            <br /><label>手術日期 : </label>
-                                            <asp:TextBox ID="sSurgeryDate" runat="server" type="text" class="form-username form-control" placeholder="請點選日期(dd-mm-yyyy)" ></asp:TextBox>           	                            
+								            <label>手術日期  </label>
+                                            <asp:TextBox ID="sSurgeryDate" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請點選日期(dd-mm-yyyy)" ></asp:TextBox>           	                            
                                          
-								            <label>病名 : </label>
-                                            <asp:TextBox ID="sDiseaseName" runat="server" type="text" class="form-username form-control" placeholder="請填寫病名" ></asp:TextBox>
+								            <label>病名  </label>
+                                            <asp:TextBox ID="sDiseaseName" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填寫病名" ></asp:TextBox>
                                     </div> 
-                                    
+                                    <br />
                                 <div class="form-group">
-								    <label>五、個人藥物過敏史 :</label><div class="help-block with-errors"></div>
+								    <label>五、個人藥物過敏史 </label><div class="help-block with-errors"></div>
                                     <div class="form-group">
-                                         <label>有無藥物過敏 : </label>
-                                         <asp:TextBox ID="sAllergyMedical" runat="server" type="text" class="form-username form-control" placeholder="請填寫病名" ></asp:TextBox>
-                                    </div>
-                                         <br /><label>過敏症狀描述 : </label>
-                                            <asp:TextBox ID="sAllergyMedicalSymptom" runat="server" type="text" class="form-username form-control" placeholder="請描述症狀" ></asp:TextBox>
+                                         <label>有無藥物過敏 : <asp:Label ID="sAllergyMedical" runat="server" Text="Label"></asp:Label></label>
+                                          </div>
+                                         <label>過敏症狀描述  </label>
+                                            <asp:TextBox ID="sAllergyMedicalSymptom" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請描述症狀" ></asp:TextBox>
            	                            
-                                         
-
                                 </div>
 
+                                    <br />
                                 <div class="form-group">
-								    <label>六、最近三個月旅遊史 :</label><div class="help-block with-errors"></div>
+								    <label>六、最近三個月旅遊史 </label><div class="help-block with-errors"></div>
                                    
-                                            <asp:TextBox ID="sTourResume" runat="server" type="text" class="form-username form-control" placeholder="請描述旅遊歷程" ></asp:TextBox>                               
+                                            <asp:TextBox ID="sTourResume" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請描述旅遊歷程" ></asp:TextBox>                               
                                     
                                 </div>
 
                                 <div class="form-group">                                    
-								    <label>七、目前之長期服用藥物 :</label>                                   
+								    <label>七、目前之長期服用藥物 </label>                                   
                                         <div class="form-group ">                                            
-                                            <asp:TextBox ID="sMedicinalName" runat="server" type="text" class="form-username form-control" placeholder="請描述藥物名稱" required></asp:TextBox>
+                                            <asp:TextBox ID="sMedicinalName" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請描述藥物名稱" required></asp:TextBox>
            	                                <div class="help-block with-errors"></div>
                                         </div>                                 
                                 </div>       
