@@ -281,6 +281,7 @@ namespace DBProject
 
             string mes = "";
             myDAL objmyDAL = new myDAL();
+
             objmyDAL.insertPatientMedicalRecords(
                 pid,Name,IDcard,Phone,Mobile,gender,maritalstatus,Height,Weight,BirthDate,ZipCode,Addr,Email,NameCE,CERelationship,PhoneHEC,MobileMEC,
                 JobName,
