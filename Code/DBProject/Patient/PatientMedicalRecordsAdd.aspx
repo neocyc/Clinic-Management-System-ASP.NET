@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IndexPageLogin.Master" AutoEventWireup="true" CodeBehind="PatientIndexPage.aspx.cs" Inherits="DBProject.PatientIndexPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IndexPageLogin.Master" AutoEventWireup="true" CodeBehind="PatientMedicalRecordsAdd.aspx.cs" Inherits="DBProject.PatientIndexPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MedicX 4 Health Care 首次登入 &amp; 填寫基本病歷表單</title>
 

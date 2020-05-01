@@ -24,15 +24,7 @@
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>    
     <script src="../assets/js/jquery.backstretch.min.js"></script>
-
-    <!--引用 plugin -->
-    <!-- bootstrap Validator -->    
-    <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
-    <script src="../assets/js/bootstrap-validator.js"></script>
-        
-    <!--jquery Validate-->    
-    <script src="../assets/js/plugin/jquery.validate.js"></script>
-    
+          
     <!--
     <script src="../assets/js/scripts.js"></script>
     -->
@@ -52,7 +44,7 @@
     
     
 				       
-        <div  style="background-position:center; background-size:20px; background-color:#8C8CFF">    
+        <div  >    
         <!-- Top content -->
              	                                
         <div class="top-content"> 
