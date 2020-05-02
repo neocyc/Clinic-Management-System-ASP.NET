@@ -25,7 +25,20 @@ namespace DBProject.Patient
 
             MessurementDateForm.Attributes.Add("onfocus", "(this.type='date')");
 
-            initialization();
+            if (!IsPostBack) 
+            {
+                string Today = DateTime.Now.ToShortDateString();
+                MessurementDateForm.Text = Today;
+                heightDateT.Text = Today;
+                weightDateT.Text = Today;
+                BMIDateT.Text = Today;
+                temperatureDateT.Text = Today;
+                heartbeatDateT.Text = Today;
+                bloodoxygenDateT.Text = Today;
+                plasmaglucoseDateT.Text = Today;
+                bloodpressureDateT.Text = Today;
+            }
+            //initialization();
         }
 
         #region 按鈕事件
@@ -48,6 +61,7 @@ namespace DBProject.Patient
         protected void SentMessurementDataF_Click(object sender, EventArgs e)
         {
             int pid = (int)Session["idoriginal"];
+
             string MessurementDateF = MessurementDateForm.Text;
             float Height = strinngtofloat(heightF.Text);
             string HeightMessurementDate = MessurementDateF;
@@ -75,11 +89,16 @@ namespace DBProject.Patient
             {
                 Response.Write("<script>alert('" + mes.ToString() + "');</script>");
             }
+            else 
+            {
+                Response.Write("<script>alert('資料已送出，資料寫入成功!!');</script>");
+            }
         }
 
         protected void SentMessurementDataT_Click(object sender, EventArgs e)
         {
             int pid = (int)Session["idoriginal"];
+            
             string MessurementDateF = DateTime.Now.ToShortDateString();
             float Height = strinngtofloat(heightT.Text);
             string HeightMessurementDate = heightDateT.Text;
@@ -106,6 +125,10 @@ namespace DBProject.Patient
             if (mes != "")
             {
                 Response.Write("<script>alert('" + mes.ToString() + "');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('資料已送出，資料寫入成功!!');</script>");
             }
         }
 
