@@ -61,7 +61,8 @@ go
 
 create table PatientMessurementRecordsSheet
 (
-	PatientMRSID int primary key,	
+	MessurementRecordsSheetID int identity(1,1) primary key,
+	PatientMRSID int,	
 	MessurementDateF Date,
 	
 	Height float,
@@ -81,5 +82,5 @@ create table PatientMessurementRecordsSheet
 	BloodPressure float,
 	BPMessurementDate Date
 
-	foreign key(PatientMRSID) references Patient(PatientID)
+	foreign key (PatientMRSID) references Patient(PatientID)
 )
