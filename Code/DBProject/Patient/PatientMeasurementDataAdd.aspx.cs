@@ -11,7 +11,15 @@ namespace DBProject.Patient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            hDate.Attributes.Add("onfocus", "(this.type='date')");
+            heightDateT.Attributes.Add("onfocus", "(this.type='date')");
+            weightDateT.Attributes.Add("onfocus", "(this.type='date')");
+            temperatureDateT.Attributes.Add("onfocus", "(this.type='date')");
+            heartbeatDateT.Attributes.Add("onfocus", "(this.type='date')");
+            bloodoxygenDateT.Attributes.Add("onfocus", "(this.type='date')");
+            plasmaglucoseDateT.Attributes.Add("onfocus", "(this.type='date')");
+            bloodpressureDateT.Attributes.Add("onfocus", "(this.type='date')");
+            
+            MessurementDateF.Attributes.Add("onfocus", "(this.type='date')");
         }
 
         protected void btnTableMode_Click(object sender, EventArgs e)
@@ -28,6 +36,16 @@ namespace DBProject.Patient
             SignupForm.Visible = true;
             btnTableMode.BackColor = System.Drawing.Color.Blue;
             btnFormMode.BackColor = System.Drawing.Color.YellowGreen;
+        }
+
+        protected void SentMessurementDataF_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void SentMessurementDataT_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

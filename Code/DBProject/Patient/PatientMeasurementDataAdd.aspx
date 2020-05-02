@@ -108,57 +108,57 @@
                                   <tbody>
                                     <tr>
                                       <td>身高</td>
-                                      <td><asp:TextBox ID="TextBox3" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="hDate" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
                                     <tr>
                                       <td>體重</td>
-                                      <td><asp:TextBox ID="TextBox4" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox5" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="weightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="weightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
                                     <tr>
                                       <td>BMI</td>
-                                      <td><asp:Label ID="Label16" runat="server"></asp:Label></td>
+                                      <td><asp:Label ID="BMIT" runat="server"></asp:Label></td>
                                       <td></td>
                                     </tr>
 
                                      <tr>
                                       <td>體溫</td>
-                                      <td><asp:TextBox ID="TextBox6" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox7" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="temperatureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="temperatureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
                                       <td>脈搏/心跳</td>
-                                      <td><asp:TextBox ID="TextBox8" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox9" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heartbeatT" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heartbeatDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
                                       <td>血氧</td>
-                                      <td><asp:TextBox ID="TextBox10" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox11" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="bloodoxygenT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="bloodoxygenDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
                                       <td>血糖</td>
-                                      <td><asp:TextBox ID="TextBox12" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox13" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="plasmaglucoseT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="plasmaglucoseDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                     <tr>
                                       <td>血壓</td>
-                                      <td><asp:TextBox ID="TextBox14" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓" ></asp:TextBox></td>
-                                      <td><asp:TextBox ID="TextBox15" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
+                                      <td><asp:TextBox ID="bloodpressureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="bloodpressureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                   </tbody>
                                 </table>
                              </div>                            
                             
-                             <asp:button Text ="送出量測資料"  runat="server" type="submit" class="btn btn-primary center-block"></asp:button>
+                             <asp:button Text ="送出量測資料"  runat="server" type="submit" class="btn btn-primary center-block" OnClick="SentMessurementDataT_Click"></asp:button>
 				           
 
                              <!-- sign up ends here -->
@@ -225,61 +225,61 @@
                                  
                            <div class="form-group">
 							    <label>量測日期</label>
-                                <asp:TextBox ID="TextBox21" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
+                                <asp:TextBox ID="MessurementDateF" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
                            
                            </div>         
                            
                            <div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="TextBox1" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高" ></asp:TextBox>
+                                <asp:TextBox ID="heightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高" ></asp:TextBox>
                                            	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="TextBox2" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重"></asp:TextBox>
+                                <asp:TextBox ID="weightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重"></asp:TextBox>
                                                       	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>BMI</label><br />
-                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                <asp:Label ID="BMIF" runat="server"></asp:Label>
                                 
                             </div> 
 							
                             <div class="form-group">
 								<label>體溫</label>
-                                <asp:TextBox ID="TextBox16" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫"></asp:TextBox>
+                                <asp:TextBox ID="temperatureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫"></asp:TextBox>
                                                       	                            
                             </div> 
                            
                             <div class="form-group">
 								<label>脈搏/心跳</label>
-                                <asp:TextBox ID="TextBox17" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳"></asp:TextBox>
+                                <asp:TextBox ID="heartbeatF" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
 								<label>血氧</label>
-                                <asp:TextBox ID="TextBox18" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧"></asp:TextBox>
+                                <asp:TextBox ID="bloodoxygenF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
 								<label>血糖</label>
-                                <asp:TextBox ID="TextBox19" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖"></asp:TextBox>
+                                <asp:TextBox ID="plasmaglucoseF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
 								<label>血壓</label>
-                                <asp:TextBox ID="TextBox20" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓"></asp:TextBox>
+                                <asp:TextBox ID="bloodpressureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓"></asp:TextBox>
                                                       	                            
                             </div> 
 
                              <!-- sign up ends here -->
                                             
-                            <asp:button Text ="送出量測資料"  runat="server" type="submit" class="btn btn-primary center-block"></asp:button>				           
+                            <asp:button Text ="送出量測資料"  runat="server" type="submit" class="btn btn-primary center-block" OnClick="SentMessurementDataF_Click"></asp:button>				           
 
                                </div>
                            </div>

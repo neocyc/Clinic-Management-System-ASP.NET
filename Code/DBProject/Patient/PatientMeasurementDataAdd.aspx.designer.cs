@@ -42,139 +42,139 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.PlaceHolder SignupTable;
 
         /// <summary>
-        /// TextBox3 控制項。
+        /// heightT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox heightT;
 
         /// <summary>
-        /// hDate 控制項。
+        /// heightDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hDate;
+        protected global::System.Web.UI.WebControls.TextBox heightDateT;
 
         /// <summary>
-        /// TextBox4 控制項。
+        /// weightT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox weightT;
 
         /// <summary>
-        /// TextBox5 控制項。
+        /// weightDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox weightDateT;
 
         /// <summary>
-        /// Label16 控制項。
+        /// BMIT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label16;
+        protected global::System.Web.UI.WebControls.Label BMIT;
 
         /// <summary>
-        /// TextBox6 控制項。
+        /// temperatureT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox temperatureT;
 
         /// <summary>
-        /// TextBox7 控制項。
+        /// temperatureDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox temperatureDateT;
 
         /// <summary>
-        /// TextBox8 控制項。
+        /// heartbeatT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox heartbeatT;
 
         /// <summary>
-        /// TextBox9 控制項。
+        /// heartbeatDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox heartbeatDateT;
 
         /// <summary>
-        /// TextBox10 控制項。
+        /// bloodoxygenT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox bloodoxygenT;
 
         /// <summary>
-        /// TextBox11 控制項。
+        /// bloodoxygenDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox bloodoxygenDateT;
 
         /// <summary>
-        /// TextBox12 控制項。
+        /// plasmaglucoseT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
+        protected global::System.Web.UI.WebControls.TextBox plasmaglucoseT;
 
         /// <summary>
-        /// TextBox13 控制項。
+        /// plasmaglucoseDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox13;
+        protected global::System.Web.UI.WebControls.TextBox plasmaglucoseDateT;
 
         /// <summary>
-        /// TextBox14 控制項。
+        /// bloodpressureT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox14;
+        protected global::System.Web.UI.WebControls.TextBox bloodpressureT;
 
         /// <summary>
-        /// TextBox15 控制項。
+        /// bloodpressureDateT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+        protected global::System.Web.UI.WebControls.TextBox bloodpressureDateT;
 
         /// <summary>
         /// SignupForm 控制項。
@@ -186,84 +186,84 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.PlaceHolder SignupForm;
 
         /// <summary>
-        /// TextBox21 控制項。
+        /// MessurementDateF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox21;
+        protected global::System.Web.UI.WebControls.TextBox MessurementDateF;
 
         /// <summary>
-        /// TextBox1 控制項。
+        /// heightF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox heightF;
 
         /// <summary>
-        /// TextBox2 控制項。
+        /// weightF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox weightF;
 
         /// <summary>
-        /// Label1 控制項。
+        /// BMIF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label BMIF;
 
         /// <summary>
-        /// TextBox16 控制項。
+        /// temperatureF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox16;
+        protected global::System.Web.UI.WebControls.TextBox temperatureF;
 
         /// <summary>
-        /// TextBox17 控制項。
+        /// heartbeatF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox17;
+        protected global::System.Web.UI.WebControls.TextBox heartbeatF;
 
         /// <summary>
-        /// TextBox18 控制項。
+        /// bloodoxygenF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox18;
+        protected global::System.Web.UI.WebControls.TextBox bloodoxygenF;
 
         /// <summary>
-        /// TextBox19 控制項。
+        /// plasmaglucoseF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox19;
+        protected global::System.Web.UI.WebControls.TextBox plasmaglucoseF;
 
         /// <summary>
-        /// TextBox20 控制項。
+        /// bloodpressureF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox20;
+        protected global::System.Web.UI.WebControls.TextBox bloodpressureF;
     }
 }
