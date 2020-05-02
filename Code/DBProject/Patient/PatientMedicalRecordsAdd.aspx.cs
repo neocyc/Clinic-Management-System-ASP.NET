@@ -295,6 +295,11 @@ namespace DBProject
                 ref mes
             );
 
+            if (mes != "") 
+            {
+                Response.Write("<script>alert('"+ mes.ToString() +"');</script>");
+            }
+
             Response.BufferOutput = true;
             Response.Redirect("~/Patient/PatientHome.aspx");
         }

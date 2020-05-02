@@ -225,7 +225,7 @@
                                  
                            <div class="form-group">
 							    <label>量測日期</label>
-                                <asp:TextBox ID="MessurementDateF" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
+                                <asp:TextBox ID="MessurementDateForm" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
                            
                            </div>         
                            

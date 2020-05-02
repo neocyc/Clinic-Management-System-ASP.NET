@@ -195,13 +195,13 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.PlaceHolder SignupForm;
 
         /// <summary>
-        /// MessurementDateF 控制項。
+        /// MessurementDateForm 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MessurementDateF;
+        protected global::System.Web.UI.WebControls.TextBox MessurementDateForm;
 
         /// <summary>
         /// heightF 控制項。
