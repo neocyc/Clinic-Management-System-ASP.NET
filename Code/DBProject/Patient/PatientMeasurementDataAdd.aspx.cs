@@ -13,6 +13,7 @@ namespace DBProject.Patient
         {
             heightDateT.Attributes.Add("onfocus", "(this.type='date')");
             weightDateT.Attributes.Add("onfocus", "(this.type='date')");
+            BMIDateT.Attributes.Add("onfocus", "(this.type='date')");
             temperatureDateT.Attributes.Add("onfocus", "(this.type='date')");
             heartbeatDateT.Attributes.Add("onfocus", "(this.type='date')");
             bloodoxygenDateT.Attributes.Add("onfocus", "(this.type='date')");

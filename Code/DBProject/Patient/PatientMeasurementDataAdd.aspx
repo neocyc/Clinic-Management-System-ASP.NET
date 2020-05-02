@@ -121,7 +121,7 @@
                                     <tr>
                                       <td>BMI</td>
                                       <td><asp:Label ID="BMIT" runat="server"></asp:Label></td>
-                                      <td></td>
+                                      <td><asp:TextBox ID="BMIDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
