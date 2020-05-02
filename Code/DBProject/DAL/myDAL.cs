@@ -1382,7 +1382,7 @@ namespace DBProject.DAL
 
 
 
-        //-------------------------------------Patient IndexPage------------------------------------------//
+        //-------------------------------------PATIENT MEDICALRECORDS------------------------------------------//
         public void insertPatientMedicalRecords(int pid,string Name,string IDcard,string Phone,string Mobile,string gender,string maritalstatus,int Height,int Weight,string BirthDate,string ZipCode,string Addr,string Email,string NameCE,string CERelationship,string PhoneHEC,string MobileMEC,string JobName,string nationality,Boolean chinesenationalitytouring,string TouringNumber,string ForeignNationalityName,Boolean familymedicalhistory,string familymedicalhistorydescription,string FamilyMedicalHistoryItemcode,string FamilyMedicalHistoryItemname,Boolean internalmedicalhistory,string internalmedicalhistorydescription,string InternalMedicalHistoryItemcode,string InternalMedicalHistoryItemname,Boolean surgerymedicalhistory,string SurgeryDate,string DiseaseName,Boolean allergymedicalhistory,string AllergyMedicalSymptomDescription,Boolean touringhistory,string TouringHistoryDescription,string MedicinalName,ref string mes)
         {
             SqlConnection con = new SqlConnection(connString);
@@ -1510,6 +1510,125 @@ namespace DBProject.DAL
                 con.Close();
             }
         }
+
+
+
+
+
+
+        //-------------------------------------PATIENT MESSUREMENTDATA ------------------------------------------//
+        public void insertPatientMessurementDatas(int pid, string MessurementDateF, float Height, string HeightMessurementDate, float Weight, string WeightMessurementDate, float BMI, string BMIMessurementDate, float Temperature, string TemperatureMessurementDate, float HeartBeat, string HBMessurementDate, float BloodOxygen, string BOMessurementDate, float PlasmaGlucose, string PGMessurementDate, float BloodPressure, string BPMessurementDate,ref string mes)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+                /*
+                 insertInPatientMessurementRecordsSheetTable
+                 
+                 @pmrsID int,
+                 @messurementDateF date,
+                 @height float,
+                 @heightMessurementDate date
+                 @weight float,
+                 @weightMessurementDate date,
+                 @BMI float,
+                 @BMImessurementDate date,
+                 @temperature float,
+                 @temperatureMessurementDate date,
+                 @heartBeat float,
+                 @hbMessurementDate date,
+                 @bloodOxygen float,
+                 @boMessurementDate date,
+                 @plasmaGlucose float,
+                 @pgMessurementDate date,
+                 @bloodPressure float,
+                 @bpMessurementDate date
+                 
+                */
+
+                string sql_s = " BEGIN "                             
+                             + " BEGIN "
+                             + " insert into PatientMessurementRecordsSheet values(@pmrsID, @messurementDateF, @height, @heightMessurementDate, @weight, @weightMessurementDate, @BMI, @BMImessurementDate, @temperature, @temperatureMessurementDate, @heartBeat, @hbMessurementDate, @bloodOxygen, @boMessurementDate, @plasmaGlucose, @pgMessurementDate, @bloodPressure, @bpMessurementDate) "
+                             + " END "                            
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);
+
+                //datetime string is "" or null
+                object datenull = null;
+                if (MessurementDateF.ToString() == "")
+                {
+                    MessurementDateF = Convert.ToDateTime(datenull).ToString();
+                }
+                if (HeightMessurementDate.ToString() == "")
+                {
+                    HeightMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (WeightMessurementDate.ToString() == "")
+                {
+                    WeightMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (BMIMessurementDate.ToString() == "")
+                {
+                    BMIMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (TemperatureMessurementDate.ToString() == "")
+                {
+                    TemperatureMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (BOMessurementDate.ToString() == "")
+                {
+                    BOMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (PGMessurementDate.ToString() == "")
+                {
+                    PGMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+                if (BPMessurementDate.ToString() == "")
+                {
+                    BPMessurementDate = Convert.ToDateTime(datenull).ToString();
+                }
+
+                //Input
+                cmd1.Parameters.Add("@pmrsID", SqlDbType.Int).Value = pid;
+                cmd1.Parameters.Add("@messurementDateF", SqlDbType.Date).Value = MessurementDateF;
+                cmd1.Parameters.Add("@height", SqlDbType.Float).Value = Height;
+                cmd1.Parameters.Add("@heightMessurementDate", SqlDbType.Date).Value = HeightMessurementDate;
+                cmd1.Parameters.Add("@weight", SqlDbType.Float).Value = Weight;
+                cmd1.Parameters.Add("@weightMessurementDate", SqlDbType.Date).Value = WeightMessurementDate;
+                cmd1.Parameters.Add("@BMI", SqlDbType.Float).Value = BMI;
+                cmd1.Parameters.Add("@BMImessurementDate", SqlDbType.Date).Value = BMIMessurementDate;
+                cmd1.Parameters.Add("@temperature", SqlDbType.Float).Value = Temperature;
+                cmd1.Parameters.Add("@temperatureMessurementDate", SqlDbType.Date).Value = TemperatureMessurementDate;
+                cmd1.Parameters.Add("@heartBeat", SqlDbType.Float).Value = HeartBeat;
+                cmd1.Parameters.Add("@hbMessurementDate", SqlDbType.Date).Value = HBMessurementDate;
+                cmd1.Parameters.Add("@bloodOxygen", SqlDbType.Float).Value = BloodOxygen;
+                cmd1.Parameters.Add("@boMessurementDate", SqlDbType.Date).Value = BOMessurementDate;
+                cmd1.Parameters.Add("@plasmaGlucose", SqlDbType.Float).Value = PlasmaGlucose;
+                cmd1.Parameters.Add("@pgMessurementDate", SqlDbType.Date).Value = PGMessurementDate;
+                cmd1.Parameters.Add("@bloodPressure", SqlDbType.Float).Value = BloodPressure;
+                cmd1.Parameters.Add("@bpMessurementDate", SqlDbType.Date).Value = BPMessurementDate;
+
+                cmd1.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
 
 
 

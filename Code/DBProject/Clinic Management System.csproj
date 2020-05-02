@@ -115,7 +115,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Admin\Admin.Master" />
-    <Content Include="Patient\PatientIndexPage.aspx" />
+    <Content Include="Patient\PatientMeasurementDataAdd.aspx" />
+    <Content Include="Patient\PatientMedicalRecordsAdd.aspx" />
     <Content Include="Patient\PatientMaster.Master" />
     <Content Include="Doctor\DoctorMaster.Master" />
     <Content Include="IndexPageLogin.Master" />
@@ -279,12 +280,19 @@
     <Compile Include="Patient\PatientHome.aspx.designer.cs">
       <DependentUpon>PatientHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Patient\PatientIndexPage.aspx.cs">
-      <DependentUpon>PatientIndexPage.aspx</DependentUpon>
+    <Compile Include="Patient\PatientMeasurementDataAdd.aspx.cs">
+      <DependentUpon>PatientMeasurementDataAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Patient\PatientIndexPage.aspx.designer.cs">
-      <DependentUpon>PatientIndexPage.aspx</DependentUpon>
+    <Compile Include="Patient\PatientMeasurementDataAdd.aspx.designer.cs">
+      <DependentUpon>PatientMeasurementDataAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientMedicalRecordsAdd.aspx.cs">
+      <DependentUpon>PatientMedicalRecordsAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMedicalRecordsAdd.aspx.designer.cs">
+      <DependentUpon>PatientMedicalRecordsAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient\PatientMaster.Master.cs">
       <DependentUpon>PatientMaster.Master</DependentUpon>

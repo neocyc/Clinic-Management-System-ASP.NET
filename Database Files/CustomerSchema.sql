@@ -54,3 +54,33 @@ create table PatientMedicalRecords
 	foreign key(PatientMRID) references Patient(PatientID)
 )
 
+GO
+use DBProject
+
+go
+
+create table PatientMessurementRecordsSheet
+(
+	MessurementRecordsSheetID int identity(1,1) primary key,
+	PatientMRSID int,	
+	MessurementDateF Date,
+	
+	Height float,
+	HeightMessurementDate Date,
+	Weight float,
+	WeightMessurementDate Date,
+	BMI float,
+	BMIMessurementDate Date,
+	Temperature float,
+	TemperatureMessurementDate Date,
+	HeartBeat float,
+	HBMessurementDate Date,
+	BloodOxygen float,
+	BOMessurementDate Date,
+	PlasmaGlucose float,
+	PGMessurementDate Date,
+	BloodPressure float,
+	BPMessurementDate Date
+
+	foreign key (PatientMRSID) references Patient(PatientID)
+)
