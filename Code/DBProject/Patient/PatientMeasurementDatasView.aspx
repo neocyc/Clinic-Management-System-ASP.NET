@@ -64,15 +64,15 @@
     <br />
 
     <div class="form-group">
-    <asp:Label ID="Label1" runat="server" Text="表單填寫時間 : "></asp:Label><asp:Label ID="lbMessurementDateF" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label3" runat="server" Text="身高量測時間 : "></asp:Label><asp:Label ID="lbHeightMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label5" runat="server" Text="體重量測時間 : "></asp:Label><asp:Label ID="lbWeightMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label7" runat="server" Text="BMI量測時間 : "></asp:Label><asp:Label ID="lbBMIMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label9" runat="server" Text="體溫量測時間 : "></asp:Label><asp:Label ID="lbTemperatureMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label11" runat="server" Text="脈搏與心跳量測時間 : "></asp:Label><asp:Label ID="lbHBMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label13" runat="server" Text="血氧量測時間 : "></asp:Label><asp:Label ID="lbBOMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label15" runat="server" Text="血糖量測時間 : "></asp:Label><asp:Label ID="lbPGMessurementDate" runat="server" Text="Label"></asp:Label>
-    <br /><br /><asp:Label ID="Label17" runat="server" Text="血壓量測時間 : "></asp:Label><asp:Label ID="lbBPMessurementDate" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="表單填寫時間 : "></asp:Label><asp:Label ID="lbMessurementDateF" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label3" runat="server" Text="身高量測時間 : "></asp:Label><asp:Label ID="lbHeightMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label5" runat="server" Text="體重量測時間 : "></asp:Label><asp:Label ID="lbWeightMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label7" runat="server" Text="BMI量測時間 : "></asp:Label><asp:Label ID="lbBMIMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label9" runat="server" Text="體溫量測時間 : "></asp:Label><asp:Label ID="lbTemperatureMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label11" runat="server" Text="脈搏與心跳量測時間 : "></asp:Label><asp:Label ID="lbHBMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label13" runat="server" Text="血氧量測時間 : "></asp:Label><asp:Label ID="lbBOMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label15" runat="server" Text="血糖量測時間 : "></asp:Label><asp:Label ID="lbPGMessurementDate" runat="server" Text=""></asp:Label>
+    <br /><br /><asp:Label ID="Label17" runat="server" Text="血壓量測時間 : "></asp:Label><asp:Label ID="lbBPMessurementDate" runat="server" Text=""></asp:Label>
     </div>
 
 
