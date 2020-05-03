@@ -1190,11 +1190,67 @@ namespace DBProject.DAL
 
 
 
+        //-------------------------------------VIEW PATIENT MESSUREMENT DATA------------------------------------------//
 
-		//-------------------------------------DOCTOR PROFILE------------------------------------------//
+        public int getPatientMessurementDataInfo(int pid, ref DataTable result, ref string mes)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+
+                /*
+                  Retrieve PatientMessurementRecordsSheet
+
+                  @pmrsID int
+                 */
+
+                string sql_s = " BEGIN "
+                             + " select * from PatientMessurementRecordsSheet where PatientMRSID = @pmrsID "
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);
+                
+                //Input
+                cmd1.Parameters.Add("@pmrsID", SqlDbType.Int).Value = pid;
+
+                cmd1.ExecuteNonQuery();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd1))
+                {
+                    da.Fill(ds);
+                }
+
+                /*FILL TABLE*/
+                result = ds.Tables[0];
+
+                return 1;
+            }
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+                return -1;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
-		public int doctorInfoDisplayer(int dID, ref string name, ref string phone, ref string gender, ref float charges_Per_Visit, ref float ReputeIndex, ref int PatientsTreated, ref string qualification, ref string specialization, ref int workE, ref int age)
+
+
+
+
+        //-------------------------------------DOCTOR PROFILE------------------------------------------//
+
+
+        public int doctorInfoDisplayer(int dID, ref string name, ref string phone, ref string gender, ref float charges_Per_Visit, ref float ReputeIndex, ref int PatientsTreated, ref string qualification, ref string specialization, ref int workE, ref int age)
 		{
 			SqlConnection con = new SqlConnection(connString);
 			con.Open();
