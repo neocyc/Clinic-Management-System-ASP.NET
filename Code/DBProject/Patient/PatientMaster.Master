@@ -64,11 +64,15 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="PatientMeasurementDataAdd.aspx"> 填寫量測資料 </a></li>
+                            <li><a href="PatientMeasurementDatasView.aspx"><span class="glyphicon glyphicon-search"></span> 我的歷史量測資料 </a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="PatientMedicalRecordsView.aspx"> 我的病歷資料 </a></li>
+                            <li><a href="PatientMeasurementDataAdd.aspx"><span class="glyphicon glyphicon-plus"></span> 填寫量測資料 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="PatientMedicalRecordsView.aspx"><span class="glyphicon glyphicon-search"></span> 我的病歷資料 </a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">

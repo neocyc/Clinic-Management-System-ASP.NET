@@ -116,6 +116,7 @@
     </Content>
     <Content Include="Admin\Admin.Master" />
     <Content Include="Patient\PatientMeasurementDataAdd.aspx" />
+    <Content Include="Patient\PatientMeasurementDatasView.aspx" />
     <Content Include="Patient\PatientMedicalRecordsAdd.aspx" />
     <Content Include="Patient\PatientMaster.Master" />
     <Content Include="Doctor\DoctorMaster.Master" />
@@ -286,6 +287,13 @@
     </Compile>
     <Compile Include="Patient\PatientMeasurementDataAdd.aspx.designer.cs">
       <DependentUpon>PatientMeasurementDataAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\PatientMeasurementDatasView.aspx.cs">
+      <DependentUpon>PatientMeasurementDatasView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\PatientMeasurementDatasView.aspx.designer.cs">
+      <DependentUpon>PatientMeasurementDatasView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient\PatientMedicalRecordsAdd.aspx.cs">
       <DependentUpon>PatientMedicalRecordsAdd.aspx</DependentUpon>
