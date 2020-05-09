@@ -63,7 +63,6 @@ D:\www\CMS\Code\DBProject\bin\Microsoft.AI.Web.xml
 D:\www\CMS\Code\DBProject\bin\Microsoft.AI.WindowsServer.xml
 D:\www\CMS\Code\DBProject\bin\Microsoft.ApplicationInsights.xml
 D:\www\CMS\Code\DBProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csprojAssemblyReference.cache
 D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CoreCompileInputs.cache
 D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
 D:\www\CMS\Code\DBProject\obj\Debug\DBProject.dll
