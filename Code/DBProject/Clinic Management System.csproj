@@ -100,6 +100,7 @@
     <Content Include="Doctor\PatientHistory.aspx" />
     <Content Include="Doctor\PendingAppointment.aspx" />
     <Content Include="Doctor\PreviousHistory.aspx" />
+    <Content Include="Doctor\ViewPatientMedicalRecords.aspx" />
     <Content Include="Patient\AppointmentRequestSent.aspx" />
     <Content Include="Patient\AppointmentTaker.aspx" />
     <Content Include="Doctor\Bill.aspx" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="Doctor\PreviousHistory.aspx.designer.cs">
       <DependentUpon>PreviousHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\ViewPatientMedicalRecords.aspx.cs">
+      <DependentUpon>ViewPatientMedicalRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\ViewPatientMedicalRecords.aspx.designer.cs">
+      <DependentUpon>ViewPatientMedicalRecords.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndexPageLogin.Master.cs">
       <DependentUpon>IndexPageLogin.Master</DependentUpon>
