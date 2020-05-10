@@ -13,11 +13,13 @@ namespace DBProject.Doctor
     {
 		protected void Page_Load(object sender, EventArgs e)
         {
-            //int did = (int)Session["idoriginal"];
+            int did = (int)Session["idoriginal"];
             if (!IsPostBack) 
             {
                 LoadGrid("");
             }
+
+            ((ContentPlaceHolder)Master.FindControl("Cp2")).Visible = false;
         }		
 
 		/*THIS FUNCTION WILL SEARCH THE NAME AND GIVE RESULTS OR RETURN ALL TUPLES FROM DATABASE IN THE GRID VIE*/
@@ -204,6 +206,8 @@ namespace DBProject.Doctor
 
         protected void dgvPatientListInfo_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
+            ((ContentPlaceHolder)Master.FindControl("Cp2")).Visible = true;
+
             LoadGrid(hfSearchState.Value);
 			int num = Convert.ToInt32(e.CommandArgument);		
 			int pid = Convert.ToInt32(dgvPatientListInfo.Rows[num].Cells[1].Text);
