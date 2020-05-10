@@ -79,7 +79,7 @@ create table PatientMessurementRecordsSheet
 	BOMessurementDate Date,
 	PlasmaGlucose float,
 	PGMessurementDate Date,
-	BloodPressure float,
+	BloodPressure varchar(MAX),
 	BPMessurementDate Date
 
 	foreign key (PatientMRSID) references Patient(PatientID)
