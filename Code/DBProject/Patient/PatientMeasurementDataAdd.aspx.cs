@@ -77,7 +77,7 @@ namespace DBProject.Patient
             string BOMessurementDate = MessurementDateF;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseF.Text);
             string PGMessurementDate = MessurementDateF;
-            float BloodPressure = strinngtofloat(bloodpressureF.Text);
+            string BloodPressure = bloodpressureF.Text;
             string BPMessurementDate = MessurementDateF;
 
             string mes = "";
@@ -114,7 +114,7 @@ namespace DBProject.Patient
             string BOMessurementDate = bloodoxygenDateT.Text;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseT.Text);
             string PGMessurementDate = plasmaglucoseDateT.Text;
-            float BloodPressure = strinngtofloat(bloodpressureT.Text);
+            string BloodPressure = bloodpressureT.Text;
             string BPMessurementDate = bloodpressureDateT.Text;
 
             string mes = "";

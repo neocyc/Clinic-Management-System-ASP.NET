@@ -54,7 +54,7 @@ namespace DBProject.Patient
                 DTClName.Columns[5].ColumnName = "心跳脈搏";
                 DTClName.Columns[6].ColumnName = "血氧";
                 DTClName.Columns[7].ColumnName = "血糖";
-                DTClName.Columns[8].ColumnName = "血壓";
+                DTClName.Columns[8].ColumnName = "血壓(收縮壓/舒張壓)";
 
                 TPatientMessurementDatasGrid.DataSource = DTClName;
                 TPatientMessurementDatasGrid.DataBind();

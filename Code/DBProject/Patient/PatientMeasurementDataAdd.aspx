@@ -149,7 +149,7 @@
                                     </tr>
 
                                     <tr>
-                                      <td>血壓</td>
+                                      <td>血壓(收縮壓/舒張壓)</td>
                                       <td><asp:TextBox ID="bloodpressureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="bloodpressureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
@@ -273,7 +273,7 @@
                             </div> 
 
                             <div class="form-group">
-								<label>血壓</label>
+								<label>血壓(收縮壓/舒張壓)</label>
                                 <asp:TextBox ID="bloodpressureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓"></asp:TextBox>
                                                       	                            
                             </div> 
