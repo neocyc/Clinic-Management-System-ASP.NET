@@ -55,13 +55,14 @@ create table PatientMedicalRecords
 )
 
 GO
+
 use DBProject
 
 go
 
 create table PatientMessurementRecordsSheet
-(
-	MessurementRecordsSheetID int identity(1,1) primary key,
+(	
+    MessurementRecordsSheetID int identity(1,1) primary key,
 	PatientMRSID int,	
 	MessurementDateF Date,
 	
@@ -83,4 +84,29 @@ create table PatientMessurementRecordsSheet
 	BPMessurementDate Date
 
 	foreign key (PatientMRSID) references Patient(PatientID)
+)
+GO
+
+
+use DBProject
+
+go
+
+create table PatientMessurementDataEvaluate
+(	
+	DoctorMEID int primary key,	
+	Name varchar(30) not null,
+	DeptName varchar(30) not null unique,
+	TemperatureMax float,
+	TemperatureMin float,
+	HeartBeatMax float,
+	HeartBeatMin float,
+	BloodOxygenMax float,
+	BloodOxygenMin float,
+	PlasmaGlucoseMax float,
+	PlasmaGlucoseMin float,
+	BloodPressureMax float,
+	BloodPressureMin float
+
+	foreign key (DoctorMEID) references Doctor(DoctorID)
 )
