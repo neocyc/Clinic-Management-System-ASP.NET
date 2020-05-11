@@ -84,7 +84,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BMIT;
+        protected global::System.Web.UI.WebControls.Label BMIT;
 
         /// <summary>
         /// BMIDateT 控制項。
@@ -228,7 +228,7 @@ namespace DBProject.Patient
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BMIF;
+        protected global::System.Web.UI.WebControls.Label BMIF;
 
         /// <summary>
         /// temperatureF 控制項。

@@ -108,22 +108,21 @@
                                   <tbody>
                                     <tr>
                                       <td>身高</td>
-                                      <td><asp:TextBox ID="heightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heightT" runat="server" AutoPostBack="true" OnTextChanged="heightT_TextChanged" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="heightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
                                     <tr>
                                       <td>體重</td>
-                                      <td><asp:TextBox ID="weightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重(kg)" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="weightT" runat="server" AutoPostBack="true" OnTextChanged="weightT_TextChanged" type="text" class="form-username form-control" placeholder="請填寫體重(kg)" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="weightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
                                     <tr>
                                       <td>BMI<br />BMI參考公式:體重(公斤) / 身高平方(公尺平方)</td>
-                                      <td><asp:TextBox ID="BMIT" runat="server" type="text" class="form-username form-control" placeholder="請填寫BMI值"></asp:TextBox></td>
+                                      <td><asp:Label ID="BMIT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="BMIDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
-
                                      <tr>
                                       <td>體溫</td>
                                       <td><asp:TextBox ID="temperatureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫" ></asp:TextBox></td>
@@ -225,26 +224,26 @@
                                  
                            <div class="form-group">
 							    <label>量測日期</label>
-                                <asp:TextBox ID="MessurementDateForm" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
+                                <asp:TextBox ID="MessurementDateForm" runat="server" AutoPostBack="true" OnTextChanged="MessurementDateForm_TextChanged" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox>           	                            
                            
                            </div>         
                            
                            <div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="heightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox>
+                                <asp:TextBox ID="heightF" runat="server" AutoPostBack="true" OnTextChanged="heightF_TextChanged" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox>
                                            	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="weightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重(kg)"></asp:TextBox>
+                                <asp:TextBox ID="weightF" runat="server" AutoPostBack="true" OnTextChanged="weightF_TextChanged" type="text" class="form-username form-control" placeholder="請填寫體重(kg)"></asp:TextBox>
                                                       	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>BMI</label><br />
                                 <label>BMI參考公式:體重(公斤) / 身高平方(公尺平方)</label><br />
-                                <asp:TextBox ID="BMIF" runat="server" type="text" class="form-username form-control" placeholder="請填寫BMI值"></asp:TextBox>
+                                <asp:Label ID="BMIF" runat="server"></asp:Label>
                                  
                             </div> 
 							
