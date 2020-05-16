@@ -69,6 +69,10 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="ViewPatientMeasurementDatas.aspx"><span class="glyphicon glyphicon-list-alt"></span> 病人量測資料查詢</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="ViewPatientMedicalRecords.aspx"><span class="glyphicon glyphicon-list-alt"></span> 病人基本病歷資料查詢</a></li>
                         </ul>
 

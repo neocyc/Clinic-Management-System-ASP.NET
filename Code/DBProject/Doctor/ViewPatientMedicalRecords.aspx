@@ -16,7 +16,7 @@
         display:inline-block;
     }
 
-</style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cp1" runat="server" >
     

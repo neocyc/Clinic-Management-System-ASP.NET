@@ -80,15 +80,16 @@ namespace DBProject.Patient
 
             int selectitem;
             int.TryParse(e.CommandArgument.ToString(), out selectitem);
-            lbMessurementDateF.Text = DTSelest.Rows[selectitem].ItemArray[1].ToString();
-            lbHeightMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[2].ToString();
-            lbWeightMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[3].ToString();
-            lbBMIMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[4].ToString();
-            lbTemperatureMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[5].ToString();
-            lbHBMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[6].ToString();
-            lbBOMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[7].ToString();
-            lbPGMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[8].ToString();
-            lbBPMessurementDate.Text = DTSelest.Rows[selectitem].ItemArray[9].ToString();
+
+            lbMessurementDateF.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[1].ToString()).ToShortDateString();
+            lbHeightMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[2].ToString()).ToShortDateString();
+            lbWeightMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[3].ToString()).ToShortDateString();
+            lbBMIMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[4].ToString()).ToShortDateString();
+            lbTemperatureMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[5].ToString()).ToShortDateString();
+            lbHBMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[6].ToString()).ToShortDateString();
+            lbBOMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[7].ToString()).ToShortDateString();
+            lbPGMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[8].ToString()).ToShortDateString();
+            lbBPMessurementDate.Text = DateTime.Parse(DTSelest.Rows[selectitem].ItemArray[9].ToString()).ToShortDateString();
         }
 
         protected void TPatientMessurementDatasGrid_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -104,6 +105,19 @@ namespace DBProject.Patient
                 if (selectControl != null)
                 {
                     selectControl.Text = "顯示量測時間";
+                }
+            }
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                foreach (TableCell c in e.Row.Cells)
+                {
+                    if (e.Row.Cells.GetCellIndex(c) > 2 && e.Row.Cells.GetCellIndex(c) < (e.Row.Cells.Count - 1))
+                    {
+                        int cellsIndex = e.Row.Cells.GetCellIndex(c);
+                        Single f = Single.Parse(c.Text);
+                        e.Row.Cells[cellsIndex].Text = f.ToString("#.###");
+                    }
                 }
             }
         }        
