@@ -120,7 +120,7 @@
                                     
                                     <tr>
                                       <td>BMI<br />BMI參考公式:體重(公斤) / 身高平方(公尺平方)</td>
-                                      <td><asp:TextBox ID="BMIT" runat="server" type="text" class="form-username form-control" placeholder="請填寫BMI值"></asp:TextBox></td>
+                                      <td><asp:Label ID="BMIT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="BMIDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
@@ -244,8 +244,7 @@
 							<div class="form-group">
 								<label>BMI</label><br />
                                 <label>BMI參考公式:體重(公斤) / 身高平方(公尺平方)</label><br />
-                                <asp:TextBox ID="BMIF" runat="server" type="text" class="form-username form-control" placeholder="請填寫BMI值"></asp:TextBox>
-                                 
+                                <asp:Label ID="BMIF" runat="server"></asp:Label> 
                             </div> 
 							
                             <div class="form-group">

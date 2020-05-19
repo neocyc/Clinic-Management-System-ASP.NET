@@ -171,5 +171,41 @@ namespace DBProject.Patient
             float.TryParse(inputdata, out floatrlt);
             return floatrlt;
         }
+
+        protected void heightT_TextChanged(object sender, EventArgs e)
+        {
+            BMIT.Text = BMICalculation(heightT.Text, weightT.Text);
+        }
+
+        protected void weightT_TextChanged(object sender, EventArgs e)
+        {
+            BMIT.Text = BMICalculation(heightT.Text, weightT.Text);
+        }
+
+        protected string BMICalculation(string height, string weight)
+        {
+            double dheight, dweight, dBMI;
+
+            dheight = strinngtofloat(height);
+            dweight = strinngtofloat(weight);
+            dBMI = dweight / (Math.Pow(dheight / 100, 2));
+
+            return dBMI.ToString();
+        }
+
+        protected void MessurementDateForm_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
+        }
+
+        protected void heightF_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
+        }
+
+        protected void weightF_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
+        }
     }
 }
