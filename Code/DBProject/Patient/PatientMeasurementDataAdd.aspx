@@ -108,13 +108,13 @@
                                   <tbody>
                                     <tr>
                                       <td>身高</td>
-                                      <td><asp:TextBox ID="heightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="heightT" runat="server" AutoPostBack="true" OnTextChanged="heightT_TextChanged" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="heightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
                                     <tr>
                                       <td>體重</td>
-                                      <td><asp:TextBox ID="weightT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重(kg)" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="weightT" runat="server"  AutoPostBack="true" OnTextChanged="weightT_TextChanged" type="text" class="form-username form-control" placeholder="請填寫體重(kg)" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="weightDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
                                     
@@ -231,13 +231,13 @@
                            
                            <div class="form-group">
 								<label>身高</label>
-                                <asp:TextBox ID="heightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox>
+                                <asp:TextBox ID="heightF" runat="server"  AutoPostBack="true" OnTextChanged="heightF_TextChanged" type="text" class="form-username form-control" placeholder="請填寫身高(cm)" ></asp:TextBox>
                                            	                            
                             </div> 
 							
 							<div class="form-group">
 								<label>體重</label>
-                                <asp:TextBox ID="weightF" runat="server" type="text" class="form-username form-control" placeholder="請填寫體重(kg)"></asp:TextBox>
+                                <asp:TextBox ID="weightF" runat="server"  AutoPostBack="true" OnTextChanged="weightF_TextChanged" type="text" class="form-username form-control" placeholder="請填寫體重(kg)"></asp:TextBox>
                                                       	                            
                             </div> 
 							
