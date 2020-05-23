@@ -218,8 +218,21 @@ namespace DBProject.Doctor
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Pname.Text)) 
+            {
+                Response.Write("<script>alert('尚未選擇發送訊息對象!!');</script>");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(((int)Session["pidoriginal"]).ToString()))
+            {
+                Response.Write("<script>alert('病人資料讀取失敗!!');</script>");
+                return;
+            }
+               
+            int pid = (int)Session["pidoriginal"];          
             int did = (int)Session["idoriginal"];
-            int pid = (int)Session["pidoriginal"];
+            
 
             string MessageInfo = DoctorSuggestionEvaluateMessage.Text;
             DateTime initDate = DateTime.Now;

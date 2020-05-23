@@ -98,7 +98,7 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="PatientNotifications.aspx"><span class="	glyphicon glyphicon-flag"></span> Notifications</a></li>
+                            <li><a href="PatientNotifications.aspx"><span class="	glyphicon glyphicon-flag"></span> 醫師留言通知</a></li>
                         </ul>
 
 

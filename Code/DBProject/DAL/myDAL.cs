@@ -690,6 +690,41 @@ namespace DBProject.DAL
 
 
 
+        public void patientMessageBoardInfoDisplayer(int pid,ref DataTable messageInfo, ref string mes) 
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd;
+
+            try
+            {
+                string sql = "select DoctorName, initDate, MessageInfo from DoctorFeedbackMessageBoard where TargetPatientID = @pID ";
+
+                cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.Add("@pID", SqlDbType.Int).Value = pid;
+
+
+                cmd.ExecuteNonQuery();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    da.Fill(ds);
+
+                messageInfo = ds.Tables[0];
+
+            }
+
+            catch (SqlException ex)
+            {
+                mes = ex.ToString();
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
 
         /*-------------------DISPLAYS PATIENT INFORMATION AT PATIENT HOME--------------------------------------- */
 

@@ -17,6 +17,16 @@ namespace DBProject
         protected void Page_Load(object sender, EventArgs e)
         {
             Notifications(sender, e);
+
+            myDAL objmyDAl = new myDAL(); 
+            int pid = (int)Session["idoriginal"];
+            DataTable rereader = new DataTable();
+            string mes = "";
+
+            objmyDAl.patientMessageBoardInfoDisplayer(pid, ref rereader, ref mes);
+
+            RepeaterDoctorMessage.DataSource = rereader;//repeater的資料來源是從rereader來
+            RepeaterDoctorMessage.DataBind();//執行繫結
         }
 
 
