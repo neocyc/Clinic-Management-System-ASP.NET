@@ -60,6 +60,8 @@ namespace DBProject.Doctor
             int num = Convert.ToInt32(e.CommandArgument);
             int pid = Convert.ToInt32(dgvPatientListInfo.Rows[num].Cells[1].Text);
 
+            Pname.Text = dgvPatientListInfo.Rows[num].Cells[2].Text;
+
             LoadPatientMRSinfo(pid);
             Session["pidoriginal"] = pid;
         }
@@ -212,6 +214,39 @@ namespace DBProject.Doctor
             lbBOMessurementDate.Text = "";
             lbPGMessurementDate.Text = "";
             lbBPMessurementDate.Text = "";
+        }
+
+        protected void Confirm_Click(object sender, EventArgs e)
+        {
+            int did = (int)Session["idoriginal"];
+            int pid = (int)Session["pidoriginal"];
+
+            string MessageInfo = DoctorSuggestionEvaluateMessage.Text;
+            DateTime initDate = DateTime.Now;
+            string mes = "";
+            
+            myDAL objmyDAL = new myDAL();
+
+            DataTable dt = new DataTable();
+            objmyDAL.docinfo_DAL(did, ref dt);
+
+            string DoctorName = dt.Rows[0]["Name"].ToString();
+
+            objmyDAL.insertDoctorFeedbackMessage(did, pid, DoctorName, MessageInfo, initDate, ref mes);
+
+            if (mes != "")
+            {
+                Response.Write("<script>alert('" + mes.ToString() + "');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('訊息傳送成功');</script>");
+            }
+            
+            ((ContentPlaceHolder)Master.FindControl("Cp2")).Visible = false;
+            DoctorSuggestionEvaluateMessage.Text = "";
+            Pname.Text = "";
+            Page_Load(null,null);
         }
     }
 }

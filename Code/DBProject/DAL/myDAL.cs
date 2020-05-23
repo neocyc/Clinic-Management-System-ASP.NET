@@ -1878,19 +1878,65 @@ namespace DBProject.DAL
 
 
 
-		//-----------------------------------------------------------------------------------//
-		//                                                                                   //
-		//                                       DOCTOR                                      //
-		//                                                                                   //
-		//-----------------------------------------------------------------------------------//
+        //-----------------------------------------------------------------------------------//
+        //                                                                                   //
+        //                                       DOCTOR                                      //
+        //                                                                                   //
+        //-----------------------------------------------------------------------------------//
 
 
+        public void insertDoctorFeedbackMessage(int DoctorID, int PatientID, string DoctorName, string MessageInfo ,DateTime initDate, ref string mes) 
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+                /*
+                 insertInDoctorFeedbackMessageBoardTable
+                 
+                 @dID int,
+                 @pID int,
+                 @dName nvarchar(30),
+                 @messageInfo nvarchar(1000)
+                 @initDate Date                 
+                */
 
 
+                string sql_s = " BEGIN "
+                             + " BEGIN "
+                             + " insert into DoctorFeedbackMessageBoard values( ' ', @dID, @pID, @dName, @messageInfo, @initDate ) "
+                             + " END "
+                             + " END ";
 
+                cmd1 = new SqlCommand(sql_s, con);     
+                
+                //Input
+                cmd1.Parameters.Add("@dID", SqlDbType.Int).Value = DoctorID;
+                cmd1.Parameters.Add("@pID", SqlDbType.Int).Value = PatientID;
+                cmd1.Parameters.Add("@dName", SqlDbType.NVarChar,30).Value = DoctorName;
+                cmd1.Parameters.Add("@messageInfo", SqlDbType.NVarChar,1000).Value = MessageInfo;
+                cmd1.Parameters.Add("@initDate", SqlDbType.DateTime).Value = initDate;                
 
-		/*THIS FUNCITON WILL RETRIEVE THE INFORMATION OF CURRENT LOGGED IN DOCTOR*/
-		public int docinfo_DAL(int doctorid, ref DataTable result)
+                cmd1.ExecuteNonQuery();
+                
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        /*THIS FUNCITON WILL RETRIEVE THE INFORMATION OF CURRENT LOGGED IN DOCTOR*/
+        public int docinfo_DAL(int doctorid, ref DataTable result)
 		{
 
 			DataSet ds = new DataSet();
