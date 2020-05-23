@@ -122,4 +122,18 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Cp3" runat="server">
+    <br />
+    <div class="form-group">
+	    <label> 【醫師量測資料意見評估】 </label>
+        <br />
+        <label> 病人姓名 : </label> <asp:Label ID="Pname" runat="server"></asp:Label>
+        <br />
+        <asp:TextBox id="DoctorSuggestionEvaluateMessage" placeholder ="請填寫量測資料評估意見" TextMode="multiline" Columns="40" Rows="10" class="form-username form-control" runat="server" Height="75px" Width="100%" />
+    
+        <p>
+        <asp:Button ID="Confirm" runat="server" OnClick="Confirm_Click" Text="發送訊息" />
+        <input id="Reset" type="reset" value="重新填寫" />
+
+        </p>
+    </div>
 </asp:Content>

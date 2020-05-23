@@ -79,8 +79,42 @@ create table PatientMessurementRecordsSheet
 	BOMessurementDate Date,
 	PlasmaGlucose float,
 	PGMessurementDate Date,
-	BloodPressure float,
+	BloodPressure varchar(20),
 	BPMessurementDate Date
 
 	foreign key (PatientMRSID) references Patient(PatientID)
 )
+
+GO
+use DBProject
+
+go
+
+create table DoctorFeedbackMessageBoard
+(
+	FeedbackMessageBoardID int identity(1,1) primary key,
+	MessageTitle nvarchar(50),
+	DoctorFMBID int,
+	TargetPatientID int,
+	DoctorName nvarchar(30) not null,
+	MessageInfo nvarchar(1000),
+	initDate DateTime
+
+	foreign key (DoctorFMBID) references Doctor(DoctorID)
+)
+
+GO
+use DBProject
+
+go
+create table PatientReplyMessageBoard
+(
+	ReplyMessageBoardID int primary key,	
+	PatientRMBID int,
+	PatientName nvarchar(30) not null,
+	MessageInfo nvarchar(1000),
+	initDate DateTime
+
+	foreign key (ReplyMessageBoardID) references DoctorFeedbackMessageBoard(FeedbackMessageBoardID)
+)
+
