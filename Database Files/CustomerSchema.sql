@@ -84,3 +84,37 @@ create table PatientMessurementRecordsSheet
 
 	foreign key (PatientMRSID) references Patient(PatientID)
 )
+
+GO
+use DBProject
+
+go
+
+create table DoctorFeedbackMessageBoard
+(
+	FeedbackMessageBoardID int identity(1,1) primary key,
+	MessageTitle nvarchar(50),
+	DoctorFMBID int,
+	DoctorName varchar(30) not null,
+	MessageInfo nvarchar(1000),
+	initDate Date
+
+	foreign key (DoctorFMBID) references Doctor(DoctorID)
+)
+
+GO
+use DBProject
+
+go
+create table PatientReplyMessageBoard
+(
+	ReplyMessageBoardID int primary key,	
+	PatientRMBID int,
+	PatientName varchar(30) not null,
+	MessageInfo nvarchar(1000),
+	initDate Date
+
+	foreign key (ReplyMessageBoardID) references DoctorFeedbackMessageBoard(FeedbackMessageBoardID),
+	foreign key (PatientRMBID) references Patient(PatientID)
+)
+
