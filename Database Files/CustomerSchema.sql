@@ -98,7 +98,7 @@ create table DoctorFeedbackMessageBoard
 	TargetPatientID int,
 	DoctorName nvarchar(30) not null,
 	MessageInfo nvarchar(1000),
-	initDate Date
+	initDate DateTime
 
 	foreign key (DoctorFMBID) references Doctor(DoctorID)
 )
@@ -113,7 +113,7 @@ create table PatientReplyMessageBoard
 	PatientRMBID int,
 	PatientName nvarchar(30) not null,
 	MessageInfo nvarchar(1000),
-	initDate Date
+	initDate DateTime
 
 	foreign key (ReplyMessageBoardID) references DoctorFeedbackMessageBoard(FeedbackMessageBoardID)
 )
