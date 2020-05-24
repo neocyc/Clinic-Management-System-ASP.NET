@@ -12,13 +12,12 @@ namespace DBProject.Doctor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //int did = (int)Session["idoriginal"];
+            int did = (int)Session["idoriginal"];
         }
 
         protected void SentMessurementData_Click(object sender, EventArgs e)
         {
-            //int did = (int)Session["idoriginal"];
-            int did = 6;
+            int did = (int)Session["idoriginal"];
 
             string DoctorName = "";
             string DeptName = "";

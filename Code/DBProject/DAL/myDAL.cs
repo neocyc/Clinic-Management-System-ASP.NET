@@ -1924,7 +1924,7 @@ namespace DBProject.DAL
                              + " END "
                              + @" 
                                UPDATE [dbo].[PatientMessurementDataEvaluate]
-                               SET [DoctorMEID] = @pid
+                               SET [DoctorMEID] = @dID
                                   ,[Name] = @name
                                   ,[DeptName] = @deptName
                                   ,[TemperatureMax] = @temperatureMax
@@ -2347,84 +2347,7 @@ namespace DBProject.DAL
             {
                 con.Close();
             }
-        }
-
-
-        public void insertPatientMessurementEvaluateData(int did, string Name, string DeptName, float TemperatureMax, float TemperatureMin, float HeartBeatMax, string HBMessurementDate, float BloodOxygen, string BOMessurementDate, float PlasmaGlucose, string PGMessurementDate, float BloodPressure, string BPMessurementDate, ref string mes)
-        {
-            SqlConnection con = new SqlConnection(connString);
-            con.Open();
-            SqlCommand cmd1;
-
-            try
-            {
-                /*
-                 insertInPatientMessurementRecordsSheetTable
-                 
-                 @pmrsID int,
-                 @messurementDateF date,
-                 @height float,
-                 @heightMessurementDate date
-                 @weight float,
-                 @weightMessurementDate date,
-                 @BMI float,
-                 @BMImessurementDate date,
-                 @temperature float,
-                 @temperatureMessurementDate date,
-                 @heartBeat float,
-                 @hbMessurementDate date,
-                 @bloodOxygen float,
-                 @boMessurementDate date,
-                 @plasmaGlucose float,
-                 @pgMessurementDate date,
-                 @bloodPressure float,
-                 @bpMessurementDate date
-                 
-                */
-
-                string sql_s = " BEGIN "
-                             + " BEGIN "
-                             + " insert into PatientMessurementRecordsSheet values(@pmrsID, @messurementDateF, @height, @heightMessurementDate, @weight, @weightMessurementDate, @BMI, @BMImessurementDate, @temperature, @temperatureMessurementDate, @heartBeat, @hbMessurementDate, @bloodOxygen, @boMessurementDate, @plasmaGlucose, @pgMessurementDate, @bloodPressure, @bpMessurementDate) "
-                             + " END "
-                             + " END ";
-
-                cmd1 = new SqlCommand(sql_s, con);                
-
-                //Input
-                cmd1.Parameters.Add("@pmrsID", SqlDbType.Int).Value = pid;
-                cmd1.Parameters.Add("@messurementDateF", SqlDbType.Date).Value = MessurementDateF;
-                cmd1.Parameters.Add("@height", SqlDbType.Float).Value = Height;
-                cmd1.Parameters.Add("@heightMessurementDate", SqlDbType.Date).Value = HeightMessurementDate;
-                cmd1.Parameters.Add("@weight", SqlDbType.Float).Value = Weight;
-                cmd1.Parameters.Add("@weightMessurementDate", SqlDbType.Date).Value = WeightMessurementDate;
-                cmd1.Parameters.Add("@BMI", SqlDbType.Float).Value = BMI;
-                cmd1.Parameters.Add("@BMImessurementDate", SqlDbType.Date).Value = BMIMessurementDate;
-                cmd1.Parameters.Add("@temperature", SqlDbType.Float).Value = Temperature;
-                cmd1.Parameters.Add("@temperatureMessurementDate", SqlDbType.Date).Value = TemperatureMessurementDate;
-                cmd1.Parameters.Add("@heartBeat", SqlDbType.Float).Value = HeartBeat;
-                cmd1.Parameters.Add("@hbMessurementDate", SqlDbType.Date).Value = HBMessurementDate;
-                cmd1.Parameters.Add("@bloodOxygen", SqlDbType.Float).Value = BloodOxygen;
-                cmd1.Parameters.Add("@boMessurementDate", SqlDbType.Date).Value = BOMessurementDate;
-                cmd1.Parameters.Add("@plasmaGlucose", SqlDbType.Float).Value = PlasmaGlucose;
-                cmd1.Parameters.Add("@pgMessurementDate", SqlDbType.Date).Value = PGMessurementDate;
-                cmd1.Parameters.Add("@bloodPressure", SqlDbType.Float).Value = BloodPressure;
-                cmd1.Parameters.Add("@bpMessurementDate", SqlDbType.Date).Value = BPMessurementDate;
-
-                cmd1.ExecuteNonQuery();
-            }
-
-            catch (SqlException ex)
-            {
-                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
-                mes = m;
-            }
-
-            finally
-            {
-                con.Close();
-            }
-        }
-
+        }        
 
     }
 
