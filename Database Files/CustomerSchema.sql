@@ -87,7 +87,7 @@ create table PatientMessurementRecordsSheet
 )
 
 GO
-<<<<<<< HEAD
+
 use DBProject
 
 go
@@ -120,7 +120,7 @@ create table PatientReplyMessageBoard
 	foreign key (ReplyMessageBoardID) references DoctorFeedbackMessageBoard(FeedbackMessageBoardID)
 )
 
-=======
+
 
 use DBProject
 
@@ -146,4 +146,3 @@ create table PatientMessurementDataEvaluate
 
 	foreign key (DoctorMEID) references Doctor(DoctorID)
 )
->>>>>>> feature/F_add_feature_DocSetSystemofParameter
