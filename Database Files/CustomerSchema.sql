@@ -55,13 +55,14 @@ create table PatientMedicalRecords
 )
 
 GO
+
 use DBProject
 
 go
 
 create table PatientMessurementRecordsSheet
-(
-	MessurementRecordsSheetID int identity(1,1) primary key,
+(	
+    MessurementRecordsSheetID int identity(1,1) primary key,
 	PatientMRSID int,	
 	MessurementDateF Date,
 	
@@ -86,6 +87,7 @@ create table PatientMessurementRecordsSheet
 )
 
 GO
+<<<<<<< HEAD
 use DBProject
 
 go
@@ -118,3 +120,30 @@ create table PatientReplyMessageBoard
 	foreign key (ReplyMessageBoardID) references DoctorFeedbackMessageBoard(FeedbackMessageBoardID)
 )
 
+=======
+
+use DBProject
+
+go
+
+create table PatientMessurementDataEvaluate
+(	
+	DoctorMEID int primary key,	
+	Name nvarchar(30) not null,
+	DeptName nvarchar(30) not null unique,
+	TemperatureMax float,
+	TemperatureMin float,
+	HeartBeatMax float,
+	HeartBeatMin float,
+	BloodOxygenMax float,
+	BloodOxygenMin float,
+	PlasmaGlucoseMax float,
+	PlasmaGlucoseMin float,
+	SystolicBloodPressureMax float,
+	SystolicBloodPressureMin float,
+	DiastolicBloodPressureMax float,
+	DiastolicBloodPressureMin float
+
+	foreign key (DoctorMEID) references Doctor(DoctorID)
+)
+>>>>>>> feature/F_add_feature_DocSetSystemofParameter
