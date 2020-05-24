@@ -105,8 +105,10 @@ create table PatientMessurementDataEvaluate
 	BloodOxygenMin float,
 	PlasmaGlucoseMax float,
 	PlasmaGlucoseMin float,
-	BloodPressureMax float,
-	BloodPressureMin float
+	SystolicBloodPressureMax float,
+	SystolicBloodPressureMin float,
+	DiastolicBloodPressureMax float,
+	DiastolicBloodPressureMin float
 
 	foreign key (DoctorMEID) references Doctor(DoctorID)
 )
