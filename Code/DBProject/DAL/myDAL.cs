@@ -1134,11 +1134,12 @@ namespace DBProject.DAL
 		}
 
 
+        
 
 
-		//-------------------------------------VIEW DOCTORS------------------------------------------//
+        //-------------------------------------VIEW DOCTORS------------------------------------------//
 
-		public int getDeptDoctorInfo(string deptName, ref DataTable result)
+        public int getDeptDoctorInfo(string deptName, ref DataTable result)
 		{
 			DataSet ds = new DataSet();
 			SqlConnection con = new SqlConnection(connString);
@@ -1878,19 +1879,108 @@ namespace DBProject.DAL
 
 
 
-		//-----------------------------------------------------------------------------------//
-		//                                                                                   //
-		//                                       DOCTOR                                      //
-		//                                                                                   //
-		//-----------------------------------------------------------------------------------//
+        //-----------------------------------------------------------------------------------//
+        //                                                                                   //
+        //                                       DOCTOR                                      //
+        //                                                                                   //
+        //-----------------------------------------------------------------------------------//
+
+
+
+        //-------------------------------------DOCTOR SETTING  PatientMessurementData Evaluate Value------------------------------------------//
+        public void insertPatientMessurementDataEvaluate(int did, string DoctorName, string DeptName, float TemperatureMax, float TemperatureMin, float HeartBeatMax, float HeartBeatMin, float BloodOxygenMax, float BloodOxygenMin, float PlasmaGlucoseMax, float PlasmaGlucoseMin, float SystolicBloodPressureMax, float SystolicBloodPressureMin, float DiastolicBloodPressureMax, float DiastolicBloodPressureMin, ref string mes)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+                /*
+                 insertInPatientMessurementDataEvaluateTable
+                 
+                 @dID int,   
+                 @name nvarchar(30),
+                 @deptName nvarchar(30),
+                 @temperatureMax float,
+                 @temperatureMin float,
+                 @heartBeatMax float,
+                 @heartBeatMin float,
+                 @bloodOxygenMax float,
+                 @bloodOxygenMin float,
+                 @plasmaGlucoseMax float,
+                 @plasmaGlucoseMin float,
+                 @systolicBloodPressureMax float,
+                 @systolicBloodPressureMin float,
+                 @diastolicBloodPressureMax float,
+                 @diastolicBloodPressureMin float,
+                 
+                */
+
+                string sql_s = " BEGIN "
+                             + " if not exists(select * from PatientMessurementDataEvaluate where DoctorMEID=@dID) "
+                             + " BEGIN "
+                             + " insert into PatientMessurementDataEvaluate values( @dID, @name, @deptName, @temperatureMax, @temperatureMin, @heartBeatMax, @heartBeatMin, @bloodOxygenMax, @bloodOxygenMin, @plasmaGlucoseMax, @plasmaGlucoseMin, @systolicBloodPressureMax, @systolicBloodPressureMin, @diastolicBloodPressureMax, @diastolicBloodPressureMin )"
+                             + " END "
+                             + @" 
+                               UPDATE [dbo].[PatientMessurementDataEvaluate]
+                               SET [DoctorMEID] = @pid
+                                  ,[Name] = @name
+                                  ,[DeptName] = @deptName
+                                  ,[TemperatureMax] = @temperatureMax
+                                  ,[TemperatureMin] = @temperatureMin
+                                  ,[HeartBeatMax] = @heartBeatMax
+                                  ,[HeartBeatMin] = @heartBeatMin
+                                  ,[BloodOxygenMax] = @bloodOxygenMax
+                                  ,[BloodOxygenMin] = @bloodOxygenMin
+                                  ,[PlasmaGlucoseMax] = @plasmaGlucoseMax
+                                  ,[PlasmaGlucoseMin] = @plasmaGlucoseMin
+                                  ,[SystolicBloodPressureMax] = @systolicBloodPressureMax
+                                  ,[SystolicBloodPressureMin] = @systolicBloodPressureMin
+                                  ,[DiastolicBloodPressureMax] = @diastolicBloodPressureMax
+                                  ,[DiastolicBloodPressureMin] = @diastolicBloodPressureMin "
+
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);
+
+                //Input
+                cmd1.Parameters.Add("@dID", SqlDbType.Int).Value = did;
+                cmd1.Parameters.Add("@name", SqlDbType.NVarChar,30).Value = DoctorName;
+                cmd1.Parameters.Add("@deptName", SqlDbType.NVarChar,30).Value = DeptName;
+                cmd1.Parameters.Add("@temperatureMax", SqlDbType.Float).Value = TemperatureMax;
+                cmd1.Parameters.Add("@temperatureMin", SqlDbType.Float).Value = TemperatureMin;
+                cmd1.Parameters.Add("@heartBeatMax", SqlDbType.Float).Value = HeartBeatMax;
+                cmd1.Parameters.Add("@heartBeatMin", SqlDbType.Float).Value = HeartBeatMin;
+                cmd1.Parameters.Add("@bloodOxygenMax", SqlDbType.Float).Value = BloodOxygenMax;
+                cmd1.Parameters.Add("@bloodOxygenMin", SqlDbType.Float).Value = BloodOxygenMin;
+                cmd1.Parameters.Add("@plasmaGlucoseMax", SqlDbType.Float).Value = PlasmaGlucoseMax;
+                cmd1.Parameters.Add("@plasmaGlucoseMin", SqlDbType.Float).Value = PlasmaGlucoseMin;
+                cmd1.Parameters.Add("@systolicBloodPressureMax", SqlDbType.Float).Value = SystolicBloodPressureMax;
+                cmd1.Parameters.Add("@systolicBloodPressureMin", SqlDbType.Float).Value = SystolicBloodPressureMin;
+                cmd1.Parameters.Add("@diastolicBloodPressureMax", SqlDbType.Float).Value = DiastolicBloodPressureMax;
+                cmd1.Parameters.Add("@diastolicBloodPressureMin", SqlDbType.Float).Value = DiastolicBloodPressureMin;
+
+                cmd1.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
 
 
-
-
-		/*THIS FUNCITON WILL RETRIEVE THE INFORMATION OF CURRENT LOGGED IN DOCTOR*/
-		public int docinfo_DAL(int doctorid, ref DataTable result)
+        /*THIS FUNCITON WILL RETRIEVE THE INFORMATION OF CURRENT LOGGED IN DOCTOR*/
+        public int docinfo_DAL(int doctorid, ref DataTable result)
 		{
 
 			DataSet ds = new DataSet();
@@ -2298,42 +2388,7 @@ namespace DBProject.DAL
                              + " END "
                              + " END ";
 
-                cmd1 = new SqlCommand(sql_s, con);
-
-                //datetime string is "" or null
-                object datenull = null;
-                if (MessurementDateF.ToString() == "")
-                {
-                    MessurementDateF = Convert.ToDateTime(datenull).ToString();
-                }
-                if (HeightMessurementDate.ToString() == "")
-                {
-                    HeightMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (WeightMessurementDate.ToString() == "")
-                {
-                    WeightMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (BMIMessurementDate.ToString() == "")
-                {
-                    BMIMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (TemperatureMessurementDate.ToString() == "")
-                {
-                    TemperatureMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (BOMessurementDate.ToString() == "")
-                {
-                    BOMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (PGMessurementDate.ToString() == "")
-                {
-                    PGMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
-                if (BPMessurementDate.ToString() == "")
-                {
-                    BPMessurementDate = Convert.ToDateTime(datenull).ToString();
-                }
+                cmd1 = new SqlCommand(sql_s, con);                
 
                 //Input
                 cmd1.Parameters.Add("@pmrsID", SqlDbType.Int).Value = pid;
