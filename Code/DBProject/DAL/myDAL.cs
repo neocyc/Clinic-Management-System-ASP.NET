@@ -1169,12 +1169,11 @@ namespace DBProject.DAL
 		}
 
 
-        
 
 
-        //-------------------------------------VIEW DOCTORS------------------------------------------//
+		//-------------------------------------VIEW DOCTORS------------------------------------------//
 
-        public int getDeptDoctorInfo(string deptName, ref DataTable result)
+		public int getDeptDoctorInfo(string deptName, ref DataTable result)
 		{
 			DataSet ds = new DataSet();
 			SqlConnection con = new SqlConnection(connString);
@@ -1919,36 +1918,13 @@ namespace DBProject.DAL
         //                                       DOCTOR                                      //
         //                                                                                   //
         //-----------------------------------------------------------------------------------//
-<<<<<<< HEAD
-
-
-        public void insertDoctorFeedbackMessage(int DoctorID, int PatientID, string DoctorName, string MessageInfo ,DateTime initDate, ref string mes) 
-=======
-
-
 
         //-------------------------------------DOCTOR SETTING  PatientMessurementData Evaluate Value------------------------------------------//
         public void insertPatientMessurementDataEvaluate(int did, string DoctorName, string DeptName, float TemperatureMax, float TemperatureMin, float HeartBeatMax, float HeartBeatMin, float BloodOxygenMax, float BloodOxygenMin, float PlasmaGlucoseMax, float PlasmaGlucoseMin, float SystolicBloodPressureMax, float SystolicBloodPressureMin, float DiastolicBloodPressureMax, float DiastolicBloodPressureMin, ref string mes)
->>>>>>> feature/F_add_feature_DocSetSystemofParameter
         {
             SqlConnection con = new SqlConnection(connString);
             con.Open();
             SqlCommand cmd1;
-<<<<<<< HEAD
-
-            try
-            {
-                /*
-                 insertInDoctorFeedbackMessageBoardTable
-                 
-                 @dID int,
-                 @pID int,
-                 @dName nvarchar(30),
-                 @messageInfo nvarchar(1000)
-                 @initDate Date                 
-                */
-=======
->>>>>>> feature/F_add_feature_DocSetSystemofParameter
 
             try
             {
@@ -1974,38 +1950,6 @@ namespace DBProject.DAL
                 */
 
                 string sql_s = " BEGIN "
-<<<<<<< HEAD
-                             + " BEGIN "
-                             + " insert into DoctorFeedbackMessageBoard values( ' ', @dID, @pID, @dName, @messageInfo, @initDate ) "
-                             + " END "
-                             + " END ";
-
-                cmd1 = new SqlCommand(sql_s, con);     
-                
-                //Input
-                cmd1.Parameters.Add("@dID", SqlDbType.Int).Value = DoctorID;
-                cmd1.Parameters.Add("@pID", SqlDbType.Int).Value = PatientID;
-                cmd1.Parameters.Add("@dName", SqlDbType.NVarChar,30).Value = DoctorName;
-                cmd1.Parameters.Add("@messageInfo", SqlDbType.NVarChar,1000).Value = MessageInfo;
-                cmd1.Parameters.Add("@initDate", SqlDbType.DateTime).Value = initDate;                
-
-                cmd1.ExecuteNonQuery();
-                
-            }
-
-            catch (SqlException ex)
-            {
-                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
-                mes = m;
-            }
-
-            finally
-            {
-                con.Close();
-            }
-        }
-
-=======
                              + " if not exists(select * from PatientMessurementDataEvaluate where DoctorMEID=@dID) "
                              + " BEGIN "
                              + " insert into PatientMessurementDataEvaluate values( @dID, @name, @deptName, @temperatureMax, @temperatureMin, @heartBeatMax, @heartBeatMin, @bloodOxygenMax, @bloodOxygenMin, @plasmaGlucoseMax, @plasmaGlucoseMin, @systolicBloodPressureMax, @systolicBloodPressureMin, @diastolicBloodPressureMax, @diastolicBloodPressureMin )"
@@ -2034,8 +1978,8 @@ namespace DBProject.DAL
 
                 //Input
                 cmd1.Parameters.Add("@dID", SqlDbType.Int).Value = did;
-                cmd1.Parameters.Add("@name", SqlDbType.NVarChar,30).Value = DoctorName;
-                cmd1.Parameters.Add("@deptName", SqlDbType.NVarChar,30).Value = DeptName;
+                cmd1.Parameters.Add("@name", SqlDbType.NVarChar, 30).Value = DoctorName;
+                cmd1.Parameters.Add("@deptName", SqlDbType.NVarChar, 30).Value = DeptName;
                 cmd1.Parameters.Add("@temperatureMax", SqlDbType.Float).Value = TemperatureMax;
                 cmd1.Parameters.Add("@temperatureMin", SqlDbType.Float).Value = TemperatureMin;
                 cmd1.Parameters.Add("@heartBeatMax", SqlDbType.Float).Value = HeartBeatMax;
@@ -2066,8 +2010,56 @@ namespace DBProject.DAL
 
 
 
+        public void insertDoctorFeedbackMessage(int DoctorID, int PatientID, string DoctorName, string MessageInfo ,DateTime initDate, ref string mes) 
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
 
->>>>>>> feature/F_add_feature_DocSetSystemofParameter
+            try
+            {
+                /*
+                 insertInDoctorFeedbackMessageBoardTable
+                 
+                 @dID int,
+                 @pID int,
+                 @dName nvarchar(30),
+                 @messageInfo nvarchar(1000)
+                 @initDate Date                 
+                */
+
+
+                string sql_s = " BEGIN "
+                             + " BEGIN "
+                             + " insert into DoctorFeedbackMessageBoard values( ' ', @dID, @pID, @dName, @messageInfo, @initDate ) "
+                             + " END "
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);     
+                
+                //Input
+                cmd1.Parameters.Add("@dID", SqlDbType.Int).Value = DoctorID;
+                cmd1.Parameters.Add("@pID", SqlDbType.Int).Value = PatientID;
+                cmd1.Parameters.Add("@dName", SqlDbType.NVarChar,30).Value = DoctorName;
+                cmd1.Parameters.Add("@messageInfo", SqlDbType.NVarChar,1000).Value = MessageInfo;
+                cmd1.Parameters.Add("@initDate", SqlDbType.DateTime).Value = initDate;                
+
+                cmd1.ExecuteNonQuery();
+                
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
         /*THIS FUNCITON WILL RETRIEVE THE INFORMATION OF CURRENT LOGGED IN DOCTOR*/
         public int docinfo_DAL(int doctorid, ref DataTable result)
 		{
@@ -2436,7 +2428,8 @@ namespace DBProject.DAL
             {
                 con.Close();
             }
-        }        
+        }
+
 
     }
 
