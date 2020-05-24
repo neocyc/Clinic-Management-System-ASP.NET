@@ -1608,7 +1608,7 @@ namespace DBProject.DAL
 
 
         //-------------------------------------PATIENT MESSUREMENTDATA ------------------------------------------//
-        public void insertPatientMessurementDatas(int pid, string MessurementDateF, float Height, string HeightMessurementDate, float Weight, string WeightMessurementDate, float BMI, string BMIMessurementDate, float Temperature, string TemperatureMessurementDate, float HeartBeat, string HBMessurementDate, float BloodOxygen, string BOMessurementDate, float PlasmaGlucose, string PGMessurementDate, float BloodPressure, string BPMessurementDate,ref string mes)
+        public void insertPatientMessurementDatas(int pid, string MessurementDateF, float Height, string HeightMessurementDate, float Weight, string WeightMessurementDate, float BMI, string BMIMessurementDate, float Temperature, string TemperatureMessurementDate, float HeartBeat, string HBMessurementDate, float BloodOxygen, string BOMessurementDate, float PlasmaGlucose, string PGMessurementDate, string BloodPressure, string BPMessurementDate,ref string mes)
         {
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -1700,7 +1700,7 @@ namespace DBProject.DAL
                 cmd1.Parameters.Add("@boMessurementDate", SqlDbType.Date).Value = BOMessurementDate;
                 cmd1.Parameters.Add("@plasmaGlucose", SqlDbType.Float).Value = PlasmaGlucose;
                 cmd1.Parameters.Add("@pgMessurementDate", SqlDbType.Date).Value = PGMessurementDate;
-                cmd1.Parameters.Add("@bloodPressure", SqlDbType.Float).Value = BloodPressure;
+                cmd1.Parameters.Add("@bloodPressure", SqlDbType.VarChar,20).Value = BloodPressure;
                 cmd1.Parameters.Add("@bpMessurementDate", SqlDbType.Date).Value = BPMessurementDate;
 
                 cmd1.ExecuteNonQuery();

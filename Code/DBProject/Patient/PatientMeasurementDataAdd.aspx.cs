@@ -77,7 +77,7 @@ namespace DBProject.Patient
             string BOMessurementDate = MessurementDateF;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseF.Text);
             string PGMessurementDate = MessurementDateF;
-            float BloodPressure = strinngtofloat(bloodpressureF.Text);
+            string BloodPressure = bloodpressureF.Text;
             string BPMessurementDate = MessurementDateF;
 
             string mes = "";
@@ -114,7 +114,7 @@ namespace DBProject.Patient
             string BOMessurementDate = bloodoxygenDateT.Text;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseT.Text);
             string PGMessurementDate = plasmaglucoseDateT.Text;
-            float BloodPressure = strinngtofloat(bloodpressureT.Text);
+            string BloodPressure = bloodpressureT.Text;
             string BPMessurementDate = bloodpressureDateT.Text;
 
             string mes = "";
@@ -170,6 +170,42 @@ namespace DBProject.Patient
             float floatrlt;
             float.TryParse(inputdata, out floatrlt);
             return floatrlt;
+        }
+
+        protected void heightT_TextChanged(object sender, EventArgs e)
+        {
+            BMIT.Text = BMICalculation(heightT.Text, weightT.Text);
+        }
+
+        protected void weightT_TextChanged(object sender, EventArgs e)
+        {
+            BMIT.Text = BMICalculation(heightT.Text, weightT.Text);
+        }
+
+        protected string BMICalculation(string height, string weight)
+        {
+            double dheight, dweight, dBMI;
+
+            dheight = strinngtofloat(height);
+            dweight = strinngtofloat(weight);
+            dBMI = dweight / (Math.Pow(dheight / 100, 2));
+
+            return dBMI.ToString();
+        }
+
+        protected void MessurementDateForm_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
+        }
+
+        protected void heightF_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
+        }
+
+        protected void weightF_TextChanged(object sender, EventArgs e)
+        {
+            BMIF.Text = BMICalculation(heightF.Text, weightF.Text);
         }
     }
 }

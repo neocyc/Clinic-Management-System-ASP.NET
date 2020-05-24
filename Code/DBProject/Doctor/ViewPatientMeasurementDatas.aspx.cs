@@ -43,6 +43,9 @@ namespace DBProject.Doctor
 
             if (table != null && table.Rows.Count > 0)
             {
+                table.Columns["Name"].ColumnName = "病人姓名";
+                table.Columns["Phone"].ColumnName = "聯絡電話";
+
                 dgvPatientListInfo.DataSource = table;
                 dgvPatientListInfo.DataBind();
             }
@@ -125,7 +128,7 @@ namespace DBProject.Doctor
 
                 TPatientMessurementDatasGrid.DataSource = DTClName;
                 TPatientMessurementDatasGrid.DataBind();
-                
+
                 TPatientMessurementDatasGrid.Attributes.Add("style", "word-break:break-word;word-wrap:normal;width:100%;");
             }
         }

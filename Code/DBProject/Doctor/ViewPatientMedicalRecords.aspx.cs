@@ -41,7 +41,10 @@ namespace DBProject.Doctor
 
 			if (table != null && table.Rows.Count > 0)
 			{
-				dgvPatientListInfo.DataSource = table;
+                table.Columns["Name"].ColumnName = "病人姓名";
+                table.Columns["Phone"].ColumnName = "聯絡電話";
+
+                dgvPatientListInfo.DataSource = table;
 				dgvPatientListInfo.DataBind();
 			}
 			else
