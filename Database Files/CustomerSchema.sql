@@ -85,8 +85,8 @@ create table PatientMessurementRecordsSheet
 
 	foreign key (PatientMRSID) references Patient(PatientID)
 )
-GO
 
+GO
 
 use DBProject
 
@@ -95,8 +95,8 @@ go
 create table PatientMessurementDataEvaluate
 (	
 	DoctorMEID int primary key,	
-	Name varchar(30) not null,
-	DeptName varchar(30) not null unique,
+	Name nvarchar(30) not null,
+	DeptName nvarchar(30) not null unique,
 	TemperatureMax float,
 	TemperatureMin float,
 	HeartBeatMax float,
