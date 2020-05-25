@@ -107,7 +107,7 @@
 
            
          <!-- Body Content Place Holder -->
-            <div style="background-color:lightblue">
+            <div >
         <asp:ContentPlaceHolder ID="Cp1" runat="server">
         </div>
 
