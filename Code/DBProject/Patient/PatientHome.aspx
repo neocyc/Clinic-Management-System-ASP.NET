@@ -27,7 +27,18 @@
 
     <!-- Javascript -->
     <script src="../assets/js/jquery-1.11.1.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>    
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>   
+    <script src="../assets/js/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        //repaire bug of "scripts.js" use to "jquery.backstretch.min.js"
+        jQuery(document).ready(function () {
+            /*
+            Fullscreen background
+            */
+            $.backstretch("../assets/img/backgrounds/PatientIndexPage.jpg");
+        });
+    </script>
 
 </asp:Content>
 
@@ -37,54 +48,74 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     
-    <div style="background-image:url(/assets/img/backgrounds/PatientHome.jpg); background-position:center; background-size:20px">
+    <div>
 
         <br />
         <h1><strong>Your Information</strong></h1>
-        <br /><br />
-
-         
-                                <table class="table table-bordered">
-                                  <caption></caption>
-                                  <thead>
-                                    <tr class="info">
-                                      <th></th>
-                                      <th></th>
-                                      
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr class="success">
-                                      <td><h4><strong>Name: </strong></h4></td>
-                                      <td><asp:Label ID="PName" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                    <tr class="success">
-                                      <td> <h4><strong>Phone: </strong></h4></td>
-                                      <td> <asp:Label ID="PPhone" runat="server"  Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                     <tr class="success">
-                                      <td><h4><strong>Birth Date: </strong></h4></td>
-                                      <td><asp:Label ID="PBirthDate" runat="server"  Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                    <tr class="success">
-                                      <td><h4><strong>Age: </strong></h4></td>
-                                      <td><asp:Label ID="PatientAge" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                    <tr class="success">
-                                      <td><h4><strong>Gender:</strong></h4></td>
-                                      <td><asp:Label ID="PGender" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                    <tr class="success">
-                                      <td><h4><strong>Address: </strong></h4></td>
-                                      <td><asp:Label ID="PAddress" runat="server"  Font-Bold="true" Font-Size="Medium"></asp:Label></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                         
 
 
 
-    
+           <!-- Top content -->
+             	                                
+        <div class="top-content"> 
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-pencil"></i>
+
+                                </div>
+
+                            </div>
+                            <div class="form-bottom">      
+
+                                <div class="form-group">
+                                    <label><h4><strong>Name: </strong></h4></label>
+                                    <asp:Label ID="PName" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label><h4><strong>Phone: </strong></h4></label>
+                                    <asp:Label ID="PPhone" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><h4><strong>Birth Date: </strong></h4></label>
+                                    <asp:Label ID="PBirthDate" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><h4><strong>Age: </strong></h4></label>
+                                    <asp:Label ID="PatientAge" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><h4><strong>Gender: </strong></h4></label>
+                                    <asp:Label ID="PGender" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><h4><strong>Address: </strong></h4></label>
+                                    <asp:Label ID="PAddress" runat="server" Font-Bold="true" Font-Size="Medium"></asp:Label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
 </asp:Content>

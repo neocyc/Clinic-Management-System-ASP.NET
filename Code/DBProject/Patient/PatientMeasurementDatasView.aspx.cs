@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -115,9 +116,9 @@ namespace DBProject.Patient
                     if (e.Row.Cells.GetCellIndex(c) > 2 && e.Row.Cells.GetCellIndex(c) < (e.Row.Cells.Count - 1))
                     {
                         int cellsIndex = e.Row.Cells.GetCellIndex(c);
-                        Single f = Single.Parse(c.Text);
-                        e.Row.Cells[cellsIndex].Text = f.ToString("#.###");
-                    }
+                        Single f = Single.Parse((c.Text == "" ? "0" : c.Text));
+                        e.Row.Cells[cellsIndex].Text = f.ToString("#.###");                       
+                    }                   
                 }
             }
         }        
