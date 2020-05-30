@@ -112,7 +112,7 @@ namespace DBProject
               //Response.Write("<script>alert('Registration Successful !');</script>");
 
                 Response.BufferOutput = true;
-                Response.Redirect("~/Patient/PatientHome.aspx");
+                Response.Redirect("~/Patient/PatientMedicalRecordsAdd.aspx");
             }
 
             else if (status == -1)

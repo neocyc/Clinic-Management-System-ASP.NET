@@ -24,7 +24,7 @@ namespace DBProject
 				int salary = Convert.ToInt32(Salary.Text);
 				string gender = Request.Form["Gender"].ToString();
 
-				if (objmyDAL.AddStaff(Name.Text, BirthDate.Text, Phone.Text, gender[0], Address.Text, salary, Qual.Text, Designation.Text) == 1) ;
+				if (objmyDAL.AddStaff(Name.Text, BirthDate.Text, Phone.Text, gender[0], Address.Text, salary, Qual.Text, Designation.Text) == 1) 
 				{
 					Response.BufferOutput = true;
 					Msg.Visible = true;

@@ -22,19 +22,20 @@
 
 
     <!------------------------------------Styling for Footer-------------------------------------->
+    
     <meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="keywords" content="footer, address, phone, icons" />
    
+    <!--
 	<link rel="stylesheet" href="/assets/css/demo.css"/>
-	<link rel="stylesheet" href="/assets/css/footer-distributed-with-address-and-phones.css"/>
-	
+	-->
+    
+    <link rel="stylesheet" href="/assets/css/footer-distributed-with-address-and-phones.css"/>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-
-	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"/>
-
-
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"/>
+    
 
 
 
@@ -63,6 +64,18 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="PatientMeasurementDatasView.aspx"><span class="glyphicon glyphicon-search"></span> 我的歷史量測資料 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="PatientMeasurementDataAdd.aspx"><span class="glyphicon glyphicon-plus"></span> 填寫量測資料 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="PatientMedicalRecordsView.aspx"><span class="glyphicon glyphicon-search"></span> 我的病歷資料 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientFeedback.aspx"><span class="glyphicon glyphicon-thumbs-up	Try it"></span> Feedback</a></li>
                         </ul>
 
@@ -85,7 +98,7 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="PatientNotifications.aspx"><span class="	glyphicon glyphicon-flag"></span> Notifications</a></li>
+                            <li><a href="PatientNotifications.aspx"><span class="	glyphicon glyphicon-flag"></span> 醫師留言通知</a></li>
                         </ul>
 
 
