@@ -125,31 +125,31 @@
                                     </tr>
 
                                      <tr>
-                                      <td>體溫</td>
+                                      <td>體溫<br /><asp:Label ID="temperatureSTT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="temperatureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="temperatureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
-                                      <td>脈搏/心跳</td>
+                                      <td>脈搏/心跳<br /><asp:Label ID="heartbeatSTT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="heartbeatT" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="heartbeatDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
-                                      <td>血氧</td>
+                                      <td>血氧<br /><asp:Label ID="bloodoxygenSTT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="bloodoxygenT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="bloodoxygenDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                      <tr>
-                                      <td>血糖</td>
+                                      <td>血糖<br /><asp:Label ID="plasmaglucoseSTT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="plasmaglucoseT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="plasmaglucoseDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
                                     <tr>
-                                      <td>血壓(收縮壓/舒張壓)</td>
+                                      <td>血壓(收縮壓/舒張壓)<br /><asp:Label ID="systolicbloodpressureSTT" runat="server"></asp:Label><br /><asp:Label ID="diastolicbloodpressureSTT" runat="server"></asp:Label></td>
                                       <td><asp:TextBox ID="bloodpressureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="bloodpressureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
@@ -249,31 +249,31 @@
                             </div> 
 							
                             <div class="form-group">
-								<label>體溫</label>
+								<label>體溫</label><asp:Label ID="temperatureSTF" runat="server"></asp:Label>
                                 <asp:TextBox ID="temperatureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫體溫"></asp:TextBox>
                                                       	                            
                             </div> 
                            
                             <div class="form-group">
-								<label>脈搏/心跳</label>
+								<label>脈搏/心跳</label><asp:Label ID="heartbeatSTF" runat="server"></asp:Label>
                                 <asp:TextBox ID="heartbeatF" runat="server" type="text" class="form-username form-control" placeholder="請填寫脈搏或心跳"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
-								<label>血氧</label>
+								<label>血氧</label><asp:Label ID="bloodoxygenSTF" runat="server"></asp:Label>
                                 <asp:TextBox ID="bloodoxygenF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血氧"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
-								<label>血糖</label>
+								<label>血糖</label><asp:Label ID="plasmaglucoseSTF" runat="server"></asp:Label>
                                 <asp:TextBox ID="plasmaglucoseF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血糖"></asp:TextBox>
                                                       	                            
                             </div> 
 
                             <div class="form-group">
-								<label>血壓(收縮壓/舒張壓)</label>
+								<label>血壓(收縮壓/舒張壓)</label><asp:Label ID="systolicbloodpressureSTF" runat="server"></asp:Label><asp:Label ID="diastolicbloodpressureSTF" runat="server"></asp:Label>
                                 <asp:TextBox ID="bloodpressureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓"></asp:TextBox>
                                                       	                            
                             </div> 
