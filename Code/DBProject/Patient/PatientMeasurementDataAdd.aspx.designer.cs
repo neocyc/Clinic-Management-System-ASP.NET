@@ -96,6 +96,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox BMIDateT;
 
         /// <summary>
+        /// temperatureSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label temperatureSTT;
+
+        /// <summary>
         /// temperatureT 控制項。
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace DBProject.Patient
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox temperatureDateT;
+
+        /// <summary>
+        /// heartbeatSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label heartbeatSTT;
 
         /// <summary>
         /// heartbeatT 控制項。
@@ -132,6 +150,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox heartbeatDateT;
 
         /// <summary>
+        /// bloodoxygenSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bloodoxygenSTT;
+
+        /// <summary>
         /// bloodoxygenT 控制項。
         /// </summary>
         /// <remarks>
@@ -150,6 +177,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox bloodoxygenDateT;
 
         /// <summary>
+        /// plasmaglucoseSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label plasmaglucoseSTT;
+
+        /// <summary>
         /// plasmaglucoseT 控制項。
         /// </summary>
         /// <remarks>
@@ -166,6 +202,24 @@ namespace DBProject.Patient
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox plasmaglucoseDateT;
+
+        /// <summary>
+        /// systolicbloodpressureSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label systolicbloodpressureSTT;
+
+        /// <summary>
+        /// diastolicbloodpressureSTT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label diastolicbloodpressureSTT;
 
         /// <summary>
         /// bloodpressureT 控制項。
@@ -231,6 +285,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.Label BMIF;
 
         /// <summary>
+        /// temperatureSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label temperatureSTF;
+
+        /// <summary>
         /// temperatureF 控制項。
         /// </summary>
         /// <remarks>
@@ -238,6 +301,15 @@ namespace DBProject.Patient
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox temperatureF;
+
+        /// <summary>
+        /// heartbeatSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label heartbeatSTF;
 
         /// <summary>
         /// heartbeatF 控制項。
@@ -249,6 +321,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox heartbeatF;
 
         /// <summary>
+        /// bloodoxygenSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bloodoxygenSTF;
+
+        /// <summary>
         /// bloodoxygenF 控制項。
         /// </summary>
         /// <remarks>
@@ -258,6 +339,15 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.TextBox bloodoxygenF;
 
         /// <summary>
+        /// plasmaglucoseSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label plasmaglucoseSTF;
+
+        /// <summary>
         /// plasmaglucoseF 控制項。
         /// </summary>
         /// <remarks>
@@ -265,6 +355,24 @@ namespace DBProject.Patient
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox plasmaglucoseF;
+
+        /// <summary>
+        /// systolicbloodpressureSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label systolicbloodpressureSTF;
+
+        /// <summary>
+        /// diastolicbloodpressureSTF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label diastolicbloodpressureSTF;
 
         /// <summary>
         /// bloodpressureF 控制項。

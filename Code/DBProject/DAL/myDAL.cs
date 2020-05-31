@@ -1278,7 +1278,62 @@ namespace DBProject.DAL
         }
 
 
+        public int getPatientMessurementDataWarningValue(ref DataTable result, ref string mes)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
 
+            try
+            {
+
+                /*
+                  Retrieve PatientMessurementDataEvaluate
+                */
+
+                string sql_s = @" BEGIN 
+                                      select AVG([TemperatureMax]) as [TemperatureMax]
+                                            ,AVG([TemperatureMin]) as [TemperatureMin]
+                                            ,AVG([HeartBeatMax]) as [HeartBeatMax]
+                                            ,AVG([HeartBeatMin]) as [HeartBeatMin]
+                                            ,AVG([BloodOxygenMax]) as [BloodOxygenMax]
+                                            ,AVG([BloodOxygenMin]) as [BloodOxygenMin]
+                                            ,AVG([PlasmaGlucoseMax]) as [PlasmaGlucoseMax]
+                                            ,AVG([PlasmaGlucoseMin]) as [PlasmaGlucoseMin]
+                                            ,AVG([SystolicBloodPressureMax]) as [SystolicBloodPressureMax]
+                                            ,AVG([SystolicBloodPressureMin]) as [SystolicBloodPressureMin]
+                                            ,AVG([DiastolicBloodPressureMax]) as [DiastolicBloodPressureMax]
+                                            ,AVG([DiastolicBloodPressureMin]) as [DiastolicBloodPressureMin]
+                                      from PatientMessurementDataEvaluate
+                                  END ";
+
+                cmd1 = new SqlCommand(sql_s, con);               
+
+                cmd1.ExecuteNonQuery();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd1))
+                {
+                    da.Fill(ds);
+                }
+
+                /*FILL TABLE*/
+                result = ds.Tables[0];
+
+                return 1;
+            }
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+                return -1;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
 
