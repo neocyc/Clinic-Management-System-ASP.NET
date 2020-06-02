@@ -287,6 +287,15 @@ namespace DBProject.Doctor
                             string DiastolicBloodPressure = BloodPressure[1]; //舒張壓
 
                             Single fs = Single.Parse((SystolicBloodPressure == "" ? "0.0" : SystolicBloodPressure));
+                            if (fs == 0)
+                            {
+                                e.Row.Cells[cellsIndex].Text = "0";
+                            }
+                            else
+                            {
+                                e.Row.Cells[cellsIndex].Text = fs.ToString("#.###");
+                            }
+
                             if (fs > SystolicBloodPressureMax)
                             {
                                 //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
@@ -303,6 +312,15 @@ namespace DBProject.Doctor
                             }
 
                             Single fd = Single.Parse((DiastolicBloodPressure == "" ? "0.0" : DiastolicBloodPressure));
+                            if (fd == 0)
+                            {
+                                e.Row.Cells[cellsIndex].Text = "0";
+                            }
+                            else
+                            {
+                                e.Row.Cells[cellsIndex].Text = fd.ToString("#.###");
+                            }
+
                             if (fd > DiastolicBloodPressureMax)
                             {
                                 //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
