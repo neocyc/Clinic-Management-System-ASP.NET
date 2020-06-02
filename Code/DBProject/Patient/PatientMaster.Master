@@ -75,9 +75,11 @@
                             <li><a href="PatientMedicalRecordsView.aspx"><span class="glyphicon glyphicon-search"></span> 我的病歷資料 </a></li>
                         </ul>
 
+                        <!--
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientFeedback.aspx"><span class="glyphicon glyphicon-thumbs-up	Try it"></span> Feedback</a></li>
                         </ul>
+                        -->
 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="TreatmentHistory.aspx"><span class="glyphicon glyphicon-info-sign"></span> Treatment History</a></li>

@@ -35,7 +35,7 @@
             /*
             Fullscreen background
             */
-            $.backstretch("../assets/img/backgrounds/PatientHome.jpg");
+            $.backstretch("../assets/Doctor.jpg");
         });
     </script>
 
