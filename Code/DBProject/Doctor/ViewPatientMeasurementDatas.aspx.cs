@@ -281,28 +281,41 @@ namespace DBProject.Doctor
                         }
                         else
                         {
+                            int cellsIndex = e.Row.Cells.GetCellIndex(c);
+                            e.Row.Cells[cellsIndex].Text = "";
                             string SystolicBloodPressure = BloodPressure[0]; //收縮壓
                             string DiastolicBloodPressure = BloodPressure[1]; //舒張壓
 
-                            int cellsIndex = e.Row.Cells.GetCellIndex(c);
                             Single fs = Single.Parse((SystolicBloodPressure == "" ? "0.0" : SystolicBloodPressure));
                             if (fs > SystolicBloodPressureMax)
                             {
-                                e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                e.Row.Cells[cellsIndex].Text = "<font color=red>" + fs.ToString() + "</font>";
                             }
                             else if (fs < SystolicBloodPressureMin)
                             {
-                                e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                e.Row.Cells[cellsIndex].Text = "<font color=red>" + fs.ToString() + "</font>";
+                            }
+                            else
+                            {
+                                e.Row.Cells[cellsIndex].Text = fs.ToString();
                             }
 
                             Single fd = Single.Parse((DiastolicBloodPressure == "" ? "0.0" : DiastolicBloodPressure));
                             if (fd > DiastolicBloodPressureMax)
                             {
-                                e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                e.Row.Cells[cellsIndex].Text += " / <font color=red>" + fd.ToString() + "</font>";
                             }
                             else if (fd < DiastolicBloodPressureMin)
                             {
-                                e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                //e.Row.Cells[cellsIndex].ForeColor = Color.Red;
+                                e.Row.Cells[cellsIndex].Text += " / <font color=red>" + fd.ToString() + "</font>";
+                            }
+                            else
+                            {
+                                e.Row.Cells[cellsIndex].Text = " / " + fd.ToString();
                             }
                         }
                     }
