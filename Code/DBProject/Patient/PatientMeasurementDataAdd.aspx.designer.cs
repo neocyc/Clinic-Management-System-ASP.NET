@@ -222,13 +222,22 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.Label diastolicbloodpressureSTT;
 
         /// <summary>
-        /// bloodpressureT 控制項。
+        /// systolicbloodpressureT 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bloodpressureT;
+        protected global::System.Web.UI.WebControls.TextBox systolicbloodpressureT;
+
+        /// <summary>
+        /// diastolicbloodpressureT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox diastolicbloodpressureT;
 
         /// <summary>
         /// bloodpressureDateT 控制項。
@@ -375,12 +384,21 @@ namespace DBProject.Patient
         protected global::System.Web.UI.WebControls.Label diastolicbloodpressureSTF;
 
         /// <summary>
-        /// bloodpressureF 控制項。
+        /// systolicbloodpressureF 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bloodpressureF;
+        protected global::System.Web.UI.WebControls.TextBox systolicbloodpressureF;
+
+        /// <summary>
+        /// diastolicbloodpressureF 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox diastolicbloodpressureF;
     }
 }

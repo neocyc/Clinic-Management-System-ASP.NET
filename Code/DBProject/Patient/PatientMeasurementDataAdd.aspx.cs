@@ -64,19 +64,19 @@ namespace DBProject.Patient
             float DiastolicBloodPressureMax = float.Parse((DTsp.Rows[0].ItemArray[10].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[10].ToString()));
             float DiastolicBloodPressureMin = float.Parse((DTsp.Rows[0].ItemArray[11].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[11].ToString()));
 
-            temperatureSTT.Text = " ( " + TemperatureMin.ToString() + " ~ "+ TemperatureMax.ToString() + " ) ";
-            heartbeatSTT.Text = " ( " + HeartBeatMin.ToString() +" ~ " + HeartBeatMax.ToString() +" ) "; 
-            bloodoxygenSTT.Text = " ( " + BloodOxygenMin.ToString() +" ~ " + BloodOxygenMax.ToString() +" ) ";
-            plasmaglucoseSTT.Text = " ( " + PlasmaGlucoseMin.ToString() +" ~ " + PlasmaGlucoseMax.ToString() +" ) ";
-            systolicbloodpressureSTT.Text = " 收縮( " + SystolicBloodPressureMin.ToString() +" ~ " + SystolicBloodPressureMax.ToString() +" ) ";
-            diastolicbloodpressureSTT.Text = " 舒張( " + DiastolicBloodPressureMin.ToString() +" ~ " + DiastolicBloodPressureMax.ToString() +" ) ";
+            temperatureSTT.Text = " ( 標準值 : " + TemperatureMin.ToString() + " ~ "+ TemperatureMax.ToString() + " ) ";
+            heartbeatSTT.Text = " ( 標準值 : " + HeartBeatMin.ToString() +" ~ " + HeartBeatMax.ToString() +" ) "; 
+            bloodoxygenSTT.Text = " ( 標準值 : " + BloodOxygenMin.ToString() +" ~ " + BloodOxygenMax.ToString() +" ) ";
+            plasmaglucoseSTT.Text = " ( 標準值 : " + PlasmaGlucoseMin.ToString() +" ~ " + PlasmaGlucoseMax.ToString() +" ) ";
+            systolicbloodpressureSTT.Text = " 收縮( 標準值 : " + SystolicBloodPressureMin.ToString() +" ~ " + SystolicBloodPressureMax.ToString() +" ) ";
+            diastolicbloodpressureSTT.Text = " 舒張( 標準值 : " + DiastolicBloodPressureMin.ToString() +" ~ " + DiastolicBloodPressureMax.ToString() +" ) ";
 
-            temperatureSTF.Text = " ( " + TemperatureMin.ToString() + " ~ " + TemperatureMax.ToString() + " ) ";
-            heartbeatSTF.Text = " ( " + HeartBeatMin.ToString() + " ~ " + HeartBeatMax.ToString() + " ) ";
-            bloodoxygenSTF.Text = " ( " + BloodOxygenMin.ToString() + " ~ " + BloodOxygenMax.ToString() + " ) ";
-            plasmaglucoseSTF.Text = " ( " + PlasmaGlucoseMin.ToString() + " ~ " + PlasmaGlucoseMax.ToString() + " ) ";
-            systolicbloodpressureSTF.Text = " 收縮( " + SystolicBloodPressureMin.ToString() + " ~ " + SystolicBloodPressureMax.ToString() + " ) ";
-            diastolicbloodpressureSTF.Text = " 舒張( " + DiastolicBloodPressureMin.ToString() + " ~ " + DiastolicBloodPressureMax.ToString() + " ) ";
+            temperatureSTF.Text = " ( 標準值 : " + TemperatureMin.ToString() + " ~ " + TemperatureMax.ToString() + " ) ";
+            heartbeatSTF.Text = " ( 標準值 : " + HeartBeatMin.ToString() + " ~ " + HeartBeatMax.ToString() + " ) ";
+            bloodoxygenSTF.Text = " ( 標準值 : " + BloodOxygenMin.ToString() + " ~ " + BloodOxygenMax.ToString() + " ) ";
+            plasmaglucoseSTF.Text = " ( 標準值 : " + PlasmaGlucoseMin.ToString() + " ~ " + PlasmaGlucoseMax.ToString() + " ) ";
+            systolicbloodpressureSTF.Text = " 收縮( 標準值 : " + SystolicBloodPressureMin.ToString() + " ~ " + SystolicBloodPressureMax.ToString() + " ) ";
+            diastolicbloodpressureSTF.Text = " 舒張( 標準值 : " + DiastolicBloodPressureMin.ToString() + " ~ " + DiastolicBloodPressureMax.ToString() + " ) ";
         }
 
         #region 按鈕事件
@@ -115,7 +115,7 @@ namespace DBProject.Patient
             string BOMessurementDate = MessurementDateF;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseF.Text);
             string PGMessurementDate = MessurementDateF;
-            string BloodPressure = bloodpressureF.Text;
+            string BloodPressure = systolicbloodpressureF.Text + "/" + diastolicbloodpressureF.Text;
             string BPMessurementDate = MessurementDateF;
 
             string mes = "";
@@ -152,7 +152,7 @@ namespace DBProject.Patient
             string BOMessurementDate = bloodoxygenDateT.Text;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseT.Text);
             string PGMessurementDate = plasmaglucoseDateT.Text;
-            string BloodPressure = bloodpressureT.Text;
+            string BloodPressure = systolicbloodpressureT.Text + "/" + diastolicbloodpressureT.Text;
             string BPMessurementDate = bloodpressureDateT.Text;
 
             string mes = "";
@@ -188,8 +188,10 @@ namespace DBProject.Patient
             bloodoxygenT.Text = "";
             plasmaglucoseF.Text = "";
             plasmaglucoseT.Text = "";
-            bloodpressureF.Text = "";
-            bloodpressureT.Text = "";
+            systolicbloodpressureT.Text = "";
+            systolicbloodpressureF.Text = "";
+            diastolicbloodpressureT.Text = "";
+            diastolicbloodpressureF.Text = "";
 
             string Today = DateTime.Now.ToShortDateString();
             MessurementDateForm.Text = Today;

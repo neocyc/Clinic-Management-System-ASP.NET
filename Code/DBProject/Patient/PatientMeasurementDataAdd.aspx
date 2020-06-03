@@ -150,7 +150,7 @@
 
                                     <tr>
                                       <td>血壓(收縮壓/舒張壓)<br /><asp:Label ID="systolicbloodpressureSTT" runat="server"></asp:Label><br /><asp:Label ID="diastolicbloodpressureSTT" runat="server"></asp:Label></td>
-                                      <td><asp:TextBox ID="bloodpressureT" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓" ></asp:TextBox></td>
+                                      <td><asp:TextBox ID="systolicbloodpressureT" runat="server" type="text" placeholder="請填寫血壓(收縮壓)" ></asp:TextBox> / <asp:TextBox ID="diastolicbloodpressureT" runat="server" type="text" placeholder="請填寫血壓(舒張壓)" ></asp:TextBox></td>
                                       <td><asp:TextBox ID="bloodpressureDateT" runat="server" type="text" class="form-username form-control" placeholder="請點選量測日期(dd-mm-yyyy)"></asp:TextBox></td>
                                     </tr>
 
@@ -274,8 +274,10 @@
 
                             <div class="form-group">
 								<label>血壓(收縮壓/舒張壓)</label><asp:Label ID="systolicbloodpressureSTF" runat="server"></asp:Label><asp:Label ID="diastolicbloodpressureSTF" runat="server"></asp:Label>
-                                <asp:TextBox ID="bloodpressureF" runat="server" type="text" class="form-username form-control" placeholder="請填寫血壓"></asp:TextBox>
-                                                      	                            
+                                <br />
+                                <asp:TextBox ID="systolicbloodpressureF" runat="server" type="text" width="49%" placeholder="請填寫血壓(收縮壓)"></asp:TextBox>
+                                /
+                                <asp:TextBox ID="diastolicbloodpressureF" runat="server" type="text" width="49%" placeholder="請填寫血壓(舒張壓)"></asp:TextBox>
                             </div> 
 
                              <!-- sign up ends here -->
