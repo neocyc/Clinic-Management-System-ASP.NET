@@ -115,7 +115,7 @@ namespace DBProject.Patient
             string BOMessurementDate = MessurementDateF;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseF.Text);
             string PGMessurementDate = MessurementDateF;
-            string BloodPressure = bloodpressureF.Text;
+            string BloodPressure = systolicbloodpressureF.Text + "/" + diastolicbloodpressureF.Text;
             string BPMessurementDate = MessurementDateF;
 
             string mes = "";
@@ -152,7 +152,7 @@ namespace DBProject.Patient
             string BOMessurementDate = bloodoxygenDateT.Text;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseT.Text);
             string PGMessurementDate = plasmaglucoseDateT.Text;
-            string BloodPressure = bloodpressureT.Text;
+            string BloodPressure = systolicbloodpressureT.Text + "/" + diastolicbloodpressureT.Text;
             string BPMessurementDate = bloodpressureDateT.Text;
 
             string mes = "";
@@ -188,8 +188,10 @@ namespace DBProject.Patient
             bloodoxygenT.Text = "";
             plasmaglucoseF.Text = "";
             plasmaglucoseT.Text = "";
-            bloodpressureF.Text = "";
-            bloodpressureT.Text = "";
+            systolicbloodpressureT.Text = "";
+            systolicbloodpressureF.Text = "";
+            diastolicbloodpressureT.Text = "";
+            diastolicbloodpressureF.Text = "";
 
             string Today = DateTime.Now.ToShortDateString();
             MessurementDateForm.Text = Today;
