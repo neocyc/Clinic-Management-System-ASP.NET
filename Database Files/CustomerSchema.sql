@@ -146,3 +146,16 @@ create table PatientMessurementDataEvaluate
 
 	foreign key (DoctorMEID) references Doctor(DoctorID)
 )
+
+use DBProject
+
+go
+create table HealthEducationVideoDatas
+(
+	UploadVideoID  int identity(1,1) primary key,
+	VideoTitle nvarchar(100) not null,
+	VideoCategories nvarchar(50),
+	VideoURL nvarchar(max),
+	initDate DateTime,
+	updateDate Datetime
+)
