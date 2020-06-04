@@ -359,6 +359,34 @@ namespace DBProject.DAL
         }
 
 
+        public int DeleteHealthEducationVideo(int id, ref string mes)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+
+            try
+            {
+                string sql_s = " BEGIN "
+                             + " delete from HealthEducationVideoDatas where UploadVideoID = @id "
+                             + " END ";
+
+                SqlCommand cmd = new SqlCommand(sql_s, con);
+
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+                return -1;
+            }
+
+            con.Close();
+            return 1;
+
+        }
+
 
         /*THIS FUNCTION WILL DELLETE STAFF FROM THE DOCTOR */
         public int DeleteStaff(int id)
@@ -1335,6 +1363,51 @@ namespace DBProject.DAL
             }
         }
 
+
+        public int getHealthEducationVideoDatas(ref DataTable result, ref string mes)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+
+                /*
+                  Retrieve HealthEducationVideoDatas
+                */
+
+                string sql_s = " BEGIN "
+                             + " select * from HealthEducationVideoDatas "
+                             + " END ";     
+
+                cmd1 = new SqlCommand(sql_s, con);
+
+                cmd1.ExecuteNonQuery();
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd1))
+                {
+                    da.Fill(ds);
+                }
+
+                /*FILL TABLE*/
+                result = ds.Tables[0];
+
+                return 1;
+            }
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+                return -1;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
 
 
         //-------------------------------------DOCTOR PROFILE------------------------------------------//
