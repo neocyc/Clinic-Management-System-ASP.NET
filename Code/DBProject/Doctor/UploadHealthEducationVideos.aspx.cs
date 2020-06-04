@@ -13,11 +13,35 @@ namespace DBProject.Doctor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int did = (int)Session["idoriginal"];
+
             LoadHealthEducationVideoList();
+            lblUploadDate.Text = DateTime.Now.ToString();
         }
 
-        protected void dgvVideoList_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void SelectVideo_Click(object sender, GridViewSelectEventArgs e)
         {
+            ClearData();
+
+            int num = e.NewSelectedIndex;
+            int vid = Convert.ToInt32(dgvVideoList.Rows[num].Cells[1].Text);
+            Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入中......');</script>");
+
+            hfUploadVideoID.Value = vid.ToString();
+            txtVideoTitle.Text = dgvVideoList.Rows[num].Cells[2].Text;
+
+            foreach (ListItem SelectItem in SelectCategories.Items)
+            {
+                if (SelectItem.Text == dgvVideoList.Rows[num].Cells[3].Text)
+                {
+                    SelectItem.Selected = true;
+                }
+            }
+
+            txtVideoURL.Text = dgvVideoList.Rows[num].Cells[4].Text;
+            lblUploadDate.Text = dgvVideoList.Rows[num].Cells[6].Text;
+
+            Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入完成!!');</script>");
         }
 
         protected void dgvVideoList_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -25,7 +49,6 @@ namespace DBProject.Doctor
             GridViewRow row = (GridViewRow)e.Row;
 
             TableCell selectCell = row.Cells[0];
-
             if (selectCell.Controls.Count > 0)
             {
                 LinkButton selectControl = selectCell.Controls[2] as LinkButton;
@@ -60,6 +83,43 @@ namespace DBProject.Doctor
             }
         }
 
+        protected void SentHEVideoData_Click(object sender, EventArgs e) 
+        {
+            int vid = int.Parse((hfUploadVideoID.Value == "" ? "0" : hfUploadVideoID.Value));
+            string VideoTitle, VideoURL, UploadDate;
+            string VideoCategories = "";
+            VideoTitle = txtVideoTitle.Text;
+
+            foreach (ListItem SelectItem in SelectCategories.Items) 
+            {
+                if (SelectItem.Selected == true) 
+                {
+                    VideoCategories = SelectItem.Text;
+                }
+            }
+
+            VideoURL = txtVideoURL.Text;
+
+            UploadDate = lblUploadDate.Text;
+
+            string mes = "";
+            myDAL objmyDAL = new myDAL();
+
+            objmyDAL.insertHealthEducationVideoDatas(vid,VideoTitle, VideoCategories, VideoURL, UploadDate, ref mes);
+
+            if (mes != "")
+            {
+                Response.Write("<script>alert('" + mes.ToString() + "');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('影片 : " + txtVideoTitle.Text + " 已成功儲存到資料庫!!');</script>");
+            }
+
+            LoadHealthEducationVideoList();
+            ClearData();
+        }
+
         protected void LoadHealthEducationVideoList() 
         {
             string mes = "";
@@ -81,6 +141,19 @@ namespace DBProject.Doctor
 
                 dgvVideoList.Attributes.Add("style", "word-break:break-word;word-wrap:normal;width:100%;");
             }
+        }
+
+        protected void ClearData()
+        {
+            txtVideoTitle.Text = "";
+
+            foreach (ListItem SelectItem in SelectCategories.Items)
+            {
+                SelectItem.Selected = false;
+            }
+
+            txtVideoURL.Text = "";
+            lblUploadDate.Text = DateTime.Now.ToString();
         }
     }
 }

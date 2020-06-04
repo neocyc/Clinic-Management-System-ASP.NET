@@ -359,6 +359,72 @@ namespace DBProject.DAL
         }
 
 
+        public void insertHealthEducationVideoDatas(int vid,string VideoTitle,string VideoCategories,string VideoURL,string UploadDate, ref string mes)
+        {
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
+            SqlCommand cmd1;
+
+            try
+            {
+                /*
+                    insertInHealthEducationVideoDatasTable      
+                 
+                    @vid
+                    @videoTitle 
+                    @videoCategories
+                    @videoURL
+                    @initDate
+                    @updateDate
+
+                */
+
+                string sql_s = " BEGIN "
+                             + " if not exists(select * from HealthEducationVideoDatas where UploadVideoID = @vid) "
+                             + " BEGIN "
+                             + " insert into HealthEducationVideoDatas values(@videoTitle, @videoCategories, @videoURL, GETDATE(), GETDATE()) "
+                             + " END "
+                             + @" UPDATE [dbo].[HealthEducationVideoDatas]
+                                  SET [VideoTitle] = @videoTitle
+                                     ,[VideoCategories] = @videoCategories
+                                     ,[VideoURL] = @videoURL
+                                     ,[updateDate] = @updateDate
+                                  WHERE UploadVideoID = @vid "
+                             + " END ";
+
+                cmd1 = new SqlCommand(sql_s, con);
+
+                //datetime string is "" or null
+                object datenull = null;
+                if (UploadDate.ToString() == "")
+                {
+                    UploadDate = Convert.ToDateTime(datenull).ToString();
+                }                
+                
+                //Input
+                cmd1.Parameters.Add("@vid", SqlDbType.Int).Value = vid;
+                cmd1.Parameters.Add("@videoTitle", SqlDbType.NVarChar,100).Value = VideoTitle;
+                cmd1.Parameters.Add("@videoCategories", SqlDbType.NVarChar,50).Value = VideoCategories;
+                cmd1.Parameters.Add("@videoURL", SqlDbType.NVarChar).Value = VideoURL;
+                cmd1.Parameters.Add("@updateDate", SqlDbType.DateTime).Value = UploadDate;        
+                cmd1.ExecuteNonQuery();
+            }
+
+            catch (SqlException ex)
+            {
+                string m = "資料無法寫入資料庫，請聯絡工程師: 錯誤訊息->" + ex.ToString();
+                mes = m;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+
         public int DeleteHealthEducationVideo(int id, ref string mes)
         {
             SqlConnection con = new SqlConnection(connString);
