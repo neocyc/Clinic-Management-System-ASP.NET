@@ -1,22 +1,24 @@
 ﻿using DBProject.DAL;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
+using System.Web.Services;
 using System.Web.UI.WebControls;
 
 namespace DBProject.Doctor
 {
     public partial class UploadHealthEducationVideos : System.Web.UI.Page
-    {
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
             int did = (int)Session["idoriginal"];
 
             LoadHealthEducationVideoList();
             lblUploadDate.Text = DateTime.Now.ToString();
+
+            Session["videoURL"] = txtVideoURL.Text;
         }
 
         protected void SelectVideo_Click(object sender, GridViewSelectEventArgs e)
@@ -39,7 +41,8 @@ namespace DBProject.Doctor
             }
 
             txtVideoURL.Text = dgvVideoList.Rows[num].Cells[4].Text;
-            lblUploadDate.Text = dgvVideoList.Rows[num].Cells[6].Text;
+            Session["videoURL"] = txtVideoURL.Text;
+            //lblUploadDate.Text = dgvVideoList.Rows[num].Cells[6].Text;
 
             Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入完成!!');</script>");
         }
@@ -141,6 +144,11 @@ namespace DBProject.Doctor
 
                 dgvVideoList.Attributes.Add("style", "word-break:break-word;word-wrap:normal;width:100%;");
             }
+            else 
+            {
+                dgvVideoList.DataSource = new DataTable();
+                dgvVideoList.DataBind();
+            }
         }
 
         protected void ClearData()
@@ -154,6 +162,70 @@ namespace DBProject.Doctor
 
             txtVideoURL.Text = "";
             lblUploadDate.Text = DateTime.Now.ToString();
+        }
+
+        /// <summary>
+        /// 解析URL參數
+        /// </summary>
+        /// <param name="StrUrl" type="string"></param>
+        /// <returns name="VideoKey" type="string"></returns>
+        [WebMethod(EnableSession = true)]
+        [System.Web.Script.Services.ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]        
+        public static List<string> GetUrlArgument()
+        {            
+            HttpContext.Current.Session["videoURL"] = Convert.ToString(HttpContext.Current.Session["videoURL"] ?? "").Trim();
+            string StrUrl = HttpContext.Current.Session["videoURL"].ToString();
+
+            if (StrUrl == "")
+            {
+                return new List<string>();
+            }
+
+            string VideoKey = string.Empty;
+            try
+            {
+                Uri url = new Uri(StrUrl);
+                string queryString = url.Query; //取得所有參數
+                if (queryString != string.Empty)
+                {
+                    NameValueCollection col = GetQueryString(queryString);
+                    VideoKey = col["v"];
+                }
+            }
+            catch
+            {
+                VideoKey = string.Empty;
+            }
+
+            List<string> VideoKeyList = new List<string>(){ VideoKey };
+
+            return VideoKeyList;
+        }
+
+        /// <summary>
+        /// 解析所有參數
+        /// </summary>
+        /// <param name="queryString" type="string"></param>
+        /// <returns name="result" type="NameValueCollection"></returns>
+        public static NameValueCollection GetQueryString(string queryString)
+        {
+            queryString = queryString.Replace("?", "");
+            NameValueCollection result = new NameValueCollection(StringComparer.OrdinalIgnoreCase);
+            if (!string.IsNullOrEmpty(queryString))
+            {
+                string[] Query = queryString.Split('&');
+                foreach (string pars in Query)
+                {
+                    string[] pas = pars.Split('=');
+                    result[pas[0]] = pas[1];
+                }
+            }
+            return result;
+        }
+
+        protected void txtVideoURL_TextChanged(object sender, EventArgs e)
+        {
+            Session["videoURL"] = txtVideoURL.Text;
         }
     }
 }

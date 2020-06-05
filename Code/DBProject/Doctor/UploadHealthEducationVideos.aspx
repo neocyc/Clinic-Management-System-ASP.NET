@@ -1,6 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/DoctorMaster.Master" AutoEventWireup="true" CodeBehind="UploadHealthEducationVideos.aspx.cs" Inherits="DBProject.Doctor.UploadHealthEducationVideos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>新增衛教影片</title>
+
+     <script type="text/javascript">
+        $(function () {
+            $('#Cp2_txtVideoURL').blur(function () {
+                $.ajax({
+                    //url: "@Url.Action('GetUrlArgument', 'YoutubeSample')",
+                    url: "UploadHealthEducationVideos.aspx/GetUrlArgument",
+                    type: "POST",
+                    data: {},                                   
+                    dataType: "json",
+                    contentType: 'application/json; charset=UTF-8',
+                    traditional: true,
+                    complete: function () {
+                    },
+                    success: function (data) {
+                        if (data.d == "") {
+                            $("#ifm_video").hide();
+                            alert("這不是YouTubej影片網址!!");
+                        }
+                        else {
+                            $("#ifm_video").attr("src", "https://www.youtube.com/embed/" + data.d + "?rel=0");
+                            $("#ifm_video").show();
+                        }
+                    },
+                    Error: function () {
+                        alert("發生錯誤");
+                    }
+                });
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cp1" runat="server">
     <asp:GridView            
@@ -67,7 +98,7 @@
                     </tr>
                     <tr>
                         <td>影片網址</td>
-                        <td><asp:TextBox ID="txtVideoURL" runat="server" type="text" class="form-username form-control" placeholder="請填寫影片來源網址" ></asp:TextBox></td>
+                        <td><asp:TextBox ID="txtVideoURL" runat="server" AutoPostBack="true" type="text" class="form-username form-control" placeholder="請填寫影片來源網址" OnTextChanged="txtVideoURL_TextChanged" ></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>編輯日期</td>
@@ -81,4 +112,9 @@
 				           
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Cp3" runat="server">
+    <br />
+    <label> 【預覽影片】 </label>
+    <div style="width: 800px;">
+        <iframe id="ifm_video" width="640" height="390" frameborder="0" allowfullscreen />
+    </div>
 </asp:Content>
