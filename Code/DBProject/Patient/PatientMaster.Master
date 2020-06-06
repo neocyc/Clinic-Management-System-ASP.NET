@@ -64,6 +64,10 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="ViewHealthEducationVideos.aspx"><span class="glyphicon glyphicon-search"></span> 觀看衛教影片 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientMeasurementDatasView.aspx"><span class="glyphicon glyphicon-search"></span> 我的歷史量測資料 </a></li>
                         </ul>
 
