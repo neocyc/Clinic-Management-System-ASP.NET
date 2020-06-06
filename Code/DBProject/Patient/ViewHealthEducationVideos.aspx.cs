@@ -3,52 +3,37 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
+using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DBProject.Doctor
+namespace DBProject.Patient
 {
-    public partial class UploadHealthEducationVideos : System.Web.UI.Page
-    {        
+    public partial class ViewHealthEducationVideos : System.Web.UI.Page
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int did = (int)Session["idoriginal"];
-
+            int pid = (int)Session["idoriginal"];
             LoadHealthEducationVideoList();
-            lblUploadDate.Text = DateTime.Now.ToString();
-
-            Session["videoURL"] = txtVideoURL.Text;
         }
 
         protected void SelectVideo_Click(object sender, GridViewSelectEventArgs e)
-        {
-            ClearData();
-
+        { 
             int num = e.NewSelectedIndex;
             int vid = Convert.ToInt32(dgvVideoList.Rows[num].Cells[1].Text);
-            Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入中......');</script>");
+            Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入中......');</script>");            
 
-            hfUploadVideoID.Value = vid.ToString();
-            txtVideoTitle.Text = dgvVideoList.Rows[num].Cells[2].Text;
-
-            foreach (ListItem SelectItem in SelectCategories.Items)
-            {
-                if (SelectItem.Text == dgvVideoList.Rows[num].Cells[3].Text)
-                {
-                    SelectItem.Selected = true;
-                }
-            }
-
-            txtVideoURL.Text = dgvVideoList.Rows[num].Cells[4].Text;
-            Session["videoURL"] = txtVideoURL.Text;
+            Session["videoURL"] = dgvVideoList.Rows[num].Cells[4].Text;
             //lblUploadDate.Text = dgvVideoList.Rows[num].Cells[6].Text;
 
             Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入完成!!');</script>");
 
-            //List<string> VideoKeyList = GetUrlArgument();
-            //ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?rel=0");
+            List<string> VideoKeyList = GetUrlArgument();
+            ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?rel=0");
         }
+
 
         protected void dgvVideoList_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -57,11 +42,11 @@ namespace DBProject.Doctor
             TableCell selectCell = row.Cells[0];
             if (selectCell.Controls.Count > 0)
             {
-                LinkButton selectControl = selectCell.Controls[2] as LinkButton;
+                LinkButton selectControl = selectCell.Controls[0] as LinkButton;
 
                 if (selectControl != null)
                 {
-                    selectControl.Text = "編輯";
+                    selectControl.Text = "觀看影片";
                 }
             }
 
@@ -71,62 +56,7 @@ namespace DBProject.Doctor
             VideoURL.Visible = false;
         }
 
-        protected void DeleteVideo_Click(Object sender, GridViewDeleteEventArgs e)
-        {
-            GridViewRow row = dgvVideoList.Rows[e.RowIndex];
-            string id = row.Cells[1].Text;
-            myDAL objDAL = new myDAL();
-            string mes = "";
-
-            if (objDAL.DeleteHealthEducationVideo(Convert.ToInt32(id), ref mes) == 1)
-            {
-                Response.Write("<script>alert('影片 : " + row.Cells[2].Text + " 已成功刪除!!');</script>");
-                LoadHealthEducationVideoList();
-            }
-            else
-            {                
-                Response.Write("<script>alert('影片 : " + row.Cells[2].Text + " 刪除失敗!! " + mes.ToString() + " ');</script>");
-            }
-        }
-
-        protected void SentHEVideoData_Click(object sender, EventArgs e) 
-        {
-            int vid = int.Parse((hfUploadVideoID.Value == "" ? "0" : hfUploadVideoID.Value));
-            string VideoTitle, VideoURL, UploadDate;
-            string VideoCategories = "";
-            VideoTitle = txtVideoTitle.Text;
-
-            foreach (ListItem SelectItem in SelectCategories.Items) 
-            {
-                if (SelectItem.Selected == true) 
-                {
-                    VideoCategories = SelectItem.Text;
-                }
-            }
-
-            VideoURL = txtVideoURL.Text;
-
-            UploadDate = lblUploadDate.Text;
-
-            string mes = "";
-            myDAL objmyDAL = new myDAL();
-
-            objmyDAL.insertHealthEducationVideoDatas(vid,VideoTitle, VideoCategories, VideoURL, UploadDate, ref mes);
-
-            if (mes != "")
-            {
-                Response.Write("<script>alert('" + mes.ToString() + "');</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('影片 : " + txtVideoTitle.Text + " 已成功儲存到資料庫!!');</script>");
-            }
-
-            LoadHealthEducationVideoList();
-            ClearData();
-        }
-
-        protected void LoadHealthEducationVideoList() 
+        protected void LoadHealthEducationVideoList()
         {
             string mes = "";
             myDAL objmyDAL = new myDAL();
@@ -147,24 +77,11 @@ namespace DBProject.Doctor
 
                 dgvVideoList.Attributes.Add("style", "word-break:break-word;word-wrap:normal;width:100%;");
             }
-            else 
+            else
             {
                 dgvVideoList.DataSource = new DataTable();
                 dgvVideoList.DataBind();
             }
-        }
-
-        protected void ClearData()
-        {
-            txtVideoTitle.Text = "";
-
-            foreach (ListItem SelectItem in SelectCategories.Items)
-            {
-                SelectItem.Selected = false;
-            }
-
-            txtVideoURL.Text = "";
-            lblUploadDate.Text = DateTime.Now.ToString();
         }
 
         /// <summary>
@@ -173,9 +90,9 @@ namespace DBProject.Doctor
         /// <param name="StrUrl" type="string"></param>
         /// <returns name="VideoKey" type="string"></returns>
         [WebMethod(EnableSession = true)]
-        [System.Web.Script.Services.ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]        
+        [System.Web.Script.Services.ScriptMethod(ResponseFormat = System.Web.Script.Services.ResponseFormat.Json)]
         public static List<string> GetUrlArgument()
-        {            
+        {
             HttpContext.Current.Session["videoURL"] = Convert.ToString(HttpContext.Current.Session["videoURL"] ?? "").Trim();
             string StrUrl = HttpContext.Current.Session["videoURL"].ToString();
 
@@ -200,7 +117,7 @@ namespace DBProject.Doctor
                 VideoKey = string.Empty;
             }
 
-            List<string> VideoKeyList = new List<string>(){ VideoKey };
+            List<string> VideoKeyList = new List<string>() { VideoKey };
 
             return VideoKeyList;
         }
@@ -226,9 +143,5 @@ namespace DBProject.Doctor
             return result;
         }
 
-        protected void txtVideoURL_TextChanged(object sender, EventArgs e)
-        {
-            Session["videoURL"] = txtVideoURL.Text;
-        }
     }
 }
