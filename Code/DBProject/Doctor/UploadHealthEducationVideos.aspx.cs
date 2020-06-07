@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Web;
 using System.Web.Services;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DBProject.Doctor
@@ -229,6 +230,12 @@ namespace DBProject.Doctor
         protected void txtVideoURL_TextChanged(object sender, EventArgs e)
         {
             Session["videoURL"] = txtVideoURL.Text;
+        }
+
+        protected void btnLoginTouyube_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('請先在新視窗登入 YouTube 會員帳號 !!');</script>");
+            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", "https://reurl.cc/20ygAv"));
         }
     }
 }

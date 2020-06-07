@@ -143,5 +143,10 @@ namespace DBProject.Patient
             return result;
         }
 
+        protected void btnLoginTouyube_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('請先在新視窗登入 YouTube 會員帳號 !!');</script>");
+            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", "https://reurl.cc/20ygAv"));
+        }
     }
 }

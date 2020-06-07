@@ -114,7 +114,13 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Cp3" runat="server">
     <br />
     <label> 【預覽影片】 </label>
+    <asp:Button ID="btnLoginTouyube" Text="影片無法撥放請按這裡" class="btn btn-warning" runat="server" OnClick="btnLoginTouyube_Click" />
+    <br />
+    <br />
+
     <div style="width: 800px;">
         <iframe id="ifm_video" width="640" height="390" frameborder="0" allowfullscreen />
     </div>
+    
+    
 </asp:Content>
