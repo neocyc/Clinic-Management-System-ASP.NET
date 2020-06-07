@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/DoctorMaster.Master" AutoEventWireup="true" CodeBehind="UploadHealthEducationVideos.aspx.cs" Inherits="DBProject.Doctor.UploadHealthEducationVideos" %>
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/DoctorMaster.Master" AutoEventWireup="true" CodeBehind="UploadHealthEducationVideos.aspx.cs" Inherits="DBProject.Doctor.UploadHealthEducationVideos" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>新增衛教影片</title>
 
@@ -21,7 +21,7 @@
                             alert("這不是YouTubej影片網址!!");
                         }
                         else {
-                            $("#ifm_video").attr("src", "https://www.youtube.com/embed/" + data.d + "?rel=0");
+                            $("#ifm_video").attr("src", "https://www.youtube.com/embed/" + data.d + "?loop=1&rel=0");
                             $("#ifm_video").show();
                         }
                     },
@@ -31,7 +31,7 @@
                 });
             });
         });
-    </script>
+     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Cp1" runat="server">
     <asp:GridView            

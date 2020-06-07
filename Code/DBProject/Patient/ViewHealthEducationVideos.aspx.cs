@@ -31,7 +31,7 @@ namespace DBProject.Patient
             Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入完成!!');</script>");
 
             List<string> VideoKeyList = GetUrlArgument();
-            ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?rel=0");
+            ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?loop=1&rel=0");
         }
 
 
