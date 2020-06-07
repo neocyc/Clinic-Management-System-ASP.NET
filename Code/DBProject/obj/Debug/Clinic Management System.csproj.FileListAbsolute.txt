@@ -67,3 +67,4 @@ D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CoreCompileI
 D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csproj.CopyComplete
 D:\www\CMS\Code\DBProject\obj\Debug\DBProject.dll
 D:\www\CMS\Code\DBProject\obj\Debug\DBProject.pdb
+D:\www\CMS\Code\DBProject\obj\Debug\Clinic Management System.csprojAssemblyReference.cache
