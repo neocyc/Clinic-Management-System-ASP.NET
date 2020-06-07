@@ -222,7 +222,7 @@ namespace DBProject.Doctor
                         }
                         else
                         {
-                            e.Row.Cells[cellsIndex].Text = f.ToString("#.###");
+                            e.Row.Cells[cellsIndex].Text = f.ToString("#.#");
                         }
 
                         switch (cellsIndex)
