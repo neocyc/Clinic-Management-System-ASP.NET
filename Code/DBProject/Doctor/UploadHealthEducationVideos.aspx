@@ -114,7 +114,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Cp3" runat="server">
     <br />
     <label> 【預覽影片】 </label>
-    <asp:Button ID="btnLoginTouyube" Text="影片無法撥放請按這裡" class="btn btn-warning" runat="server" OnClick="btnLoginTouyube_Click" />
+    <asp:Button ID="btnOrgVideo" Text="影片無法撥放請按這裡" class="btn btn-warning" runat="server" OnClick="btnOrgVideo_Click" />
     <br />
     <br />
 

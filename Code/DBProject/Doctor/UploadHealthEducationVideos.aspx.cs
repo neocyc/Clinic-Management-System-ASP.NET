@@ -232,10 +232,11 @@ namespace DBProject.Doctor
             Session["videoURL"] = txtVideoURL.Text;
         }
 
-        protected void btnLoginTouyube_Click(object sender, EventArgs e)
+        protected void btnOrgVideo_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('請先在新視窗登入 YouTube 會員帳號 !!');</script>");
-            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", "https://reurl.cc/20ygAv"));
+            string VideoURI = Session["videoURL"].ToString();
+            Response.Write("<script>alert('影片重新導入中......');</script>");
+            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", VideoURI));
         }
     }
 }
