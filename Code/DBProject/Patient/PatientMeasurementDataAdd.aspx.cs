@@ -1,6 +1,7 @@
 ﻿using DBProject.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,8 @@ namespace DBProject.Patient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MessurementDataWarningValues(sender, e);
+
             int pid = (int)Session["idoriginal"];
             
             heightDateT.Attributes.Add("onfocus", "(this.type='date')");
@@ -39,6 +42,41 @@ namespace DBProject.Patient
                 bloodpressureDateT.Text = Today;
             }
             //initialization();
+        }
+
+        protected void MessurementDataWarningValues(object sender, EventArgs e)
+        {
+            string mesPsp = "";
+            myDAL objmyDAL = new myDAL();
+            DataTable DTsp = new DataTable();
+            objmyDAL.getPatientMessurementDataWarningValue(ref DTsp, ref mesPsp);
+
+            float TemperatureMax = float.Parse((DTsp.Rows[0].ItemArray[0].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[0].ToString()));
+            float TemperatureMin = float.Parse((DTsp.Rows[0].ItemArray[1].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[1].ToString()));
+            float HeartBeatMax = float.Parse((DTsp.Rows[0].ItemArray[2].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[2].ToString()));
+            float HeartBeatMin = float.Parse((DTsp.Rows[0].ItemArray[3].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[3].ToString()));
+            float BloodOxygenMax = float.Parse((DTsp.Rows[0].ItemArray[4].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[4].ToString()));
+            float BloodOxygenMin = float.Parse((DTsp.Rows[0].ItemArray[5].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[5].ToString()));
+            float PlasmaGlucoseMax = float.Parse((DTsp.Rows[0].ItemArray[6].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[6].ToString()));
+            float PlasmaGlucoseMin = float.Parse((DTsp.Rows[0].ItemArray[7].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[7].ToString()));
+            float SystolicBloodPressureMax = float.Parse((DTsp.Rows[0].ItemArray[8].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[8].ToString()));
+            float SystolicBloodPressureMin = float.Parse((DTsp.Rows[0].ItemArray[9].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[9].ToString()));
+            float DiastolicBloodPressureMax = float.Parse((DTsp.Rows[0].ItemArray[10].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[10].ToString()));
+            float DiastolicBloodPressureMin = float.Parse((DTsp.Rows[0].ItemArray[11].ToString() == "" ? "0.0" : DTsp.Rows[0].ItemArray[11].ToString()));
+
+            temperatureSTT.Text = " ( 標準值 : " + TemperatureMin.ToString() + " ~ "+ TemperatureMax.ToString() + " ) ";
+            heartbeatSTT.Text = " ( 標準值 : " + HeartBeatMin.ToString() +" ~ " + HeartBeatMax.ToString() +" ) "; 
+            bloodoxygenSTT.Text = " ( 標準值 : " + BloodOxygenMin.ToString() +" ~ " + BloodOxygenMax.ToString() +" ) ";
+            plasmaglucoseSTT.Text = " ( 標準值 : " + PlasmaGlucoseMin.ToString() +" ~ " + PlasmaGlucoseMax.ToString() +" ) ";
+            systolicbloodpressureSTT.Text = " 收縮( 標準值 : " + SystolicBloodPressureMin.ToString() +" ~ " + SystolicBloodPressureMax.ToString() +" ) ";
+            diastolicbloodpressureSTT.Text = " 舒張( 標準值 : " + DiastolicBloodPressureMin.ToString() +" ~ " + DiastolicBloodPressureMax.ToString() +" ) ";
+
+            temperatureSTF.Text = " ( 標準值 : " + TemperatureMin.ToString() + " ~ " + TemperatureMax.ToString() + " ) ";
+            heartbeatSTF.Text = " ( 標準值 : " + HeartBeatMin.ToString() + " ~ " + HeartBeatMax.ToString() + " ) ";
+            bloodoxygenSTF.Text = " ( 標準值 : " + BloodOxygenMin.ToString() + " ~ " + BloodOxygenMax.ToString() + " ) ";
+            plasmaglucoseSTF.Text = " ( 標準值 : " + PlasmaGlucoseMin.ToString() + " ~ " + PlasmaGlucoseMax.ToString() + " ) ";
+            systolicbloodpressureSTF.Text = " 收縮( 標準值 : " + SystolicBloodPressureMin.ToString() + " ~ " + SystolicBloodPressureMax.ToString() + " ) ";
+            diastolicbloodpressureSTF.Text = " 舒張( 標準值 : " + DiastolicBloodPressureMin.ToString() + " ~ " + DiastolicBloodPressureMax.ToString() + " ) ";
         }
 
         #region 按鈕事件
@@ -77,7 +115,7 @@ namespace DBProject.Patient
             string BOMessurementDate = MessurementDateF;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseF.Text);
             string PGMessurementDate = MessurementDateF;
-            string BloodPressure = bloodpressureF.Text;
+            string BloodPressure = systolicbloodpressureF.Text + "/" + diastolicbloodpressureF.Text;
             string BPMessurementDate = MessurementDateF;
 
             string mes = "";
@@ -114,7 +152,7 @@ namespace DBProject.Patient
             string BOMessurementDate = bloodoxygenDateT.Text;
             float PlasmaGlucose = strinngtofloat(plasmaglucoseT.Text);
             string PGMessurementDate = plasmaglucoseDateT.Text;
-            string BloodPressure = bloodpressureT.Text;
+            string BloodPressure = systolicbloodpressureT.Text + "/" + diastolicbloodpressureT.Text;
             string BPMessurementDate = bloodpressureDateT.Text;
 
             string mes = "";
@@ -150,8 +188,10 @@ namespace DBProject.Patient
             bloodoxygenT.Text = "";
             plasmaglucoseF.Text = "";
             plasmaglucoseT.Text = "";
-            bloodpressureF.Text = "";
-            bloodpressureT.Text = "";
+            systolicbloodpressureT.Text = "";
+            systolicbloodpressureF.Text = "";
+            diastolicbloodpressureT.Text = "";
+            diastolicbloodpressureF.Text = "";
 
             string Today = DateTime.Now.ToShortDateString();
             MessurementDateForm.Text = Today;

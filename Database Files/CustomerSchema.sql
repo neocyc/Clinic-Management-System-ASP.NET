@@ -3,6 +3,7 @@ use DBProject
 
 go
 
+-- 病人病歷資料Table
 create table PatientMedicalRecords
 (
 	PatientMRID int primary key,
@@ -60,6 +61,7 @@ use DBProject
 
 go
 
+-- 病人量測資料Table
 create table PatientMessurementRecordsSheet
 (	
     MessurementRecordsSheetID int identity(1,1) primary key,
@@ -92,6 +94,7 @@ use DBProject
 
 go
 
+-- 醫生留言Table
 create table DoctorFeedbackMessageBoard
 (
 	FeedbackMessageBoardID int identity(1,1) primary key,
@@ -126,6 +129,7 @@ use DBProject
 
 go
 
+-- 系統量測警訊值Table
 create table PatientMessurementDataEvaluate
 (	
 	DoctorMEID int primary key,	
@@ -145,4 +149,19 @@ create table PatientMessurementDataEvaluate
 	DiastolicBloodPressureMin float
 
 	foreign key (DoctorMEID) references Doctor(DoctorID)
+)
+
+use DBProject
+
+go
+
+-- 系統衛教影片資料Table
+create table HealthEducationVideoDatas
+(
+	UploadVideoID  int identity(1,1) primary key,
+	VideoTitle nvarchar(100) not null,
+	VideoCategories nvarchar(50),
+	VideoURL nvarchar(max),
+	initDate DateTime,
+	updateDate Datetime
 )

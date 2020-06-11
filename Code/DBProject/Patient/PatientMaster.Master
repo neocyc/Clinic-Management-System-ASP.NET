@@ -64,6 +64,10 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="ViewHealthEducationVideos.aspx"><span class="glyphicon glyphicon-search"></span> 觀看衛教影片 </a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientMeasurementDatasView.aspx"><span class="glyphicon glyphicon-search"></span> 我的歷史量測資料 </a></li>
                         </ul>
 
@@ -75,9 +79,11 @@
                             <li><a href="PatientMedicalRecordsView.aspx"><span class="glyphicon glyphicon-search"></span> 我的病歷資料 </a></li>
                         </ul>
 
+                        <!--
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="PatientFeedback.aspx"><span class="glyphicon glyphicon-thumbs-up	Try it"></span> Feedback</a></li>
                         </ul>
+                        -->
 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="TreatmentHistory.aspx"><span class="glyphicon glyphicon-info-sign"></span> Treatment History</a></li>

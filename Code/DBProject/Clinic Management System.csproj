@@ -100,6 +100,7 @@
     <Content Include="Doctor\PatientHistory.aspx" />
     <Content Include="Doctor\PendingAppointment.aspx" />
     <Content Include="Doctor\PreviousHistory.aspx" />
+    <Content Include="Doctor\UploadHealthEducationVideos.aspx" />
     <Content Include="Doctor\ViewPatientMeasurementDatas.aspx" />
     <Content Include="Doctor\SettingPatientMeasurementEvaluateValue.aspx" />
     <Content Include="Doctor\ViewPatientMedicalRecords.aspx" />
@@ -136,6 +137,7 @@
     <Content Include="Patient\PatientHome.aspx" />
     <Content Include="Patient\PatientMedicalRecordsView.aspx" />
     <Content Include="Patient\PatientNotifications.aspx" />
+    <Content Include="Patient\ViewHealthEducationVideos.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Patient\TakeAppointment.aspx" />
     <Content Include="Patient\TreatmentHistory.aspx" />
@@ -184,6 +186,13 @@
     </Compile>
     <Compile Include="Doctor\PreviousHistory.aspx.designer.cs">
       <DependentUpon>PreviousHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\UploadHealthEducationVideos.aspx.cs">
+      <DependentUpon>UploadHealthEducationVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\UploadHealthEducationVideos.aspx.designer.cs">
+      <DependentUpon>UploadHealthEducationVideos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\ViewPatientMeasurementDatas.aspx.cs">
       <DependentUpon>ViewPatientMeasurementDatas.aspx</DependentUpon>
@@ -346,6 +355,13 @@
     </Compile>
     <Compile Include="Patient\PatientNotifications.aspx.designer.cs">
       <DependentUpon>PatientNotifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Patient\ViewHealthEducationVideos.aspx.cs">
+      <DependentUpon>ViewHealthEducationVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Patient\ViewHealthEducationVideos.aspx.designer.cs">
+      <DependentUpon>ViewHealthEducationVideos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.aspx.cs">
