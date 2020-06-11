@@ -234,9 +234,16 @@ namespace DBProject.Doctor
 
         protected void btnOrgVideo_Click(object sender, EventArgs e)
         {
-            string VideoURI = Session["videoURL"].ToString();
-            Response.Write("<script>alert('影片重新導入中......');</script>");
-            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", VideoURI));
+            if (string.IsNullOrEmpty(Session["videoURL"].ToString()))
+            {
+                Response.Write("<script>alert('沒有影片被載入!!');</script>");
+            }
+            else
+            {
+                string VideoURI = Session["videoURL"].ToString();
+                Response.Write("<script>alert('影片重新導入中......');</script>");
+                Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", VideoURI));
+            }
         }
     }
 }
