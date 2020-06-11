@@ -1,37 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Patient/PatientMaster.Master" AutoEventWireup="true" CodeBehind="ViewHealthEducationVideos.aspx.cs" Inherits="DBProject.Patient.ViewHealthEducationVideos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>觀看衛教影片</title>
-
-    <script type="text/javascript">
-        $(function () {
-            $('#ContentPlaceHolder1_txtVideoURL').blur(function () {
-                $.ajax({
-                    //url: "@Url.Action('GetUrlArgument', 'YoutubeSample')",
-                    url: "ViewHealthEducationVideos.aspx/GetUrlArgument",
-                    type: "POST",
-                    data: {},                                   
-                    dataType: "json",
-                    contentType: 'application/json; charset=UTF-8',
-                    traditional: true,
-                    complete: function () {
-                    },
-                    success: function (data) {
-                        if (data.d == "") {
-                            $("#ContentPlaceHolder1_ifm_video").hide();
-                            alert("這不是YouTubej影片網址!!");
-                        }
-                        else {
-                            $("#ContentPlaceHolder1_ifm_video").attr("src", "https://www.youtube.com/embed/" + data.d + "?rel=0");
-                            $("#ContentPlaceHolder1_ifm_video").show();
-                        }
-                    },
-                    Error: function () {
-                        alert("發生錯誤");
-                    }
-                });
-            });
-        });
-    </script>
+    <title>觀看衛教影片</title>    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:GridView            
@@ -70,6 +39,9 @@
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
         <br />
         <label> 【預覽影片】 </label>
+        <asp:Button ID="btnOrgVideo" Text="影片無法撥放請按這裡" class="btn btn-warning" runat="server" OnClick="btnOrgVideo_Click" />
+        <br />
+        <br />
         <div style="width: 800px;">
             <iframe id="ifm_video" runat="server" width="640" height="390" frameborder="0" allowfullscreen />
         </div>

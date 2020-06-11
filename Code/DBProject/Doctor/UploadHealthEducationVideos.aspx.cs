@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Web;
 using System.Web.Services;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DBProject.Doctor
@@ -229,6 +230,13 @@ namespace DBProject.Doctor
         protected void txtVideoURL_TextChanged(object sender, EventArgs e)
         {
             Session["videoURL"] = txtVideoURL.Text;
+        }
+
+        protected void btnOrgVideo_Click(object sender, EventArgs e)
+        {
+            string VideoURI = Session["videoURL"].ToString();
+            Response.Write("<script>alert('影片重新導入中......');</script>");
+            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", VideoURI));
         }
     }
 }

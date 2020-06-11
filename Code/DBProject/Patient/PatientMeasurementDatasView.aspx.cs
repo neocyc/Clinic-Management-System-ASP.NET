@@ -138,7 +138,7 @@ namespace DBProject.Patient
                         }
                         else
                         {
-                            e.Row.Cells[cellsIndex].Text = f.ToString("#.###");
+                            e.Row.Cells[cellsIndex].Text = f.ToString("#.#");
                         }
 
                         switch (cellsIndex)

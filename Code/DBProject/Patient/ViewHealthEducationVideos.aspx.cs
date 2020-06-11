@@ -31,7 +31,7 @@ namespace DBProject.Patient
             Response.Write("<script>alert('影片 : " + dgvVideoList.Rows[num].Cells[2].Text + " 資料載入完成!!');</script>");
 
             List<string> VideoKeyList = GetUrlArgument();
-            ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?rel=0");
+            ifm_video.Attributes.Add("src", "https://www.youtube.com/embed/" + VideoKeyList[0].ToString() + "?loop=1&origin=https://www.youtube.com&rel=0");
         }
 
 
@@ -142,6 +142,12 @@ namespace DBProject.Patient
             }
             return result;
         }
-
+       
+        protected void btnOrgVideo_Click(object sender, EventArgs e)
+        {
+            string VideoURI = Session["videoURL"].ToString();
+            Response.Write("<script>alert('影片重新導入中......');</script>");
+            Response.Write(String.Format("<script>var w = window.open('{0}','_blank',config='height=600,width=800'); w.focus();</script>", VideoURI));
+        }
     }
 }
