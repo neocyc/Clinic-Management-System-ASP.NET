@@ -234,7 +234,7 @@ namespace DBProject.Doctor
 
         protected void btnOrgVideo_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Session["videoURL"].ToString()))
+            if (string.IsNullOrEmpty(((Session["videoURL"] != null) ? Session["videoURL"].ToString() : "")))
             {
                 Response.Write("<script>alert('沒有影片被載入!!');</script>");
             }
