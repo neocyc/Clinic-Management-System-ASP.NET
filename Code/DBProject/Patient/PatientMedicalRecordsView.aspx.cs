@@ -111,6 +111,32 @@ namespace DBProject.Patient
                 sAllergyMedicalSymptom.Text = AllergyMedicalSymptomDescription.ToString();
                 sTourResume.Text = TouringHistoryDescription.ToString();
                 sMedicinalName.Text = MedicinalName.ToString();
+
+                float ControlTextTotalNull = 0;
+                float ControlTextTotal = 0;
+                foreach (Control subControl in Form.Controls[1].Controls)
+                {
+                    var t2 = Form.Controls[1].Controls.IndexOf(subControl);
+
+                    if (subControl is TextBox)
+                    {
+                        ControlTextTotal++;
+                        if (string.IsNullOrEmpty((subControl as TextBox).Text.ToString()) || (subControl as TextBox).Text == "0001-00-01") 
+                        {
+                            ControlTextTotalNull++;
+                        }
+                    }
+                }
+
+                float FinishItemRate = (ControlTextTotalNull/ControlTextTotal);
+                float CheckRate = ((ControlTextTotal-4)/ ControlTextTotal);
+
+                if (FinishItemRate >= CheckRate) 
+                {
+                    Response.Write("<script>alert('資料尚未填寫完畢，請重新填寫個人病歷資料!');</script>");
+                    Response.BufferOutput = true;
+                    Response.Write("<script type='text/javascript'> location.href = 'PatientMedicalRecordsAdd.aspx';</script>");
+                }
             }
         }
 

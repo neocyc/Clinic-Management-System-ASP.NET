@@ -28,7 +28,7 @@
     <!--引用 plugin -->
     <!-- bootstrap Validator -->    
     <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
-    <script src="../assets/js/bootstrap-validator.js"></script>
+    <script src="../assets/js/bootstrap-validator-1.0.js"></script>
         
     <!--jquery Validate-->    
     <script src="../assets/js/plugin/jquery.validate.js"></script>
