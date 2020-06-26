@@ -885,7 +885,7 @@ namespace DBProject.DAL
 
         /*-------------------DISPLAYS PATIENT Medical Record INFORMATION AT PATIENT HOME--------------------------------------- */
 
-        public int patientMedicalRecordsInfoDisplayer(int pid, ref string Name, ref string IDcard, ref string Phone, ref string Mobile, ref string gender, ref string maritalstatus, ref int Height, ref int Weight, ref string BirthDate, ref string ZipCode, ref string Addr, ref string Email, ref string NameCE, ref string CERelationship, ref string PhoneHEC, ref string MobileMEC, ref string JobName, ref string nationality, ref Boolean chinesenationalitytouring, ref string TouringNumber, ref string ForeignNationalityName, ref Boolean familymedicalhistory, ref string familymedicalhistorydescription, ref string FamilyMedicalHistoryItemcode, ref string FamilyMedicalHistoryItemname, ref Boolean internalmedicalhistory, ref string internalmedicalhistorydescription, ref string InternalMedicalHistoryItemcode, ref string InternalMedicalHistoryItemname, ref Boolean surgerymedicalhistory, ref string SurgeryDate, ref string DiseaseName, ref Boolean allergymedicalhistory, ref string AllergyMedicalSymptomDescription, ref Boolean touringhistory, ref string TouringHistoryDescription, ref string MedicinalName)
+        public int patientMedicalRecordsInfoDisplayer(int pid, ref string Name, ref string IDcard, ref string Phone, ref string Mobile, ref string gender, ref string maritalstatus, ref int Height, ref int Weight, ref string BirthDate, ref string medicalcertificatecategory, ref string ZipCode, ref string Addr, ref string Email, ref string NameCE, ref string CERelationship, ref string PhoneHEC, ref string MobileMEC, ref string JobName, ref string nationality, ref Boolean chinesenationalitytouring, ref string TouringNumber, ref string ForeignNationalityName, ref Boolean familymedicalhistory, ref string familymedicalhistorydescription, ref string FamilyMedicalHistoryItemcode, ref string FamilyMedicalHistoryItemname, ref Boolean internalmedicalhistory, ref string internalmedicalhistorydescription, ref string InternalMedicalHistoryItemcode, ref string InternalMedicalHistoryItemname, ref Boolean surgerymedicalhistory, ref string SurgeryDate, ref string DiseaseName, ref Boolean allergymedicalhistory, ref string AllergyMedicalSymptomDescription, ref Boolean touringhistory, ref string TouringHistoryDescription, ref string MedicinalName)
         {
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -909,6 +909,7 @@ namespace DBProject.DAL
                  @height int,
                  @weight int,
                  @birthDate date,
+                 @medicalCertificateCategory nvarchar(100),
                  @zipcode char(3),
                  @address nvarchar(500),
                  @email varchar(30),
@@ -943,7 +944,7 @@ namespace DBProject.DAL
 
 
                 string sql_s = " BEGIN "                             
-                             + " select @pmrID=PatientMRID, @name=Name, @cardID=IDCard, @phone=Phone, @mobile=Mobile, @gender=Gender, @maritalStatus=MaritalStatus, @height=Height, @weight=Weight, @birthDate=BirthDate, @zipcode=Zipcode, @address=Address, @email=Email, @contactEmergencyName=ContactEmergencyName, @patientRelationship=PatientRelationship, @contactEmergencyPhone=ContactEmergencyPhone, @contactEmergencyMobile=ContactEmergencyMobile, @jobName=JobName, @nationality=Nationality, @chineseNationalityTouring=ChineseNationalityTouring, @touringNumber=TouringNumber, @foreignNationalityName=ForeignNationalityName, @familyMedicalHistory=FamilyMedicalHistory, @familyMedicalHistoryDescription=FamilyMedicalHistoryDescription, @familyMedicalHistoryItemcode=FamilyMedicalHistoryItemcode, @familyMedicalHistoryItemname=FamilyMedicalHistoryItemname, @internalMedicalHistory=InternalMedicalHistory, @internalMedicalHistoryDescription=InternalMedicalHistoryDescription, @internalMedicalHistoryItemcode=InternalMedicalHistoryItemcode, @internalMedicalHistoryItemname=InternalMedicalHistoryItemname, @surgeryMedicalHistory=SurgeryMedicalHistory, @surgeryDate=SurgeryDate, @diseaseName=DiseaseName, @allergyMedicalHistory=AllergyMedicalHistory, @allergyMedicalSymptomDescription=AllergyMedicalSymptomDescription, @touringHistory=TouringHistory, @touringHistoryDescription=TouringHistoryDescription, @medicinalName=MedicinalName from PatientMedicalRecords where PatientMRID = @pmrID"
+                             + " select @pmrID=PatientMRID, @name=Name, @cardID=IDCard, @phone=Phone, @mobile=Mobile, @gender=Gender, @maritalStatus=MaritalStatus, @height=Height, @weight=Weight, @birthDate=BirthDate, @medicalcertificatecategory=MedicalCertificateCategory, @zipcode=Zipcode, @address=Address, @email=Email, @contactEmergencyName=ContactEmergencyName, @patientRelationship=PatientRelationship, @contactEmergencyPhone=ContactEmergencyPhone, @contactEmergencyMobile=ContactEmergencyMobile, @jobName=JobName, @nationality=Nationality, @chineseNationalityTouring=ChineseNationalityTouring, @touringNumber=TouringNumber, @foreignNationalityName=ForeignNationalityName, @familyMedicalHistory=FamilyMedicalHistory, @familyMedicalHistoryDescription=FamilyMedicalHistoryDescription, @familyMedicalHistoryItemcode=FamilyMedicalHistoryItemcode, @familyMedicalHistoryItemname=FamilyMedicalHistoryItemname, @internalMedicalHistory=InternalMedicalHistory, @internalMedicalHistoryDescription=InternalMedicalHistoryDescription, @internalMedicalHistoryItemcode=InternalMedicalHistoryItemcode, @internalMedicalHistoryItemname=InternalMedicalHistoryItemname, @surgeryMedicalHistory=SurgeryMedicalHistory, @surgeryDate=SurgeryDate, @diseaseName=DiseaseName, @allergyMedicalHistory=AllergyMedicalHistory, @allergyMedicalSymptomDescription=AllergyMedicalSymptomDescription, @touringHistory=TouringHistory, @touringHistoryDescription=TouringHistoryDescription, @medicinalName=MedicinalName from PatientMedicalRecords where PatientMRID = @pmrID"
                              + " END ";
 
                 SqlCommand cmd1 = new SqlCommand(sql_s, con);
@@ -960,6 +961,7 @@ namespace DBProject.DAL
                 cmd1.Parameters.Add("@height", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd1.Parameters.Add("@weight", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd1.Parameters.Add("@birthDate", SqlDbType.Date).Direction = ParameterDirection.Output;
+                cmd1.Parameters.Add("@medicalcertificatecategory", SqlDbType.NVarChar, 100).Direction = ParameterDirection.Output;
                 cmd1.Parameters.Add("@zipcode", SqlDbType.Char, 3).Direction = ParameterDirection.Output;
                 cmd1.Parameters.Add("@address", SqlDbType.NVarChar, 500).Direction = ParameterDirection.Output;
                 cmd1.Parameters.Add("@email", SqlDbType.VarChar, 30).Direction = ParameterDirection.Output;
@@ -1001,34 +1003,35 @@ namespace DBProject.DAL
                 Int32.TryParse(cmd1.Parameters[7].Value.ToString(), out Height);
                 Int32.TryParse(cmd1.Parameters[8].Value.ToString(), out Weight);
                 BirthDate = cmd1.Parameters[9].Value.ToString();
-                ZipCode = cmd1.Parameters[10].Value.ToString();
-                Addr = cmd1.Parameters[11].Value.ToString();
-                Email = cmd1.Parameters[12].Value.ToString();
-                NameCE = cmd1.Parameters[13].Value.ToString();
-                CERelationship = cmd1.Parameters[14].Value.ToString();
-                PhoneHEC = cmd1.Parameters[15].Value.ToString();
-                MobileMEC = cmd1.Parameters[16].Value.ToString();
-                JobName = cmd1.Parameters[17].Value.ToString();
-                nationality = cmd1.Parameters[18].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[19].Value.ToString(), out chinesenationalitytouring);
-                TouringNumber = cmd1.Parameters[20].Value.ToString();
-                ForeignNationalityName = cmd1.Parameters[21].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[22].Value.ToString(), out familymedicalhistory);
-                familymedicalhistorydescription = cmd1.Parameters[23].Value.ToString();
-                FamilyMedicalHistoryItemcode = cmd1.Parameters[24].Value.ToString();
-                FamilyMedicalHistoryItemname = cmd1.Parameters[25].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[26].Value.ToString(), out internalmedicalhistory);
-                internalmedicalhistorydescription = cmd1.Parameters[27].Value.ToString();
-                InternalMedicalHistoryItemcode = cmd1.Parameters[28].Value.ToString();
-                InternalMedicalHistoryItemname = cmd1.Parameters[29].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[30].Value.ToString(), out surgerymedicalhistory);
-                SurgeryDate = cmd1.Parameters[31].Value.ToString();
-                DiseaseName = cmd1.Parameters[32].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[33].Value.ToString(), out allergymedicalhistory);
-                AllergyMedicalSymptomDescription = cmd1.Parameters[34].Value.ToString();
-                Boolean.TryParse(cmd1.Parameters[35].Value.ToString(), out touringhistory);
-                TouringHistoryDescription = cmd1.Parameters[36].Value.ToString();
-                MedicinalName = cmd1.Parameters[37].Value.ToString();
+                medicalcertificatecategory = cmd1.Parameters[10].Value.ToString();
+                ZipCode = cmd1.Parameters[11].Value.ToString();
+                Addr = cmd1.Parameters[12].Value.ToString();
+                Email = cmd1.Parameters[13].Value.ToString();
+                NameCE = cmd1.Parameters[14].Value.ToString();
+                CERelationship = cmd1.Parameters[15].Value.ToString();
+                PhoneHEC = cmd1.Parameters[16].Value.ToString();
+                MobileMEC = cmd1.Parameters[17].Value.ToString();
+                JobName = cmd1.Parameters[18].Value.ToString();
+                nationality = cmd1.Parameters[19].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[20].Value.ToString(), out chinesenationalitytouring);
+                TouringNumber = cmd1.Parameters[21].Value.ToString();
+                ForeignNationalityName = cmd1.Parameters[22].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[23].Value.ToString(), out familymedicalhistory);
+                familymedicalhistorydescription = cmd1.Parameters[24].Value.ToString();
+                FamilyMedicalHistoryItemcode = cmd1.Parameters[25].Value.ToString();
+                FamilyMedicalHistoryItemname = cmd1.Parameters[26].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[27].Value.ToString(), out internalmedicalhistory);
+                internalmedicalhistorydescription = cmd1.Parameters[28].Value.ToString();
+                InternalMedicalHistoryItemcode = cmd1.Parameters[29].Value.ToString();
+                InternalMedicalHistoryItemname = cmd1.Parameters[30].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[31].Value.ToString(), out surgerymedicalhistory);
+                SurgeryDate = cmd1.Parameters[32].Value.ToString();
+                DiseaseName = cmd1.Parameters[33].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[34].Value.ToString(), out allergymedicalhistory);
+                AllergyMedicalSymptomDescription = cmd1.Parameters[35].Value.ToString();
+                Boolean.TryParse(cmd1.Parameters[36].Value.ToString(), out touringhistory);
+                TouringHistoryDescription = cmd1.Parameters[37].Value.ToString();
+                MedicinalName = cmd1.Parameters[38].Value.ToString();
 
                 /*
                 name = (string)cmd1.Parameters["@name"].Value;
@@ -1668,7 +1671,7 @@ namespace DBProject.DAL
 
 
         //-------------------------------------PATIENT MEDICALRECORDS------------------------------------------//
-        public void insertPatientMedicalRecords(int pid,string Name,string IDcard,string Phone,string Mobile,string gender,string maritalstatus,int Height,int Weight,string BirthDate,string ZipCode,string Addr,string Email,string NameCE,string CERelationship,string PhoneHEC,string MobileMEC,string JobName,string nationality,Boolean chinesenationalitytouring,string TouringNumber,string ForeignNationalityName,Boolean familymedicalhistory,string familymedicalhistorydescription,string FamilyMedicalHistoryItemcode,string FamilyMedicalHistoryItemname,Boolean internalmedicalhistory,string internalmedicalhistorydescription,string InternalMedicalHistoryItemcode,string InternalMedicalHistoryItemname,Boolean surgerymedicalhistory,string SurgeryDate,string DiseaseName,Boolean allergymedicalhistory,string AllergyMedicalSymptomDescription,Boolean touringhistory,string TouringHistoryDescription,string MedicinalName,ref string mes)
+        public void insertPatientMedicalRecords(int pid,string Name,string IDcard,string Phone,string Mobile,string gender,string maritalstatus,int Height,int Weight,string BirthDate,string medicalcertificatecategory, string ZipCode,string Addr,string Email,string NameCE,string CERelationship,string PhoneHEC,string MobileMEC,string JobName,string nationality,Boolean chinesenationalitytouring,string TouringNumber,string ForeignNationalityName,Boolean familymedicalhistory,string familymedicalhistorydescription,string FamilyMedicalHistoryItemcode,string FamilyMedicalHistoryItemname,Boolean internalmedicalhistory,string internalmedicalhistorydescription,string InternalMedicalHistoryItemcode,string InternalMedicalHistoryItemname,Boolean surgerymedicalhistory,string SurgeryDate,string DiseaseName,Boolean allergymedicalhistory,string AllergyMedicalSymptomDescription,Boolean touringhistory,string TouringHistoryDescription,string MedicinalName,ref string mes)
         {
             SqlConnection con = new SqlConnection(connString);
             con.Open();
@@ -1689,6 +1692,7 @@ namespace DBProject.DAL
                  @height int,
                  @weight int,
                  @birthDate date,
+                 @medicalCertificateCategory nvarchar(100),
                  @zipcode char(3),
                  @address nvarchar(500),
                  @email varchar(30),
@@ -1722,9 +1726,9 @@ namespace DBProject.DAL
                 string sql_s = " BEGIN "
                              + " if not exists(select * from PatientMedicalRecords where PatientMRID=@pmrID) "
                              + " BEGIN "
-                             + " insert into PatientMedicalRecords values(@pmrID,@name,@cardID,@phone,@mobile,@gender,@maritalStatus,@height,@weight,@birthDate,@zipcode,@address,@email,@contactEmergencyName,@patientRelationship,@contactEmergencyPhone,@contactEmergencyMobile,@jobName,@nationality,@chineseNationalityTouring,@touringNumber,@foreignNationalityName,@familyMedicalHistory,@familyMedicalHistoryDescription,@familyMedicalHistoryItemcode,@familyMedicalHistoryItemname,@internalMedicalHistory,@internalMedicalHistoryDescription,@internalMedicalHistoryItemcode,@internalMedicalHistoryItemname,@surgeryMedicalHistory,@surgeryDate,@diseaseName,@allergyMedicalHistory,@allergyMedicalSymptomDescription,@touringHistory,@touringHistoryDescription,@medicinalName)"
+                             + " insert into PatientMedicalRecords values(@pmrID,@name,@cardID,@phone,@mobile,@gender,@maritalStatus,@height,@weight,@birthDate,@medicalCertificateCategory,@zipcode,@address,@email,@contactEmergencyName,@patientRelationship,@contactEmergencyPhone,@contactEmergencyMobile,@jobName,@nationality,@chineseNationalityTouring,@touringNumber,@foreignNationalityName,@familyMedicalHistory,@familyMedicalHistoryDescription,@familyMedicalHistoryItemcode,@familyMedicalHistoryItemname,@internalMedicalHistory,@internalMedicalHistoryDescription,@internalMedicalHistoryItemcode,@internalMedicalHistoryItemname,@surgeryMedicalHistory,@surgeryDate,@diseaseName,@allergyMedicalHistory,@allergyMedicalSymptomDescription,@touringHistory,@touringHistoryDescription,@medicinalName)"
                              + " END "
-                             + " update PatientMedicalRecords set PatientMRID = @pmrID, Name = @name, IDCard = @cardID, Phone = @phone, Mobile = @mobile, Gender = @gender, MaritalStatus = @maritalStatus, Height = @height, Weight = @weight, BirthDate = birthDate, Zipcode = @zipcode, Address = @address, Email = @email, ContactEmergencyName = @contactEmergencyName, PatientRelationship = @patientRelationship, ContactEmergencyPhone = @contactEmergencyPhone, ContactEmergencyMobile = @contactEmergencyMobile, JobName = @jobName, Nationality = @nationality, ChineseNationalityTouring = @chineseNationalityTouring, TouringNumber = @touringNumber, ForeignNationalityName = @foreignNationalityName, FamilyMedicalHistory = @familyMedicalHistory, FamilyMedicalHistoryDescription = @familyMedicalHistoryDescription, FamilyMedicalHistoryItemcode = @familyMedicalHistoryItemcode, FamilyMedicalHistoryItemname = @familyMedicalHistoryItemname, InternalMedicalHistory = @internalMedicalHistory, InternalMedicalHistoryDescription = @internalMedicalHistoryDescription, InternalMedicalHistoryItemcode = @internalMedicalHistoryItemcode, InternalMedicalHistoryItemname = @internalMedicalHistoryItemname, SurgeryMedicalHistory = @surgeryMedicalHistory, SurgeryDate = @surgeryDate, DiseaseName = @diseaseName, AllergyMedicalHistory =@allergyMedicalHistory, AllergyMedicalSymptomDescription = @allergyMedicalSymptomDescription, TouringHistory = @touringHistory, TouringHistoryDescription = @touringHistoryDescription, MedicinalName = @medicinalName where PatientMRID = @pmrID"
+                             + " update PatientMedicalRecords set PatientMRID = @pmrID, Name = @name, IDCard = @cardID, Phone = @phone, Mobile = @mobile, Gender = @gender, MaritalStatus = @maritalStatus, Height = @height, Weight = @weight, BirthDate = @birthDate, MedicalCertificateCategory = @medicalCertificateCategory, Zipcode = @zipcode, Address = @address, Email = @email, ContactEmergencyName = @contactEmergencyName, PatientRelationship = @patientRelationship, ContactEmergencyPhone = @contactEmergencyPhone, ContactEmergencyMobile = @contactEmergencyMobile, JobName = @jobName, Nationality = @nationality, ChineseNationalityTouring = @chineseNationalityTouring, TouringNumber = @touringNumber, ForeignNationalityName = @foreignNationalityName, FamilyMedicalHistory = @familyMedicalHistory, FamilyMedicalHistoryDescription = @familyMedicalHistoryDescription, FamilyMedicalHistoryItemcode = @familyMedicalHistoryItemcode, FamilyMedicalHistoryItemname = @familyMedicalHistoryItemname, InternalMedicalHistory = @internalMedicalHistory, InternalMedicalHistoryDescription = @internalMedicalHistoryDescription, InternalMedicalHistoryItemcode = @internalMedicalHistoryItemcode, InternalMedicalHistoryItemname = @internalMedicalHistoryItemname, SurgeryMedicalHistory = @surgeryMedicalHistory, SurgeryDate = @surgeryDate, DiseaseName = @diseaseName, AllergyMedicalHistory =@allergyMedicalHistory, AllergyMedicalSymptomDescription = @allergyMedicalSymptomDescription, TouringHistory = @touringHistory, TouringHistoryDescription = @touringHistoryDescription, MedicinalName = @medicinalName where PatientMRID = @pmrID"
                              + " END ";
 
                 cmd1 = new SqlCommand(sql_s, con);
@@ -1752,6 +1756,7 @@ namespace DBProject.DAL
                 cmd1.Parameters.Add("@height", SqlDbType.Int).Value = Height;
                 cmd1.Parameters.Add("@weight", SqlDbType.Int).Value = Weight;
                 cmd1.Parameters.Add("@birthDate", SqlDbType.Date).Value = BirthDate;
+                cmd1.Parameters.Add("@medicalCertificateCategory", SqlDbType.NVarChar, 100).Value = medicalcertificatecategory;
                 cmd1.Parameters.Add("@zipcode", SqlDbType.Char,3).Value = ZipCode;
                 cmd1.Parameters.Add("@address", SqlDbType.NVarChar,500).Value = Addr;
                 cmd1.Parameters.Add("@email", SqlDbType.VarChar,30).Value = Email;

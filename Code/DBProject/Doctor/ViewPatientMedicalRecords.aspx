@@ -172,6 +172,11 @@
                                 <asp:TextBox ID="sBirthDate" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請點選出身日期(dd-mm-yyyy)" required></asp:TextBox>
            	                    <div class="help-block with-errors"></div>         
                             </div>
+
+                            <div class="form-group">
+								<label>目前持有醫療證明 : <asp:Label ID="sMedicalCertificateCategory" runat="server" Text="Label"></asp:Label></label>
+           	                    <div class="help-block with-errors"></div>         
+                            </div>
 							
                             <div class="form-group">
 								<label>郵遞區號</label>

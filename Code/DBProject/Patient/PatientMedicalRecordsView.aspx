@@ -135,6 +135,11 @@
                             </div>
 							
                             <div class="form-group">
+								<label>目前持有醫療證明 : <asp:Label ID="sMedicalCertificateCategory" runat="server" Text="Label"></asp:Label></label>
+           	                    <div class="help-block with-errors"></div>         
+                            </div>
+
+                            <div class="form-group">
 								<label>郵遞區號</label>
                                 <asp:TextBox ID="sZipcode" runat="server" disabled="disabled" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            

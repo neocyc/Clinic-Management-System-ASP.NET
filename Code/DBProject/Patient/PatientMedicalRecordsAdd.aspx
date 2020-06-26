@@ -303,6 +303,14 @@
                             </div>
 							
                             <div class="form-group">
+							     <label>目前持有醫療證明</label><div class="help-block with-errors"></div>
+                                 <input type="checkbox" name="MedicalCertificateCategoryChk" value="身心障礙手冊" required />
+                                 身心障礙手冊
+                                 <input type="checkbox" name="MedicalCertificateCategoryChk" value="重大傷病卡" required />
+                                 重大傷病卡
+                            </div>
+
+                            <div class="form-group">
 								<label>郵遞區號</label>
                                 <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
                                 <div class="help-block with-errors"></div>                        	                            

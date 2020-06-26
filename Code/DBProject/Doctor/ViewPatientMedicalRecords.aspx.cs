@@ -70,6 +70,7 @@ namespace DBProject.Doctor
             Int32.TryParse(sHeight.Text.ToString(), out Height);
             Int32.TryParse(sWeight.Text.ToString(), out Weight);
             string BirthDate = sBirthDate.Text.ToString();
+            string medicalcertificatecategory = "";
             string ZipCode = sZipcode.Text.ToString();
             string Addr = Address.Text.ToString();
             string Email = sEmail.Text.ToString();
@@ -99,7 +100,7 @@ namespace DBProject.Doctor
             string TouringHistoryDescription = "";
             string MedicinalName = sMedicinalName.Text.ToString();
 
-            int status = objmyDAL.patientMedicalRecordsInfoDisplayer(pid, ref Name, ref IDcard, ref Phone, ref Mobile, ref gender, ref maritalstatus, ref Height, ref Weight, ref BirthDate, ref ZipCode, ref Addr, ref Email, ref NameCE, ref CERelationship, ref PhoneHEC, ref MobileMEC,
+            int status = objmyDAL.patientMedicalRecordsInfoDisplayer(pid, ref Name, ref IDcard, ref Phone, ref Mobile, ref gender, ref maritalstatus, ref Height, ref Weight, ref BirthDate, ref medicalcertificatecategory, ref ZipCode, ref Addr, ref Email, ref NameCE, ref CERelationship, ref PhoneHEC, ref MobileMEC,
                 ref JobName,
                 ref nationality, ref chinesenationalitytouring, ref TouringNumber, ref ForeignNationalityName,
                 ref familymedicalhistory, ref familymedicalhistorydescription, ref FamilyMedicalHistoryItemcode, ref FamilyMedicalHistoryItemname,
@@ -128,6 +129,8 @@ namespace DBProject.Doctor
                 DateTime stBirthDate;
                 DateTime.TryParse(BirthDate.ToString(), out stBirthDate);
                 sBirthDate.Text = stBirthDate.ToString("yyyy-mm-dd");
+
+                sMedicalCertificateCategory.Text = medicalcertificatecategory.ToString();
 
                 sZipcode.Text = ZipCode.ToString();
                 Address.Text = Addr.ToString();
