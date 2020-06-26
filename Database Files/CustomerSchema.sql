@@ -16,7 +16,7 @@ create table PatientMedicalRecords
 	Height int not null,
 	Weight int not null,
 	BirthDate Date not null,
-	MedicalCertificateCategory nvarchar(15),
+	MedicalCertificateCategory nvarchar(100),
 	Zipcode char(3) not null,
 	Address nvarchar(500),
 	Email varchar(30) not null unique,
