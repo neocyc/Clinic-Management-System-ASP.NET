@@ -73,58 +73,55 @@ namespace DBProject.Patient
 
             else if (status == 0)
             {
-                sName.Text = Name.ToString();
-                sIDNo.Text = IDcard.ToString();
-                sPhoneH.Text = Phone.ToString();
-                sPhoneM.Text = Mobile.ToString();
-                sGender.Text = gender.ToString();
-                sMaritalStatus.Text = maritalstatus.ToString();
-                sHeight.Text = Height.ToString();
-                sWeight.Text = Weight.ToString();
+                sName.Text = (Name.ToString() == "" ? "(尚無資料)" : Name.ToString());
+                sIDNo.Text = (IDcard.ToString() == "" ? "(尚無資料)" : IDcard.ToString());
+                sPhoneH.Text = (Phone.ToString() == "" ? "(尚無資料)" : Phone.ToString());
+                sPhoneM.Text = (Mobile.ToString() == "" ? "(尚無資料)" : Mobile.ToString());
+                sGender.Text = (gender.ToString() == "" ? "(尚無資料)" : gender.ToString());
+                sMaritalStatus.Text = (maritalstatus.ToString() == "" ? "(尚無資料)" : maritalstatus.ToString());
+                sHeight.Text = (Height.ToString() == "" ? "(尚無資料)" : Height.ToString());
+                sWeight.Text = (Weight.ToString() == "" ? "(尚無資料)" : Weight.ToString());
 
                 DateTime stBirthDate;
                 DateTime.TryParse(BirthDate.ToString(), out stBirthDate);
-                sBirthDate.Text = stBirthDate.ToString("yyyy-mm-dd");
+                sBirthDate.Text = (stBirthDate.ToString("yyyy-MM-dd") == "0001-01-01" ? "(尚無資料)" : stBirthDate.ToString("yyyy-MM-dd"));
+                sMedicalCertificateCategory.Text = (medicalcertificatecategory.ToString() == "" ? "(尚無資料)" : medicalcertificatecategory.ToString());
 
-                sMedicalCertificateCategory.Text = medicalcertificatecategory.ToString();
-
-                sZipcode.Text = ZipCode.ToString();
-                Address.Text = Addr.ToString();
-                sEmail.Text = Email.ToString();
-                sNameCE.Text = NameCE.ToString();
-                sCERelationship.Text = CERelationship.ToString();
-                sPhoneHEC.Text = PhoneHEC.ToString();
-                sPhoneMEC.Text = MobileMEC.ToString();
-                sJob.Text = JobName.ToString();
-                sNationality.Text = nationality.ToString();
-                sChineseNationalityTouring.Text = BooltoChinese(chinesenationalitytouring.ToString());
-                TouringNo.Text = TouringNumber.ToString();
-                sForeignNationality.Text = ForeignNationalityName.ToString();
-                sFamilyMedicalHistory.Text = BooltoChinese(familymedicalhistory.ToString());
-                sFamilyMedicalHistoryDescription.Text = familymedicalhistorydescription.ToString();
-                sPersonalMedicalHistory.Text = BooltoChinese(internalmedicalhistorydescription.ToString());
-                sSurgeryMedical.Text = BooltoChinese(surgerymedicalhistory.ToString());
+                sZipcode.Text = (ZipCode.ToString() == "" ? "(尚無資料)" : ZipCode.ToString());
+                Address.Text = (Addr.ToString() == "" ? "(尚無資料)" : Addr.ToString());
+                sEmail.Text = (Email.ToString() == "" ? "(尚無資料)" : Email.ToString());
+                sNameCE.Text = (NameCE.ToString() == "" ? "(尚無資料)" : NameCE.ToString());
+                sCERelationship.Text = (CERelationship.ToString() == "" ? "(尚無資料)" : CERelationship.ToString());
+                sPhoneHEC.Text = (PhoneHEC.ToString() == "" ? "(尚無資料)" : PhoneHEC.ToString());
+                sPhoneMEC.Text = (MobileMEC.ToString() == "" ? "(尚無資料)" : MobileMEC.ToString());
+                sJob.Text = (JobName.ToString() == "" ? "(尚無資料)" : JobName.ToString());
+                sNationality.Text = (nationality.ToString() == "" ? "(尚無資料)" : nationality.ToString());
+                sChineseNationalityTouring.Text = (BooltoChinese(chinesenationalitytouring.ToString()) == "" ? "(尚無資料)" : BooltoChinese(chinesenationalitytouring.ToString()));
+                TouringNo.Text = (TouringNumber.ToString() == "" ? "(尚無資料)" : TouringNumber.ToString());
+                sForeignNationality.Text = (ForeignNationalityName.ToString() == "" ? "(尚無資料)" : ForeignNationalityName.ToString());
+                sFamilyMedicalHistory.Text = (BooltoChinese(familymedicalhistory.ToString()) == "" ? "(尚無資料)" : BooltoChinese(familymedicalhistory.ToString()));
+                sFamilyMedicalHistoryDescription.Text = (familymedicalhistorydescription.ToString() == "" ? "(尚無資料)" : familymedicalhistorydescription.ToString());
+                sPersonalMedicalHistory.Text = (BooltoChinese(internalmedicalhistorydescription.ToString()) == "" ? "(尚無資料)" : BooltoChinese(internalmedicalhistory.ToString()));
+                sSurgeryMedical.Text = (BooltoChinese(surgerymedicalhistory.ToString()) == "" ? "(尚無資料)" : BooltoChinese(surgerymedicalhistory.ToString()));
 
                 DateTime stSurgeryDate;
-                DateTime.TryParse(SurgeryDate.ToString(), out stSurgeryDate);
-                sSurgeryDate.Text = stSurgeryDate.ToString("yyyy-mm-dd");
-
-                sDiseaseName.Text = DiseaseName.ToString();
-                sAllergyMedical.Text = BooltoChinese(allergymedicalhistory.ToString());
-                sAllergyMedicalSymptom.Text = AllergyMedicalSymptomDescription.ToString();
-                sTourResume.Text = TouringHistoryDescription.ToString();
-                sMedicinalName.Text = MedicinalName.ToString();
+                DateTime.TryParse(SurgeryDate.ToString(), out stSurgeryDate);                
+                sSurgeryDate.Text = (stSurgeryDate.ToString("yyyy-MM-dd") == "0001-01-01" ? "(尚無資料)" : stSurgeryDate.ToString("yyyy-MM-dd"));
+               
+                sDiseaseName.Text = (DiseaseName.ToString() == "" ? "(尚無資料)" : DiseaseName.ToString());
+                sAllergyMedical.Text = (BooltoChinese(allergymedicalhistory.ToString()) == "" ? "(尚無資料)" : BooltoChinese(allergymedicalhistory.ToString()));
+                sAllergyMedicalSymptom.Text = (AllergyMedicalSymptomDescription.ToString() == "" ? "(尚無資料)" : AllergyMedicalSymptomDescription.ToString());
+                sTourResume.Text = (TouringHistoryDescription.ToString() == "" ? "(尚無資料)" : TouringHistoryDescription.ToString());
+                sMedicinalName.Text = (MedicinalName.ToString() == "" ? "(尚無資料)" : MedicinalName.ToString());
 
                 float ControlTextTotalNull = 0;
                 float ControlTextTotal = 0;
                 foreach (Control subControl in Form.Controls[1].Controls)
                 {
-                    var t2 = Form.Controls[1].Controls.IndexOf(subControl);
-
                     if (subControl is TextBox)
                     {
                         ControlTextTotal++;
-                        if (string.IsNullOrEmpty((subControl as TextBox).Text.ToString()) || (subControl as TextBox).Text == "0001-00-01") 
+                        if (string.IsNullOrEmpty((subControl as TextBox).Text.ToString()) || (subControl as TextBox).Text == "(尚無資料)") 
                         {
                             ControlTextTotalNull++;
                         }
@@ -154,6 +151,7 @@ namespace DBProject.Patient
             {
                 controlertext = "否";
             }
+
             return controlertext;
         }
     }
