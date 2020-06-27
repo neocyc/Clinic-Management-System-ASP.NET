@@ -101,7 +101,7 @@ namespace DBProject.Patient
                 sForeignNationality.Text = (ForeignNationalityName.ToString() == "" ? "(尚無資料)" : ForeignNationalityName.ToString());
                 sFamilyMedicalHistory.Text = (BooltoChinese(familymedicalhistory.ToString()) == "" ? "(尚無資料)" : BooltoChinese(familymedicalhistory.ToString()));
                 sFamilyMedicalHistoryDescription.Text = (familymedicalhistorydescription.ToString() == "" ? "(尚無資料)" : familymedicalhistorydescription.ToString());
-                sPersonalMedicalHistory.Text = (BooltoChinese(internalmedicalhistorydescription.ToString()) == "" ? "(尚無資料)" : BooltoChinese(internalmedicalhistory.ToString()));
+                sPersonalMedicalHistory.Text = (internalmedicalhistorydescription.ToString() == "" ? "(尚無資料)" : internalmedicalhistorydescription.ToString());
                 sSurgeryMedical.Text = (BooltoChinese(surgerymedicalhistory.ToString()) == "" ? "(尚無資料)" : BooltoChinese(surgerymedicalhistory.ToString()));
 
                 DateTime stSurgeryDate;
