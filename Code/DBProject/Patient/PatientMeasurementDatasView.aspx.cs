@@ -211,7 +211,7 @@ namespace DBProject.Patient
                             {
                                 if (fs == 0)
                                 {
-                                    e.Row.Cells[cellsIndex].Text = "<font color=red>0</font>";
+                                    e.Row.Cells[cellsIndex].Text = "<font color=#000000>0</font>";
                                 }
                                 else
                                 {
@@ -234,7 +234,7 @@ namespace DBProject.Patient
                             {
                                 if (fd == 0)
                                 {
-                                    e.Row.Cells[cellsIndex].Text += " / <font color=red>0</font>";
+                                    e.Row.Cells[cellsIndex].Text += " / <font color=#000000>0</font>";
                                 }
                                 else
                                 {

@@ -54,7 +54,7 @@ namespace DBProject
         //-----------------------Function2--------------------------//
         protected void signupV(object sender, EventArgs e)
         {
-            int pid = (int)Session["idoriginal"];
+            int pid = (int)Session["idoriginal"];            
             string Name = sName.Text.ToString();
             string IDcard = sIDNo.Text.ToString();
             string Phone = sPhoneH.Text.ToString();
@@ -66,6 +66,7 @@ namespace DBProject
             Int32.TryParse(sHeight.Text.ToString(), out Height);
             Int32.TryParse(sWeight.Text.ToString(), out Weight);
             string BirthDate = sBirthDate.Text.ToString();
+            string medicalcertificatecategory = "";
             string ZipCode = sZipcode.Text.ToString();
             string Addr = Address.Text.ToString();
             string Email = sEmail.Text.ToString();
@@ -111,8 +112,14 @@ namespace DBProject
             if (this.Request.Form[HtmltagName] != null)
             {
                 maritalstatus = this.Request.Form[HtmltagName].ToString();
-            }                       
-            
+            }
+
+            AspHtmltagName = "MedicalCertificateCategoryChk";
+            if (this.Request.Form[AspHtmltagName] != null)
+            {
+                medicalcertificatecategory = this.Request.Form[AspHtmltagName].ToString();            
+            }
+
             if (this.Request.Form[AspMasterHtmltagName + "NationalityDefault"] != null || this.Request.Form[AspMasterHtmltagName + "NationalityChineseDefault"] != null || this.Request.Form[AspMasterHtmltagName + "NationalityForeignDefault"] != null) 
             {
                 HtmlInputCheckBox Ncheckbox = (HtmlInputCheckBox)this.Master.FindControl("body").FindControl("NationalityDefault");
@@ -283,7 +290,7 @@ namespace DBProject
             myDAL objmyDAL = new myDAL();
 
             objmyDAL.insertPatientMedicalRecords(
-                pid,Name,IDcard,Phone,Mobile,gender,maritalstatus,Height,Weight,BirthDate,ZipCode,Addr,Email,NameCE,CERelationship,PhoneHEC,MobileMEC,
+                pid,Name,IDcard,Phone,Mobile,gender,maritalstatus,Height,Weight,BirthDate, medicalcertificatecategory, ZipCode,Addr,Email,NameCE,CERelationship,PhoneHEC,MobileMEC,
                 JobName,
                 nationality, chinesenationalitytouring, TouringNumber,ForeignNationalityName,
                 familymedicalhistory,familymedicalhistorydescription,FamilyMedicalHistoryItemcode,FamilyMedicalHistoryItemname,

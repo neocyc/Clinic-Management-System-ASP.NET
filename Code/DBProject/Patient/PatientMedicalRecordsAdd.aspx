@@ -28,7 +28,7 @@
     <!--引用 plugin -->
     <!-- bootstrap Validator -->    
     <script src="../assets/bootstrap/js/plugin/validator.min.js"></script>
-    <script src="../assets/js/bootstrap-validator.js"></script>
+    <script src="../assets/js/bootstrap-validator-1.0.js"></script>
         
     <!--jquery Validate-->    
     <script src="../assets/js/plugin/jquery.validate.js"></script>
@@ -302,6 +302,14 @@
            	                    <div class="help-block with-errors"></div>         
                             </div>
 							
+                            <div class="form-group">
+							     <label>目前持有醫療證明</label><div class="help-block with-errors"></div>
+                                 <input type="checkbox" name="MedicalCertificateCategoryChk" value="身心障礙手冊" required />
+                                 身心障礙手冊
+                                 <input type="checkbox" name="MedicalCertificateCategoryChk" value="重大傷病卡" required />
+                                 重大傷病卡
+                            </div>
+
                             <div class="form-group">
 								<label>郵遞區號</label>
                                 <asp:TextBox ID="sZipcode" runat="server" type="text" class="form-username form-control" placeholder="請填郵遞區號 (3 碼)"  maxlength="3" required data-checkDatanumber=" "></asp:TextBox>
