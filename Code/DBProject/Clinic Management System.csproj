@@ -394,12 +394,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\bootstrap\" />
+    <Folder Include="assets\bootstrap\css\" />
+    <Folder Include="assets\bootstrap\fonts\" />
+    <Folder Include="assets\bootstrap\js\plugin\" />
     <Folder Include="assets\css\" />
-    <Folder Include="assets\font-awesome\" />
+    <Folder Include="assets\font-awesome\css\" />
+    <Folder Include="assets\font-awesome\fonts\" />
+    <Folder Include="assets\font-awesome\less\" />
+    <Folder Include="assets\font-awesome\scss\" />
     <Folder Include="assets\ico\" />
-    <Folder Include="assets\img\" />
-    <Folder Include="assets\js\" />
+    <Folder Include="assets\img\backgrounds\" />
+    <Folder Include="assets\js\plugin\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
