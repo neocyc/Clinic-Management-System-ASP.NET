@@ -119,9 +119,9 @@ If you face any issue, you can create a new issue in the Issues Tab and I will b
 
 Copyright (c) 2018-present, harismuneer 
 
-2020/12/17，本專案已被接手，後續開發維護請洽接手專案團隊，連窗口如下:
-姓名 : 柯冠廷(Joel Lin)
-專案團隊 : 賦智行雲科技股份有限公司(AGAI CorporationLtd.)
-E-Mail : joel@agoodai.com
-地址 : 亞洲台灣新北市林口區仁愛路二段490號B5棟18樓
-電話 : +886 987 516 908
+* 2020/12/17，本專案已被接手，後續開發維護請洽接手專案團隊，連窗口如下:
+* 姓名 : 柯冠廷、林志鴻(Joel Lin)
+* 專案團隊 : 賦智行雲科技股份有限公司(AGAI CorporationLtd.)
+* E-Mail : 9566039@gmail.com
+* 地址 : 亞洲台灣新北市林口區仁愛路二段490號B5棟18樓
+* 電話 : +886 987 516 908
