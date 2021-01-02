@@ -119,6 +119,8 @@ If you face any issue, you can create a new issue in the Issues Tab and I will b
 
 Copyright (c) 2018-present, harismuneer 
 
+## Contact Us
+
 2020/12/17，本專案已被接手，後續開發維護請洽接手專案團隊，連窗口如下:
 
 姓名 : 柯冠廷、林志鴻(Joel Lin)
