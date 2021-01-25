@@ -1,8 +1,4 @@
-GO
-create database DBProject
-
-GO
-use DBProject
+use Health
 
 go
 

@@ -1,5 +1,5 @@
 GO
-use DBProject
+use Health
 
 go
 
@@ -16,7 +16,6 @@ create table PatientMedicalRecords
 	Height int not null,
 	Weight int not null,
 	BirthDate Date not null,
-	MedicalCertificateCategory nvarchar(100),
 	Zipcode char(3) not null,
 	Address nvarchar(500),
 	Email varchar(30) not null unique,
@@ -58,7 +57,7 @@ create table PatientMedicalRecords
 
 GO
 
-use DBProject
+use Health
 
 go
 
@@ -91,7 +90,7 @@ create table PatientMessurementRecordsSheet
 
 GO
 
-use DBProject
+use Health
 
 go
 
@@ -110,7 +109,7 @@ create table DoctorFeedbackMessageBoard
 )
 
 GO
-use DBProject
+use Health
 
 go
 create table PatientReplyMessageBoard
@@ -126,7 +125,7 @@ create table PatientReplyMessageBoard
 
 
 
-use DBProject
+use Health
 
 go
 
@@ -152,7 +151,7 @@ create table PatientMessurementDataEvaluate
 	foreign key (DoctorMEID) references Doctor(DoctorID)
 )
 
-use DBProject
+use Health
 
 go
 
